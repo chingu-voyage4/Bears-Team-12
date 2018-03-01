@@ -1,0 +1,39 @@
+.body {
+  font-size: 13px;
+  margin: 0;
+  padding: 0;
+}
+.page-title {
+  font-size: 2rem;
+  text-align: center;
+}
+.pet-list {
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+}
+.pet {
+  display: flex;
+  justify-content: space-around;
+}
+.left-area,
+.right-area {
+  margin: 2rem;
+}
+.pet-name {
+  margin: 0;
+}
+.pet-image {
+  width: 15rem;
+  height: 13rem;
+  border-radius: 1rem;
+}
+.subtitle {
+  font-weight: bold;
+}
+.span {
+  font-weight: normal;
+}
+.pet-description {
+  width: 70%;
+}
