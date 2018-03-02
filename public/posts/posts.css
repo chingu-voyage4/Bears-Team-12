@@ -7,6 +7,16 @@
   font-size: 2rem;
   text-align: center;
 }
+/* POSTS */
+.search-options {
+  display: flex;
+  justify-content: center;
+}
+.input-label {
+  margin: 0.5rem 2rem;
+  color: #666;
+  font-size: 1.2rem;
+}
 .pet-list {
   width: 80%;
   display: block;
@@ -36,4 +46,16 @@
 }
 .pet-description {
   width: 70%;
+}
+
+/* POST*/
+.post-image {
+  width: 40rem;
+  height: 30rem;
+  display: block;
+  margin: 0 auto;
+  border-radius: 1rem;
+}
+.post-text {
+  margin: 2rem;
 }
