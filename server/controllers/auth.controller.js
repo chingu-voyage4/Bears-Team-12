@@ -4,7 +4,7 @@ const createNewUser = require('../lib/auth/createNewUser.js');
 
 module.exports = {
   
-  getAuth: ( req, res ) => {                  /// <---- maybe a better name for this
+  getUserAuthorization: ( req, res ) => {                  /// <---- maybe a better name for this
     const auth = req.isAuthenticated();
     if( !auth ){
       res.redirect( '/login' );
@@ -53,27 +53,6 @@ module.exports = {
   getAuthFacebookCallback: ( req, res ) => {
     // Successful authentication, redirect dashboard.
     res.redirect( '/dashboard' );
-  },
-  
-  createNewUser: ( req, res ) => {
-    createNewUser( req.body.Username, req.body.UserPass)
-    .then( 
-      fulfilled  => {
-        switch( fulfilled['status'] ){
-          case 'USER_ALREADY_EXISTS':
-            res.send({
-              message: 'USER_ALREADY_EXISTS'
-            });
-          case 'SUCCESS':
-            res.redirect('/login');
-          default:
-            return;
-        }
-      }, 
-      unfulfilled => {
-        console.log( 'There was an error while trying to create a new user: ', unfulfilled.error)
-    } )
-    .catch( error => console.log( error ) );
   }
 }
 
