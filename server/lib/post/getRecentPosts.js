@@ -5,13 +5,13 @@ const getRecentPosts = () => {
     Post.find( {} )
       .sort( { date: -1 })
       .limit( 20 )
-      .exec( ( error, recentImages ) => {
+      .exec( ( error, recentPosts ) => {
         if( error ){
           console.log( error );
           reject( error );
         }
         else {
-          resolve( recentImages )
+          resolve( recentPosts );
         }
       });
   });

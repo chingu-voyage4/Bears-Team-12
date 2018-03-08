@@ -19,6 +19,7 @@ const facebookLogin = new FacebookStrategy({
         if ( !user ){
           let newUser = new User();
           newUser.userId = profile.id;
+          newUser.username = null;
           newUser.userDisplayName = profile.displayName;
           newUser.posts = [];
           newUser.save( ( error ) => {

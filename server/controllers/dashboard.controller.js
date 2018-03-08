@@ -1,6 +1,6 @@
 //---------------------- User's Wall router ------------------------------------
 module.exports = {
-  dashboard: ( req, res ) => {
+  getDashboard: ( req, res ) => {
     const auth = req.isAuthenticated();
     if( !auth ){
       res.redirect('/');

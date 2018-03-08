@@ -19,6 +19,8 @@ const twitterLogin = new TwitterStrategy({
         if ( !user ){
           let newUser = new User();
           newUser.userId = profile.id;
+          newUser.username = '';
+          newUser.email = '';
           newUser.userDisplayName = profile.username;
           newUser.posts = [];
           newUser.save( ( error ) => {

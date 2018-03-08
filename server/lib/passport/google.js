@@ -19,6 +19,8 @@ const googleLogin = new GoogleStrategy({
         if ( !user ){
           let newUser = new User();
           newUser.userId = profile.id;
+          newUser.username = '';
+          newUser.email = '';
           newUser.userDisplayName = profile.displayName;
           newUser.posts = [];
           newUser.save( ( error ) => {
