@@ -10,6 +10,7 @@ const axios = require('axios')
 const passport = require( './lib/passport/index.js' );
 
 const app = express();
+const port = process.env.PORT || 3000;
 
 /*------------------------------------------------------------------------------
 ---------------------------- Mongoose and Schemas ------------------------------
@@ -58,8 +59,8 @@ const authentication = require('./routes/authentication.js');
 app.use( '/', routes );
 app.use( '/auth', authentication );
 
-app.listen(3004, function(){
-  console.log("Listening on port ", 3004)
+app.listen(port, function(){
+  console.log("Listening on port ", port)
 });
 
 module.exports = {
