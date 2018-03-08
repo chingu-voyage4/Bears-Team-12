@@ -1,6 +1,6 @@
 //---------------------------- Auth Router -------------------------------------
 const getUserInfoById = require( '../lib/user/getUserInfoById.js' );
-const auth = require('../lib/auth/auth.js');
+const createNewUser = require('../lib/auth/createNewUser.js');
 
 module.exports = {
   
@@ -56,7 +56,7 @@ module.exports = {
   },
   
   createNewUser: ( req, res ) => {
-    auth.createNewUser( req.body.Username, req.body.UserPass)
+    createNewUser( req.body.Username, req.body.UserPass)
     .then( 
       fulfilled  => {
         switch( fulfilled['status'] ){
