@@ -8,7 +8,7 @@ const loginController = require( '../controllers/login.controller.js' );
 const logoutController = require( '../controllers/logout.controller.js' );
 const localAuthentication = passport.authenticate('local', { successRedirect: '/',
                                    failureRedirect: '/login',
-                                   failureFlash: true });
+                                   failureFlash: false });
                                    
 const userRegistrationController = require('../controllers/registration.controller.js' );                                   
                                    

@@ -71,7 +71,7 @@ module.exports = {
         }
       }, 
       unfulfilled => {
-        console.log( unfulfilled.error)
+        console.log( 'There was an error while trying to create a new user: ', unfulfilled.error)
     } )
     .catch( error => console.log( error ) );
   }

@@ -6,7 +6,7 @@ module.exports = {
       res.redirect('/');
     }
     else{
-      res.sendFile(process.cwd() + '/views/dashboard.html');  
+      res.sendFile(process.cwd() + '/public/dashboard.html');  
     }
   }
 }

@@ -8,22 +8,26 @@ const createSaltAndHash = ( utoken ) => {
           status: 'ERROR',
           message: error
         });
-      };
-      bcrypt.hash( utoken, salt, ( error, hash ) => {
-        if( error ) {
-          reject({
-            status: 'ERROR',
-            message: error
-          });
-        }
-        else{
-          resolve({
-            status: 'SUCCESS',
-            salt: salt,
-            hash: hash
-          });
-        }
-      });
+      }
+      else{
+        bcrypt.hash( utoken, salt, ( error, hash ) => {
+          if( error ) {
+            reject({
+              status: 'ERROR',
+              message: error
+            });
+          }
+          else{
+            resolve({
+              status: 'SUCCESS',
+              salt: salt,
+              hash: hash
+            });
+          }
+        });
+      }
     });
   })
 };
+
+module.exports = createSaltAndHash;

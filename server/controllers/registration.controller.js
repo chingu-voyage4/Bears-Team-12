@@ -2,7 +2,7 @@ const createNewUser = require( '../lib/auth/createNewUser.js' );
 
 module.exports ={
   getRegistrationPage: ( req, res ) => {
-    res.sendFile(process.cwd() + '/views/register.html');   
+    res.sendFile(process.cwd() + '/public/register.html');   
   },
   createNewUser: ( req, res ) => {
     const { username, email, password } = req.body;
@@ -18,7 +18,7 @@ module.exports ={
       else{
         res.send({
           status: 'FAILED',
-          message: 'UNKNOWN ERROR PLEASE CONTACT ADMINSTRATOR'
+          message: 'UNKNOWN ERROR PLEASE CONTACT ADMINISTRATOR'
         });
       }
       

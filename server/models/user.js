@@ -7,8 +7,8 @@ const user = new Schema({
   username:           String,
   userDisplayName:    String,
   email:              String,
-  userSalt:           String,
-  userHash:           String,
+  salt:               String,
+  hash:               String,
   posts:              [ postSchema ],
 });
 
