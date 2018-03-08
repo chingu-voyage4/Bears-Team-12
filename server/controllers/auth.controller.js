@@ -1,5 +1,6 @@
 //---------------------------- Auth Router -------------------------------------
-const getUserInfo = require( '../lib/user/getUserInfo.js' );
+const getUserInfoById = require( '../lib/user/getUserInfoById.js' );
+const createNewUser = require('../lib/auth/createNewUser.js');
 
 module.exports = {
   
@@ -9,11 +10,10 @@ module.exports = {
       res.redirect( '/login' );
     }
     else {
-      getUserInfo( req.user.userId )
+      getUserInfoById( req.user.userId )
       .then( promiseResponse => {
         let { user, message } = promiseResponse;
         user.isAuthorized = auth;
-
         res.send({
           user: {
             isAuthorized: auth,
@@ -53,6 +53,27 @@ module.exports = {
   getAuthFacebookCallback: ( req, res ) => {
     // Successful authentication, redirect dashboard.
     res.redirect( '/dashboard' );
+  },
+  
+  createNewUser: ( req, res ) => {
+    createNewUser( req.body.Username, req.body.UserPass)
+    .then( 
+      fulfilled  => {
+        switch( fulfilled['status'] ){
+          case 'USER_ALREADY_EXISTS':
+            res.send({
+              message: 'USER_ALREADY_EXISTS'
+            });
+          case 'SUCCESS':
+            res.redirect('/login');
+          default:
+            return;
+        }
+      }, 
+      unfulfilled => {
+        console.log( 'There was an error while trying to create a new user: ', unfulfilled.error)
+    } )
+    .catch( error => console.log( error ) );
   }
 }
 

@@ -1,10 +1,10 @@
 const User = require( '../../models/user.js' );
 
-const getUserInfo = ( userId ) => {
+const getUserInfoByUsername = ( username ) => {
   return new Promise( (resolve, reject ) => {
-    let user = User.findOne(
+    User.findOne(
       {
-        userId:   userId
+        username: username
       },
       ( error, user ) => {
         
@@ -18,9 +18,8 @@ const getUserInfo = ( userId ) => {
             message: 'OK',
           });
         }
-        
       });
   });
 }
 
-module.exports = getUserInfo;
+module.exports = getUserInfoByUsername;
