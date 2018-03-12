@@ -3,7 +3,6 @@ const Schema = mongoose.Schema;
 const postSchema = require( './post.js' );
 
 const user = new Schema({
-  userId:             String,
   username:           String,
   userDisplayName:    String,
   email:              String,
