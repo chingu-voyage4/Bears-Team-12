@@ -5,11 +5,11 @@ const passport = require( '../lib/passport/index.js');
 const authController = require( '../controllers/auth.controller.js' );
 
 const googleAuthenticationScope = passport.authenticate( 'google', { scope: ['https://www.googleapis.com/auth/plus.login'] } )
-const googleAuthentication = passport.authenticate( 'google', { failureRedirect: '/pinterest-app/' } );
-const twitterAuthentication = passport.authenticate( ['twitter','google'], { failureRedirect: '/pinterest-app/' } );
-const facebookAuthentication = passport.authenticate( 'facebook', { failureRedirect: '/pinterest-app/' } );
+const googleAuthentication = passport.authenticate( 'google', { failureRedirect: '/login' } );
+const twitterAuthentication = passport.authenticate( ['twitter','google'], { failureRedirect: '/login' } );
+const facebookAuthentication = passport.authenticate( 'facebook', { failureRedirect: '/login' } );
 
-router.route( '/getauth').get( authController.getAuth );
+router.route( '/getauth').get( authController.getUserAuthorization );
 
 router.route( '/twitter' ).get( twitterAuthentication, authController.getAuthTwitter );
 router.route( '/twitter/callback' ).get( twitterAuthentication, authController.getAuthTwitterCallback );

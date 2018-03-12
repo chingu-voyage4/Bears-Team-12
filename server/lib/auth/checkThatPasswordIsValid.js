@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs');
 
 const checkThatPasswordIsValid = ( passwordThatWasEntered, saltFromDatabase, hashFromDatabase ) => {
   return new Promise( ( resolve, reject ) => {
-    bcrypt.compare( passwordThatWasEntered, saltFromDatabase, ( error, result ) => {
+    bcrypt.hash( passwordThatWasEntered, saltFromDatabase, ( error, generatedHash ) => {
       if( error ) {
         console.log(error);
         reject({
@@ -11,7 +11,7 @@ const checkThatPasswordIsValid = ( passwordThatWasEntered, saltFromDatabase, has
         });
       }
       else {
-        if( result === true ){
+        if( generatedHash === hashFromDatabase ){
           resolve({
             status:   'SUCCESS',
             MESSAGE:  'USER_AUTHENTICATED'

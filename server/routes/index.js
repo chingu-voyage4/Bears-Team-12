@@ -6,11 +6,11 @@ const homeController = require( '../controllers/home.controller.js' );
 const dashboardController = require( '../controllers/dashboard.controller.js' );
 const loginController = require( '../controllers/login.controller.js' );
 const logoutController = require( '../controllers/logout.controller.js' );
-const localAuthentication = passport.authenticate('local', { successRedirect: '/',
-                                   failureRedirect: '/login',
-                                   failureFlash: false });
+const localAuthentication = passport.authenticate('local', {
+                                                  failureRedirect: '/',
+                                                  failureFlash: false });
                                    
-const userRegistrationController = require('../controllers/registration.controller.js' );                                   
+const registrationController = require('../controllers/registration.controller.js' );                                   
                                    
                                    
 const postfoundController = require('../controllers/post.found.controller.js' );
@@ -28,8 +28,8 @@ post  routes here
 router.route( '/login' ).get( loginController.getLoginPage );
 router.route( '/login' ).post( localAuthentication, loginController.redirectHome );
 
-router.route( '/register').get( userRegistrationController.getRegistrationPage );
-router.route( '/register').post( userRegistrationController.createNewUser );
+router.route( '/register').get( registrationController.getRegistrationPage );
+router.route( '/register').post( registrationController.createNewUser );
 
 router.route( '/logout' ).get( logoutController.logout );
 
