@@ -2,26 +2,30 @@
 
 const TwitterStrategy = require( 'passport-twitter' ).Strategy;
 const User = require( '../../models/user.js' );
+const generateRandomUsername =  require('./generateRandomUsername.js');
+
 const websiteUrl = require('./websiteurl.js');
 
 const twitterLogin = new TwitterStrategy({
     consumerKey: process.env.TWITTER_CONSUMER_KEY,
     consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-    callbackURL: websiteUrl + '/auth/twitter/callback'
+    callbackURL: websiteUrl + '/auth/twitter/callback',
+    includeEmail: true
   },
   ( token, tokenSecret, profile, done ) => {
+    const email = profile.emails[0].value;
     User.findOne(
       { 
-        userId: profile.id 
+        email:    email
       },
       ( err, user ) => {
         
         if ( !user ){
+          
           let newUser = new User();
           newUser.userId = profile.id;
-          newUser.username = '';
-          newUser.email = '';
-          newUser.userDisplayName = profile.username;
+          newUser.username = profile.displayName || generateRandomUsername();
+          newUser.email = email;
           newUser.posts = [];
           newUser.save( ( error ) => {
             if ( error ) console.log( error );

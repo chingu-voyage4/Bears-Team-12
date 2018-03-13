@@ -2,6 +2,7 @@
 
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const User = require( '../../models/user.js' );
+const generateRandomUsername =  require('./generateRandomUsername.js');
 const websiteUrl = require('./websiteurl.js');
 
 const googleLogin = new GoogleStrategy({
@@ -10,18 +11,18 @@ const googleLogin = new GoogleStrategy({
     callbackURL: websiteUrl + '/auth/google/callback'
   },
   ( accessToken, refreshToken, profile, done ) => {
+    const email = profile.emails[0].value;
     User.findOne(
       { 
-        userId: profile.id 
+        email: email
       },
       ( err, user ) => {
         
         if ( !user ){
           let newUser = new User();
           newUser.userId = profile.id;
-          newUser.username = '';
-          newUser.email = '';
-          newUser.userDisplayName = profile.displayName;
+          newUser.username = profile.displayName || generateRandomUsername();
+          newUser.email = email;
           newUser.posts = [];
           newUser.save( ( error ) => {
             if ( error ) console.log( error );
