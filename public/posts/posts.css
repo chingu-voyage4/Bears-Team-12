@@ -47,15 +47,3 @@
 .pet-description {
   width: 70%;
 }
-
-/* POST*/
-.post-image {
-  width: 40rem;
-  height: 30rem;
-  display: block;
-  margin: 0 auto;
-  border-radius: 1rem;
-}
-.post-text {
-  margin: 2rem;
-}

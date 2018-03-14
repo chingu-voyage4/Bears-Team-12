@@ -2,20 +2,22 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="./posts.css">
+    <link href="https://fonts.googleapis.com/css?family=Muli|Righteous" rel="stylesheet">
+    <link rel="stylesheet" href="./../global.css">
+    <link rel="stylesheet" href="./post.css">
     <title>Post</title>
   </head>
   <body>
 
-    <header>
-      <h1 id="LogoHeader" class="logo-header">Application Name</h1> <!-- Dynamically remove styles when not on index.html? -->
-      <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Lost Pets</a>
-        <a href="#">Found Pets</a>
-        <a href="#">Sign Up</a>
-        <a href="#">Login</a>
+    <header class="header">
+      <h1 id="logoHeader" class="logo-header">PetFindr</h1> <!-- Dynamically remove styles when not on index.html? -->
+      <nav class="menu">
+        <a class="menu-item" href="#">Home</a>
+        <a class="menu-item" href="#">About</a>
+        <a class="menu-item" href="#">Lost Pets</a>
+        <a class="menu-item" href="#">Found Pets</a>
+        <a class="menu-item" href="#">Sign Up</a>
+        <a class="menu-item" href="#">Login</a>
       </nav>
     </header>
 
@@ -23,16 +25,26 @@
       <h1 class="page-title">Have you seen...</h1>
       <section class="post-pet">
         <img class="post-image" src="https://i.kinja-img.com/gawker-media/image/upload/s--ytATzsY9--/c_fill,fl_progressive,g_center,h_450,q_80,w_800/ol9ceoqxidudap8owlwn.jpg" alt="dog">
+        <h2 class="name">Barker</h2>
+        <hr class="line">
         <div class="post-text">
-          <h2 class="name">BARKER</h2>
-          <p class="subtitle">Owner: <span class="span">Jane	Beck</span></p>
-          <p class="subtitle">Last seen: <span class="span">Fresno, California</span></p>
-          <p class="subtitle">Color: <span class="span">Light brown</span></p>
-          <p class="subtitle">Breed: <span class="span">Terrier</span></p>
-          <p class="subtitle">Gender: <span class="span">Male</span></p>
-          <p class="subtitle">Age: <span class="span">5 years old</span></p>
+          <div class="post-details">
+            <p class="details-title">About</p>
+            <p class="subtitle">Type: <span class="span">Dog</span></p>
+            <p class="subtitle">Breed: <span class="span">Terrier</span></p>
+            <p class="subtitle">Gender: <span class="span">Male</span></p>
+            <p class="subtitle">Color: <span class="span">Light Brown</span></p>
+            <p class="subtitle">Chip: <span class="span">4587385726493745</span></p>
+            <p class="subtitle">Contact: <span class="span">Jane	Beck</span></p>
+            <p class="subtitle">Email: <span class="span">janebeck@gmail.com</span></p>
 
-          <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+          </div>
+          <div class="post-description">
+            <p class="desc-title">Last Seen:</p>
+            <p class="subtitle">Date: <span class="span">March 12, 2018</span></p>
+            <p class="subtitle">Location: <span class="span">232 Main St, Fresno, California, 98454</span>
+            <p class="subtitle">Description: <span class="span description-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
         </div>
       </section>
     </main>
