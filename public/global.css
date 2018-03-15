@@ -22,8 +22,10 @@ body {
   padding: 1rem 2rem;
   margin: 0;
   background-color: #6b7a8f;
-  /*background-color: #d88649;*/
   color: #eceef1;
+}
+.orange {
+  background-color: #d88649;
 }
 .menu {
   display: flex;
