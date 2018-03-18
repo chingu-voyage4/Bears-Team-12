@@ -6,7 +6,9 @@ const userSchema = new Schema({
     local:  {
         username: String,
         email: String,
-        password: String
+        password: String,
+        salt:               String,
+        hash:               String,
     },
     //facebook auth details
     facebook: {
@@ -28,7 +30,8 @@ const userSchema = new Schema({
         token: String,
         email: String,
         name: String
-    }
+    },
+    posts:              [ postSchema ],
 });
 
 module.exports = mongoose.model("User", userSchema);
