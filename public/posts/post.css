@@ -1,0 +1,63 @@
+/* POST */
+body {
+  font-size: 1.1rem;
+}
+.post-pet {
+  background-color: #eceef1;
+  padding: 2rem 0 0 1rem;
+  margin: 2rem 4rem;
+  border-radius: 1rem;
+}
+.post-image {
+  width: 28rem;
+  height: 20rem;
+  display: block;
+  margin: 0 auto;
+  border-radius: 0.5rem;
+}
+.name {
+  text-align: center;
+  font-size: 2rem;
+  font-family: 'Righteous', cursive;
+  letter-spacing: 0.1rem;
+}
+.line {
+  width: 70%;
+  opacity: 0.5;
+  margin: 0 auto;
+}
+.post-text {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+}
+.post-details {
+  width: 20%;
+  margin-left: 2rem;
+}
+.post-description {
+  width: 35%;
+  margin-left: 2rem;
+}
+.subtitle {
+  font-weight: bold;
+}
+.span {
+  font-weight: normal;
+}
+.details-title,
+.desc-title {
+  font-weight: bold;
+  color: #d88649;
+  font-size: 1.2rem;
+}
+.comment {
+  background-color: #f5f6f8;
+  padding: 1rem 2rem;
+  margin: 1rem 4rem;
+  border-radius: 1rem;
+}
+.comment-title {
+  font-size: 1.2rem;
+  color: #d88649;
+}
