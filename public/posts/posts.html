@@ -2,92 +2,108 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./../global.css">
     <link rel="stylesheet" href="./posts.css">
     <title>Posts</title>
   </head>
   <body>
 
-    <header>
-      <h1 id="LogoHeader" class="logo-header">Application Name</h1> <!-- Dynamically remove styles when not on index.html? -->
-      <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Lost Pets</a>
-        <a href="#">Found Pets</a>
-        <a href="#">Sign Up</a>
-        <a href="#">Login</a>
+    <header class="header">
+      <h1 id="logoHeader" class="logo-header">PetFindr</h1> <!-- Dynamically remove styles when not on index.html? -->
+      <nav class="menu">
+        <a class="menu-item" href="#">Home</a>
+        <a class="menu-item" href="#">About</a>
+        <a class="menu-item" href="#">Lost Pets</a>
+        <a class="menu-item" href="#">Found Pets</a>
+        <a class="menu-item" href="#">Sign Up</a>
+        <a class="menu-item" href="#">Login</a>
       </nav>
     </header>
 
     <main>
       <h1 class="page-title">Have you seen...</h1>
 
-      <section class="search-options">
-        <label class="input-label">Search by Pet Type</label>
-        <select>
-          <option>---</option>
+      <section class="search">
+
+        <p class="search-title"> Search <i class="fas fa-search"></i></p>
+
+        <label class="input-label">By Pet Type:</label>
+        <select class="input search-type">
+          <option class="input">Select Type</option>
           <option>Dogs</option>
           <option>Cats</option>
           <option>Other</option>
         </select>
 
-        <label class="input-label">Search by Location</label>
-        <input class="serach-location" type="text" placeholder="Please enter a zipcode"></input>
+        <label class="input-label">By Location:</label>
+        <input class="input search-location" type="text" placeholder="Please enter a zipcode"></input>
 
-        <label class="input-label">Search by Name</label>
-        <input class="serach-location" type="text" placeholder="Please enter the Pet Name"></input>
+        <label class="input-label">By Name:</label>
+        <input class="input search-name" type="text" placeholder="Please enter the Pet Name"></input>
       </section>
 
       <section class="pet-list">
         <div class="pet">
-          <div class="left-area">
+          <div class="pet-image-area">
             <img class="pet-image" src="https://i.kinja-img.com/gawker-media/image/upload/s--ytATzsY9--/c_fill,fl_progressive,g_center,h_450,q_80,w_800/ol9ceoqxidudap8owlwn.jpg" alt="dog">
           </div>
-          <div class="right-area">
+          <div class="details-area">
             <h2 class="pet-name">BARKER</h2>
-            <p class="pet-owner subtitle">Owner: <span class="owner span">Jane Beck</span></p>
-            <p class="pet-location subtitle">Last seen: <span class="location span">Fresno, California</span></p>
-            <p class="pet-color subtitle">Color: <span class="color span">Light brown</span></p>
-            <p class="pet-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <p class="info">Type: <span class="detail">Dog</span></p>
+            <p class="info">Color: <span class="detail">Light Brown</span></p>
+            <p class="info">Last seen: <span class="detail">Fresno, California, 87534</span></p>
+            <p class="info">Date: <span class="detail">March 12, 2018</span></p>
+            <p class="info">About: <span class="detail desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span></p>
           </div>
         </div>
 
+        <hr class="line">
+
         <div class="pet">
-          <div class="left-area">
-            <img class="pet-image" src="http://dreamicus.com/data/cat/cat-01.jpg" alt="dog">
+          <div class="pet-image-area">
+            <img class="pet-image" src="http://dreamicus.com/data/cat/cat-01.jpg" alt="cat">
           </div>
-          <div class="right-area">
+          <div class="details-area">
             <h2 class="pet-name">LOLA</h2>
-            <p class="pet-owner subtitle">Owner: <span class="owner span">David Roberts</span></p>
-            <p class="pet-location subtitle">Last seen: <span class="location span">Madison, Wisconsin</span></p>
-            <p class="pet-color subtitle">Color: <span class="color span">Brown and white</span></p>
-            <p class="pet-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <p class="info">Type: <span class="detail">Cat</span></p>
+            <p class="info">Color: <span class="detail">Brown and white</span></p>
+            <p class="info">Last seen: <span class="detail">Madison, Wisconsin, 22344</span></p>
+            <p class="info">Date: <span class="detail">March 19, 2018</span></p>
+            <p class="info">About: <span class="detail desc">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</span></p>
           </div>
         </div>
 
+        <hr class="line">
+
         <div class="pet">
-          <div class="left-area">
-            <img class="pet-image" src="https://d3n8a8pro7vhmx.cloudfront.net/taxpayers/pages/679/attachments/original/1499663166/4-ways-cheer-up-depressed-cat.jpg?1499663166" alt="dog">
+          <div class="pet-image-area">
+            <img class="pet-image" src="https://d3n8a8pro7vhmx.cloudfront.net/taxpayers/pages/679/attachments/original/1499663166/4-ways-cheer-up-depressed-cat.jpg?1499663166" alt="cat">
           </div>
-          <div class="right-area">
+          <div class="details-area">
             <h2 class="pet-name">BANDIT</h2>
-            <p class="pet-owner subtitle">Owner: <span class="owner span">Robin	Tyler</span></p>
-            <p class="pet-location subtitle">Last seen: <span class="location span">Chicago, Illinois</span></p>
-            <p class="pet-color subtitle">Color: <span class="color span">Black and white</span></p>
-            <p class="pet-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <p class="info">Type: <span class="detail">Cat</span></p>
+            <p class="info">Color: <span class="detail">Black and white</span></p>
+            <p class="info">Last seen: <span class="detail">Chicago, Illinois, 43675</span></p>
+            <p class="info">Date: <span class="detail">March 5, 2018</span></p>
+            <p class="info">About: <span class="detail desc">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></p>
           </div>
         </div>
 
+        <hr class="line">
+
         <div class="pet">
-          <div class="left-area">
+          <div class="pet-image-area">
             <img class="pet-image" src="http://3.bp.blogspot.com/-MUG79V_eCB4/T55zfCGHJfI/AAAAAAAACQU/v9bDf8809CI/s1600/pup.jpg" alt="dog">
           </div>
-          <div class="right-area">
+          <div class="details-area">
             <h2 class="pet-name">DEXTER</h2>
-            <p class="pet-owner subtitle">Owner: <span class="owner span">Carol	Haynes</span></p>
-            <p class="pet-location subtitle">Last seen: <span class="location span">Mesa, Arizona</span></p>
-            <p class="pet-color subtitle">Color: <span class="color span">Dark grey</span></p>
-            <p class="pet-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <p class="info">Type: <span class="detail">Dog</span></p>
+            <p class="info">Color: <span class="detail">Dark grey</span></p>
+            <p class="info">Last seen: <span class="detail">Mesa, Arizona, 65341</span></p>
+            <p class="info">Date: <span class="detail">March 22, 2018</span></p>
+            <p class="info">About: <span class="detail desc">Usd do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></p>
           </div>
         </div>
 

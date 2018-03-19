@@ -1,21 +1,28 @@
-.body {
-  font-size: 13px;
-  margin: 0;
-  padding: 0;
-}
-.page-title {
-  font-size: 2rem;
-  text-align: center;
-}
 /* POSTS */
-.search-options {
+.search {
   display: flex;
   justify-content: center;
+}
+.search-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 2.2rem;
+  margin: 0;
 }
 .input-label {
   margin: 0.5rem 2rem;
   color: #666;
-  font-size: 1.2rem;
+  font-size: 1rem;
+}
+.input {
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid #666;
+  text-align: center;
+  color: #666;
+}
+.input:focus {
+  outline: 0;
 }
 .pet-list {
   width: 80%;
@@ -24,26 +31,34 @@
 }
 .pet {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9;
+  margin: 1rem;
 }
-.left-area,
-.right-area {
-  margin: 2rem;
+.pet-image-area,
+.details-area {
+  margin: 2rem 1rem;
+  padding: 0;
+  width: 50%;
+}
+.pet-image-area {
+  width: 25%;
 }
 .pet-name {
   margin: 0;
 }
 .pet-image {
-  width: 15rem;
-  height: 13rem;
-  border-radius: 1rem;
+  width: 12rem;
+  height: 10rem;
+  border-radius: 0.5rem;
 }
-.subtitle {
+.info {
   font-weight: bold;
 }
-.span {
+.detail {
   font-weight: normal;
 }
-.pet-description {
-  width: 70%;
+.info {
+  min-width: 50%;
 }
