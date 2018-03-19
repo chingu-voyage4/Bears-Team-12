@@ -14,15 +14,17 @@ const googleLogin = new GoogleStrategy({
     const email = profile.emails[0].value;
     User.findOne(
       { 
-        email: email
+        'google.id': profile.id
       },
       ( err, user ) => {
-        
         if ( !user ){
           let newUser = new User();
-          newUser.userId = profile.id;
-          newUser.username = profile.displayName || generateRandomUsername();
-          newUser.email = email;
+          newUser.google = {
+            id:       profile.id,
+            name:     profile.displayName || generateRandomUsername(),
+            email:    email,
+            token:    accessToken
+          };
           newUser.posts = [];
           newUser.save( ( error ) => {
             if ( error ) console.log( error );

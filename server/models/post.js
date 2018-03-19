@@ -4,9 +4,10 @@ const mongoose      = require('mongoose'),
 const postSchema = new Schema({
     title: String,
     image: String,
-    type: String,
+    postType: String,               // LOST or FOUND
     breed: String,
     gender: String,
+    age:    Number,
     createdAt: { // the date the post was created
         type: Date,
         default: Date.now

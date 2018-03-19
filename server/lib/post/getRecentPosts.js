@@ -11,7 +11,13 @@ const getRecentPosts = () => {
           reject( error );
         }
         else {
-          resolve( recentPosts );
+          resolve( {
+            status:   'SUCCESS',
+            data: {
+              recentPosts: recentPosts
+            },
+            message: 'OK'
+          });
         }
       });
   });

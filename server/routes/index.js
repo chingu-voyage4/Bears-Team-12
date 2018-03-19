@@ -11,20 +11,12 @@ const localAuthentication = passport.authenticate('local', {
                                                   failureFlash: false });
                                    
 const registrationController = require('../controllers/registration.controller.js' );                                   
-                                   
-                                   
-const postfoundController = require('../controllers/post.found.controller.js' );
-const postlostController = require('../controllers/post.lost.controller.js' );
-
+                                  
 
 router.route( '/' ).get( homeController.home );
 
 router.route( '/dashboard').get( dashboardController.getDashboard );   ///  new route for dashboard and post type
-/*
 
-post  routes here
-
-*/
 router.route( '/login' ).get( loginController.getLoginPage );
 router.route( '/login' ).post( localAuthentication, loginController.redirectHome );
 

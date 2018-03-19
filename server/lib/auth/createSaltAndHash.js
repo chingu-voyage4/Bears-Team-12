@@ -20,8 +20,10 @@ const createSaltAndHash = ( utoken ) => {
           else{
             resolve({
               status: 'SUCCESS',
-              salt: salt,
-              hash: hash
+              data:{
+                salt: salt,
+                hash: hash
+              }
             });
           }
         });
