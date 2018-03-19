@@ -1,17 +1,37 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
-const postSchema = require( './post.js' );
+const mongoose      = require('mongoose'),
+      Schema        = mongoose.Schema;
 
-const user = new Schema({
-  userId:             String,
-  username:           String,
-  userDisplayName:    String,
-  email:              String,
-  salt:               String,
-  hash:               String,
-  posts:              [ postSchema ],
+const userSchema = new Schema({
+    // local auth details
+    local:  {
+        username: String,
+        email: String,
+        password: String,
+        salt:               String,
+        hash:               String,
+    },
+    //facebook auth details
+    facebook: {
+        id : String,
+        token: String,
+        name: String,
+        email: String
+    },
+    // twitter auth details
+    twitter: {
+        id : String,
+        token: String,
+        displayName: String,
+        username: String
+    },
+    // google auth details
+    google: {
+        id: String,
+        token: String,
+        email: String,
+        name: String
+    },
+    posts:              [ postSchema ],
 });
 
-var User = mongoose.model( 'users', user );
-
-module.exports = User;
+module.exports = mongoose.model("User", userSchema);
