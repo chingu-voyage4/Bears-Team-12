@@ -15,6 +15,7 @@ const twitterAuthentication = passport.authenticate( 'twitter', {
 const facebookAuthentication = passport.authenticate( 'facebook', { 
                                                     scope : ['email'],
                                                     failureRedirect: '/login' } );
+                                                    
 
 router.route( '/getauth').get( authController.getUserAuthorization );
 

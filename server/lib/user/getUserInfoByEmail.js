@@ -4,17 +4,18 @@ const getUserInfoByEmail = ( email ) => {
   return new Promise( (resolve, reject ) => {
     User.findOne(
       {
-        email:  email
+        'local.email': email
       },
       ( error, user ) => {
-        
         if ( error ) {
           console.log( error );
           reject( "ERROR" );
         }
         else {
           resolve({
-            user:     user,
+            data:{
+              user: user,
+            },
             message: 'OK',
           });
         }

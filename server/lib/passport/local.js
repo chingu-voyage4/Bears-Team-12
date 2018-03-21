@@ -10,7 +10,7 @@ const localLogin = new LocalStrategy({
   ( email, password, done ) => {
     User.findOne(
     {
-      email:   email
+      'local.email': email
     },
     ( error, user ) => {
       if( error ) {
@@ -19,7 +19,7 @@ const localLogin = new LocalStrategy({
       if( !user ) {
         return done(null, false, { message: 'Incorrect email or password.' })
       };
-      checkThatPasswordIsValid( password, user.salt, user.hash )
+      checkThatPasswordIsValid( password, user.local.salt, user.local.hash )
       .then( 
         fulfilled => {
           if( fulfilled['status'] === 'SUCCESS') return done( null, user );

@@ -15,15 +15,18 @@ const facebookLogin = new FacebookStrategy({
     const email = profile.emails[0].value;
     User.findOne(
       { 
-        email: email 
+        'facebook.id': profile.id
       },
       ( err, user ) => {
         if ( !user ){
           const { name } = profile;
           let newUser = new User();
-          newUser.userId = profile.id;
-          newUser.username = name.givenName || generateRandomUsername();
-          newUser.email = email
+          newUser.facebook = {
+            id:       profile.id,
+            name:     name.givenName || generateRandomUsername(),
+            email:    email,
+            token:    accessToken,
+          };
           newUser.posts = [];
           newUser.save( ( error ) => {
             if ( error ) console.log( error );

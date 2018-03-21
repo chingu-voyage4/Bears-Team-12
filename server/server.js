@@ -54,10 +54,12 @@ app.use( passport.session() );
 
 
 const routes = require( './routes/index.js' );
-const authentication = require('./routes/authentication.js');
+const authentication = require( './routes/authentication.js' );
+const posts = require( './routes/posts.js' )
 
 app.use( '/', routes );
 app.use( '/auth', authentication );
+app.use( '/posts', posts );
 
 app.listen(port, function(){
   console.log("Listening on port ", port)

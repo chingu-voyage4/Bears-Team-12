@@ -4,7 +4,7 @@ const getUserInfoByUsername = ( username ) => {
   return new Promise( (resolve, reject ) => {
     User.findOne(
       {
-        username: username
+        'local.username': username
       },
       ( error, user ) => {
         
@@ -14,7 +14,9 @@ const getUserInfoByUsername = ( username ) => {
         }
         else {
           resolve({
-            user:     user,
+            data: {
+              user
+            },
             message: 'OK',
           });
         }

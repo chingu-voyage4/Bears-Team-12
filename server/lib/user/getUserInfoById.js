@@ -4,7 +4,7 @@ const getUserInfoById = ( userId ) => {
   return new Promise( (resolve, reject ) => {
     User.findOne(
       {
-        userId:   userId
+        _id: userId
       },
       ( error, user ) => {
         
@@ -14,7 +14,9 @@ const getUserInfoById = ( userId ) => {
         }
         else {
           resolve({
-            user:     user,
+            data:{
+              user
+            },
             message: 'OK',
           });
         }

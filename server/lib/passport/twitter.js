@@ -16,16 +16,18 @@ const twitterLogin = new TwitterStrategy({
     const email = profile.emails[0].value;
     User.findOne(
       { 
-        email:    email
+        'twitter.id': profile.id
       },
       ( err, user ) => {
-        
         if ( !user ){
-          
           let newUser = new User();
-          newUser.userId = profile.id;
-          newUser.username = profile.displayName || generateRandomUsername();
-          newUser.email = email;
+          newUser.twitter = {
+            id:           profile.id,
+            displayName:  profile.displayName || generateRandomUsername(),
+            username:     profile.username,
+            email:        email,
+            token:        token,
+          };
           newUser.posts = [];
           newUser.save( ( error ) => {
             if ( error ) console.log( error );
