@@ -55,10 +55,8 @@
 }
 .info {
   font-weight: bold;
+  min-width: 50%;
 }
 .detail {
   font-weight: normal;
-}
-.info {
-  min-width: 50%;
 }
