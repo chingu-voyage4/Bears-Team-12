@@ -24,6 +24,19 @@
 .input:focus {
   outline: 0;
 }
+.form-btn {
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 2.2rem;
+  border: none;
+  text-align: center;
+  padding: 0.3rem 0.7rem;
+  margin-left: 2rem;
+  background-color: transparent;
+  color: #e2a477;
+  border: 1px solid #e2a477;
+  border-radius: 0.2rem;
+}
 .pet-list {
   width: 80%;
   display: block;

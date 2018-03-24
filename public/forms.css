@@ -1,0 +1,38 @@
+.sign-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 4rem;
+}
+.form-group {
+  width: 30%;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.form-input {
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid #666;
+  text-align: left;
+  color: #666;
+  line-height: 2rem;
+  font-size: 1.4rem;
+  margin: 2rem;
+  padding-left: 2rem;
+}
+.form-btn {
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 2.2rem;
+  border: none;
+  text-align: center;
+  padding: 0.3rem 0.7rem;
+  margin-left: 2rem;
+  background-color: transparent;
+  color: #d88649;
+  border: 1px solid #d88649;
+  border-radius: 0.2rem;
+  width: 30%;
+  margin: 2rem auto;
+}
