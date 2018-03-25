@@ -2,16 +2,16 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <title>PetTrackr</title>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./../global.css">
     <link rel="stylesheet" href="./posts.css">
-    <title>Posts</title>
   </head>
   <body>
 
     <header class="header">
-      <h1 id="logoHeader" class="logo-header">PetFindr</h1> <!-- Dynamically remove styles when not on index.html? -->
+      <h1 id="logoHeader" class="logo-header">PetTrackr</h1> <!-- Dynamically remove styles when not on index.html? -->
       <nav class="menu">
         <a class="menu-item" href="#">Home</a>
         <a class="menu-item" href="#">About</a>
@@ -31,17 +31,19 @@
 
         <label class="input-label">By Pet Type:</label>
         <select class="input search-type">
-          <option class="input">Select Type</option>
-          <option>Dogs</option>
-          <option>Cats</option>
-          <option>Other</option>
+          <option class="input" name="type" >Select Type</option>
+          <option value="dog">Dogs</option>
+          <option value="cat">Cats</option>
+          <option value="other">Other</option>
         </select>
 
         <label class="input-label">By Location:</label>
-        <input class="input search-location" type="text" placeholder="Please enter a zipcode"></input>
+        <input class="input search-location" type="text" name="location" placeholder="Please enter a zipcode"></input>
 
         <label class="input-label">By Name:</label>
-        <input class="input search-name" type="text" placeholder="Please enter the Pet Name"></input>
+        <input class="input search-name" type="text" name="petName" placeholder="Please enter the Pet Name"></input>
+
+        <button id="submit" class="form-btn">Submit</button>
       </section>
 
       <section class="pet-list">
