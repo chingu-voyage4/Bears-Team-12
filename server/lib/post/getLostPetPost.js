@@ -5,7 +5,7 @@ const getLostPetPost = ( postId, type ) => {
     Post.findOne( 
       {
         _id: postId,
-        type:   type,
+        postType:   type,
       },
       ( error, post ) => {
         if ( error ) {

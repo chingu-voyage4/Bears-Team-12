@@ -1,10 +1,10 @@
 const Post = require( '../../models/post.js' );
 
-const getAllLostPets = () => {
+const getAllFoundPets = () => {
   return new Promise( ( resolve, reject ) => {
     Post.find( 
       {
-        type: 'FOUND'
+        postType: 'FOUND'
       },
       {
         limit: 10

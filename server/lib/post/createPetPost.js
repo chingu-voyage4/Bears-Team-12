@@ -1,9 +1,9 @@
 const Post = require( '../../models/post.js' );
 const User = require( '../../models/user.js' );
 
-const createLostPetPost = ( postData, user ) => {
+const createPetPost = ( postData, user ) => {
   return new Promise( ( resolve, reject ) => {
-      const { title, image,petChoice, name, breed, gender, age, chipped, desc,  
+      const { title, image, petChoice, otherType, name, breed, gender, age, chipped, desc,  
         lastSeenDate, lastSeenDesc, incidentDetails, postType, address, city, 
         state, zip } = postData;
       
@@ -19,7 +19,9 @@ const createLostPetPost = ( postData, user ) => {
           let post = new Post();
           post.title = title;
           post.image = image;
-          post.breed = petChoice;
+          post.petType.type = petChoice;
+          post.petType.otherType = otherType;
+          post.breed = breed;
           post.name = name;
           post.gender = gender;
           post.age = age;
@@ -78,4 +80,4 @@ const createLostPetPost = ( postData, user ) => {
   });
 }
 
-module.exports = createLostPetPost;
+module.exports = createPetPost;

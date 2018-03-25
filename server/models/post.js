@@ -5,14 +5,18 @@ const postSchema = new Schema({
     title: String,
     image: String,
     postType: String,               // LOST or FOUND
+    petType: {                      // Determined by petChoice Radio button.
+     type: String,                  // Selected radio button (Cat, Dog, Other)
+     otherType: String              // if Other, user inputted string.
+    },
     breed: String,
     gender: String,
     age:    Number,
-    createdAt: { // the date the post was created
+    createdAt: {                    // the date the post was created
         type: Date,
         default: Date.now
     },
-    date: String, // the date the user inputs, stored in string format.
+    date: String,                   // the date the user inputs, stored in string format.
     description: String,
     location: {
         street: String,

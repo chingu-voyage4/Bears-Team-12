@@ -8,7 +8,7 @@ const getAllLostPets = ( page ) => {
   return new Promise( ( resolve, reject ) => {
     Post.find( 
       {
-        type: 'LOST'
+        postType: 'LOST'
       }
     )
     .sort( {createdAt: -1} )

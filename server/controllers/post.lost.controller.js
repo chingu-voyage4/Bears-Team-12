@@ -1,6 +1,6 @@
 const getLostPetPost = require( '../lib/post/getLostPetPost.js' );
 const getAllLostPets = require( '../lib/post/getAllLostPets.js' );
-const createLostPetPost = require( '../lib/post/createLostPetPost.js' );
+const createPetPost = require( '../lib/post/createPetPost.js' );
 
 module.exports = {
   
@@ -48,7 +48,7 @@ module.exports = {
       res.redirect('/')
       return;
     }
-    createLostPetPost( req.body, req.user )
+    createPetPost( req.body, req.user )
     .then( 
       fulfilled => {
       res.send( fulfilled )
