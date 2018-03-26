@@ -13,11 +13,14 @@ button {
 input:focus {
   outline: 0;
 }
+textarea {
+  display: block;
+}
 .page-title {
   font-size: 2rem;
   margin: 2rem 4rem;
   font-family: 'Righteous', cursive;
-  letter-spacing: 0.1rem;
+  /*letter-spacing: 0.1rem;*/
 }
 /* HEADER */
 .logo-header {

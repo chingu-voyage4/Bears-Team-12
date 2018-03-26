@@ -1,3 +1,4 @@
+/* SIGN UP & LOGIN */
 .sign-title {
   font-size: 2rem;
   text-align: center;
@@ -35,4 +36,87 @@
   border-radius: 0.2rem;
   width: 30%;
   margin: 2rem auto;
+}
+/* LOST & FOUND PET FORMS */
+.form-pet {
+  width: 70%;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 2rem;
+}
+.form-pet .form-input {
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  padding-left: 0.5rem;
+}
+.form-question {
+  border: none;
+  background-color: transparent;
+  text-align: left;
+  color: #666;
+  line-height: 1.4rem;
+  font-size: 1.2rem;
+  margin-top: 4rem;
+  padding-left: 0.5rem;
+}
+.hide {
+  display: none;
+}
+.text-area {
+  margin-bottom: 2rem;
+}
+.page-title-pet {
+  font-size: 2rem;
+  margin: 2rem 4rem;
+  font-family: 'Muli', sans-serif;
+}
+.checkbox-area {
+  display: flex;
+  justify-content: space-around;
+}
+.photo-input {
+  margin-top: 2rem;
+}
+.photo-label {
+  font-size: 1rem;
+}
+.choose-file {
+  font-size: 1rem;
+}
+.form-pet .submit {
+  margin: 2rem 0;
+}
+.found-details {
+  margin-top: 2rem;
+}
+/* Input design */
+input[type='radio'] + label {
+  color: #666;
+}
+input[type='radio']:checked + label {
+  color: #666;
+  font-style: bold;
+}
+input[type='date'] {
+  font-size: 1rem;
+  font-family: 'Muli', sans-serif;
+  background-color: #fff;
+  outline: none;
+  border: 0.5px solid #666;
+  color: #666;
+  border-radius: 3px;
+  padding: 0.2rem 0.5rem;
+  margin-left: 1rem;
+}
+input[type='file'] {
+  font-size: 1rem;
+  font-family: 'Muli', sans-serif;
+  color: #666;
+  padding: 0.2rem 0.5rem;
+}
+.radio-label {
+  font-size: 1.1rem;
+  margin: 0 4rem 0 0;
 }
