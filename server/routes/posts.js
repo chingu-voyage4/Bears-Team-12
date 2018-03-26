@@ -20,7 +20,7 @@ router.route( '/lostpet' ).post( postLostController.postLostPetPost );
 router.route( '/foundpets' ).get( postFoundController.getAllFoundPetsPage );        // html view all pets
 router.route( '/foundpets/all' ).get( postFoundController.getAllFoundPets );        // database call; grabs a list of found pets from database sorted by date, limited to 10
 
-router.route( '/found/view/:postId' ).get(postFoundController.getFoundPetPage );   // html view for single post
+router.route( '/foundpet/view/:postId' ).get(postFoundController.getFoundPetPage );   // html view for single post
 router.route( '/foundpet/:postId' ).get( postFoundController.getFoundPetPost );     // database call for a single post
 
 router.route( '/foundpet' ).post( postFoundController.postFoundPetPost );
