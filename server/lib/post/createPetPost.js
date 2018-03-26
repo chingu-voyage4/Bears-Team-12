@@ -19,7 +19,7 @@ const createPetPost = ( postData, user ) => {
         let post = new Post();
         post.title = title;
         post.image = image;
-        post.petType.type = petChoice;
+        post.petType.petCategory = petChoice;
         post.petType.otherType = otherType;
         post.breed = breed;
         post.name = name;
