@@ -30,7 +30,7 @@
         <h2 class="page-title-pet">Tell Us About Your Pet</h2>
         <form class="form-pet" action="/lost" method="POST">
             <div class="checkbox-area">
-              <input id="DogRadio"  class="radio-input"name="petChoice" type="radio">
+              <input id="DogRadio" class="radio-input" name="petChoice" type="radio">
               <label for="DogRadio" class="radio-label">Dog</label>
               <input id="CatRadio" class="radio-input" name="petChoice" type="radio">
               <label for="CatRadio" class="radio-label">Cat</label>
@@ -42,15 +42,15 @@
               <label for="SmMammalRadio" class="radio-label">Small Mammal</label>
               <input id="OtherRadio" class="radio-input" name="petChoice" type="radio">
               <label for="OtherRadio" class="radio-label">Other</label>
-              <input id="OtherInput" class="form-input hide" type="text" placeholder="What is your pet? (Ex: Cow, Goat, etc)"> <!-- This should only be visibile in the event the user selects Other -->
+              <input id="OtherInput" class="form-input hide" type="text" name="otherPet" placeholder="What is your pet? (Ex: Cow, Goat, etc)"> <!-- This should only be visibile in the event the user selects Other -->
             </div>
 
             <!-- Pet Details -->
             <div class="pet-details">
-              <input id="PetName" class="form-input" type="text" placeholder="Pet's Name">
-              <input id="PetBreed" class="form-input" type="text" placeholder="Pet's Breed">
-              <input id="PetGender" class="form-input" type="text" placeholder="Pet's Gender">
-              <input id="PetAge" class="form-input" type="text" placeholder="Pet's Age">
+              <input id="PetName" class="form-input" type="text" name="petName" placeholder="Pet's Name">
+              <input id="PetBreed" class="form-input" type="text" name="petBreed" placeholder="Pet's Breed">
+              <input id="PetGender" class="form-input" type="text" name="petGender" placeholder="Pet's Gender">
+              <input id="PetAge" class="form-input" type="text" name="petAge" placeholder="Pet's Age">
               <p class="form-question">Is your pet chipped?
               <input id="Chipped" name="PetChip" type="radio">
               <label for="Chipped">Yes</label>
@@ -61,14 +61,14 @@
 
               <!-- Last Seen details -->
               <label class="form-question" for="LastSeenDate">When did you last see your pet?</label>
-              <input id="LastSeenDate" type="date">
+              <input id="LastSeenDate" name="lostDate" type="date">
               <p class="form-question">Where did you last see your pet?</p>
-              <input class="form-input" type="text" placeholder="Street Name/Address">
-              <input class="form-input" type="text" placeholder="City">
-              <input class="form-input" type="text" placeholder="State/Province">
-              <input class="form-input" type="text" placeholder="Zip / Postal Code" required>
+              <input class="form-input" type="text" name="address" placeholder="Street Name/Address">
+              <input class="form-input" type="text" name="city" placeholder="City">
+              <input class="form-input" type="text" name="state" placeholder="State/Province">
+              <input class="form-input" type="text" name="zipcode" placeholder="Zip/Postal Code" required>
               <p class="form-question">Describe the area you last saw your pet if possible.</p>
-              <textarea id="LastSeenDesc" cols="80" rows="10"></textarea>
+              <textarea id="LastSeenDesc" name="description" cols="80" rows="10"></textarea>
 
               <!-- Incident Details -->
               <p class="form-question">Please describe the incident in which you lost your pet.</p>

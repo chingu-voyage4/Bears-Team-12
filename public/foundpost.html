@@ -47,24 +47,24 @@
 
             <!-- Pet Details -->
             <div class="pet-details">
-              <input id="PetBreed" class="form-input" type="text" placeholder="Pet's Breed">
-              <input id="PetGender" class="form-input" type="text" placeholder="Pet's Gender">
+              <input id="PetBreed" class="form-input" name="petBreed" type="text" placeholder="Pet's Breed">
+              <input id="PetGender" class="form-input" name="petGender" type="text" placeholder="Pet's Gender">
 
               <p class="form-question found-details">Please list any additional details that will help in identifying the found pet (Ex: physical traits, personality, collar color, etc.):</p>
               <textarea class="text-area" name="petDesc" id="" cols="80" rows="10"></textarea>
 
               <!-- Found details -->
               <label class="form-question" for="FoundDate">When did you find this pet?</label>
-              <input id="FoundDate" type="date">
+              <input id="FoundDate" name="foundDate" type="date">
               <p class="form-question">Where did you find this pet?</p>
-              <input class="form-input" type="text" placeholder="Street Name/Address">
-              <input class="form-input" type="text" placeholder="City">
-              <input class="form-input" type="text" placeholder="State/Province">
-              <input class="form-input" type="text" placeholder="Zip / Postal Code" required>
+              <input class="form-input" type="text" name="address" placeholder="Street Name/Address">
+              <input class="form-input" type="text" name="city" placeholder="City">
+              <input class="form-input" type="text" name="state" placeholder="State/Province">
+              <input class="form-input" type="text" name="zipcode" placeholder="Zip / Postal Code" required>
 
               <!-- Incident Details -->
               <p class="form-question">Please detail how you found this pet.</p>
-              <textarea name="incidentDesc" id="" cols="80" rows="10"></textarea>
+              <textarea name="incidentDesc" id="" name="description" cols="80" rows="10"></textarea>
 
               <input class="photo-input" id="PetImage" name="petImage" type="file">
               <label class="photo-label" for="petImage">Upload a photo of the found pet</label>
