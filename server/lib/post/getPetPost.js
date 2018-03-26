@@ -1,6 +1,6 @@
 const Post = require( '../../models/post.js' );
 
-const getLostPetPost = ( postId, type ) => {
+const getPetPost = ( postId, type ) => {
   return new Promise( (resolve, reject ) => {
     Post.findOne( 
       {
@@ -18,13 +18,13 @@ const getLostPetPost = ( postId, type ) => {
               post: post
             },
             status:   'SUCCESS',
-            message:  'Lost pet post found',
+            message:  'Pet post found',
           });
         }
         else{
           resolve({
             status:   'FAILED',
-            message:  'Lost pet post could not be found'
+            message:  'Pet post could not be found'
           });
         }
       }
@@ -32,4 +32,4 @@ const getLostPetPost = ( postId, type ) => {
   })
 }
 
-module.exports = getLostPetPost;
+module.exports = getPetPost;

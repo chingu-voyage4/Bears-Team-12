@@ -1,4 +1,4 @@
-const getFoundPetPost = require( '../lib/post/getFoundPetPost.js' );
+const getPetPost = require( '../lib/post/getPetPost.js' );
 const getAllFoundPets = require( '../lib/post/getAllFoundPets.js' );
 const createPetPost = require( '../lib/post/createPetPost.js' );
 
@@ -9,7 +9,6 @@ module.exports = {
   },
   
   getAllFoundPets: ( req, res ) => {
-    console.log( req.query.page )
     const page = req.query.page;
     getAllFoundPets( page )
     .then(
@@ -30,7 +29,7 @@ module.exports = {
   getFoundPetPost: ( req, res ) => {
     const { postId } = req.params;
     const type = 'FOUND';
-    getFoundPetPost( postId, type )
+    getPetPost( postId, type )
     .then( 
       fulfilled => {
         res.send( fulfilled.data );
@@ -48,7 +47,7 @@ module.exports = {
       res.redirect('/')
       return;
     }
-    createFoundPetPost( req.body, req.user )
+    createPetPost( req.body, req.user )
     .then( 
       fulfilled => {
       res.send( fulfilled )

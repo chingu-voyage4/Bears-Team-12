@@ -1,13 +1,20 @@
 const Post = require( '../../models/post.js' );
 
-const getAllFoundPets = () => {
+const perPage = 10;
+
+const getAllFoundPets = ( page ) => {
   return new Promise( ( resolve, reject ) => {
     Post.find( 
       {
         postType: 'FOUND'
       },
       {
-        limit: 10
+        
+      },
+      {
+        sort: {createdAt: -1} ,
+        skip: perPage *  ( page - 1 ) ,
+        limit: 10,
       },
       ( error, posts ) => {
         if ( error ) {
@@ -25,3 +32,5 @@ const getAllFoundPets = () => {
     )
   })
 }
+
+module.exports = getAllFoundPets;

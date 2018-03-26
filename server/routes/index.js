@@ -10,7 +10,7 @@ const localAuthentication = passport.authenticate('local', {
                                                   failureRedirect: '/',
                                                   failureFlash: false });
                                    
-const registrationController = require('../controllers/registration.controller.js' );                                   
+const signupController = require('../controllers/signup.controller.js' );                                   
                                   
 
 router.route( '/' ).get( homeController.home );
@@ -20,8 +20,8 @@ router.route( '/dashboard').get( dashboardController.getDashboard );   ///  new 
 router.route( '/login' ).get( loginController.getLoginPage );
 router.route( '/login' ).post( localAuthentication, loginController.redirectHome );
 
-router.route( '/register').get( registrationController.getRegistrationPage );
-router.route( '/register').post( registrationController.createNewUser );
+router.route( '/signup').get( signupController.getSignupPage );
+router.route( '/signup').post( signupController.createNewUser );
 
 router.route( '/logout' ).get( logoutController.logout );
 
