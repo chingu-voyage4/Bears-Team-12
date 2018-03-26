@@ -1,7 +1,7 @@
 const createNewUser = require( '../lib/auth/createNewUser.js' );
 
 module.exports ={
-  getRegistrationPage: ( req, res ) => {
+  getSignupPage: ( req, res ) => {
     res.sendFile(process.cwd() + '/public/signup.html');   
   },
   createNewUser: ( req, res ) => {

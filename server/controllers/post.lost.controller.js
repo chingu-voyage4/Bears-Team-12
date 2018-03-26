@@ -1,4 +1,4 @@
-const getLostPetPost = require( '../lib/post/getLostPetPost.js' );
+const getPetPost = require( '../lib/post/getPetPost.js' );
 const getAllLostPets = require( '../lib/post/getAllLostPets.js' );
 const createPetPost = require( '../lib/post/createPetPost.js' );
 
@@ -9,11 +9,10 @@ module.exports = {
   },
   
   getAllLostPets: ( req, res ) => {
-    console.log( req.query.page )
     const page = req.query.page;
     getAllLostPets( page )
     .then(
-      fulfilled => res.send( fulfilled )
+      fulfilled => res.send( fulfilled.data )
       ,
       unfulfilled => {
         console.log( 'There was an error retreiving lost pet posts:', unfulfilled );
@@ -30,7 +29,7 @@ module.exports = {
   getLostPetPost: ( req, res ) => {
     const { postId } = req.params;
     const type = 'LOST';
-    getLostPetPost( postId, type )
+    getPetPost( postId, type )
     .then( 
       fulfilled => {
         res.send( fulfilled.data );

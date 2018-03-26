@@ -25,11 +25,11 @@ mongoose.connect( process.env.MONGOLAB_URI );
 
 //----------------------- Page Rendering ------------------------------
 //app.set( "view engine", "pug" );
-app.set( "views", path.join( __dirname, "views" ) );
+//app.set( "views", path.join( __dirname, "views" ) );
 app.set( 'trust proxy', 1 );
 
 //----------------------- Express Options ----------------------------
-app.use( express.static( __dirname + '/../client' ) );
+app.use( express.static( process.cwd() + '/public' ) );
 app.use( bodyParser.json() ); // support json encoded bodies
 app.use( bodyParser.urlencoded( { extended: true } ) ); // support encoded bodies
 app.use(
