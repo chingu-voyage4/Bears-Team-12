@@ -12,7 +12,9 @@ const getAllFoundPets = ( page ) => {
         
       },
       {
-        
+        sort: {createdAt: -1} ,
+        skip: perPage *  ( page - 1 ) ,
+        limit: 10,
       },
       ( error, posts ) => {
         if ( error ) {
