@@ -30,19 +30,21 @@
         <h2 class="page-title-pet">Tell Us About Your Pet</h2>
         <form class="form-pet" action="/lost" method="POST">
             <div class="checkbox-area">
-              <input id="DogRadio" class="radio-input" name="petChoice" type="radio">
-              <label for="DogRadio" class="radio-label">Dog</label>
-              <input id="CatRadio" class="radio-input" name="petChoice" type="radio">
-              <label for="CatRadio" class="radio-label">Cat</label>
-              <input id="BirdRadio" class="radio-input" name="petChoice" type="radio">
-              <label for="BirdRadio" class="radio-label">Bird</label>
-              <input id="ReptileRadio" class="radio-input" name="petChoice" type="radio">
-              <label for="ReptileRadio" class="radio-label">Reptile</label>
-              <input id="SmMammalRadio" class="radio-input" name="petChoice" type="radio">
-              <label for="SmMammalRadio" class="radio-label">Small Mammal</label>
-              <input id="OtherRadio" class="radio-input" name="petChoice" type="radio">
-              <label for="OtherRadio" class="radio-label">Other</label>
-              <input id="OtherInput" class="form-input hide" type="text" name="otherPet" placeholder="What is your pet? (Ex: Cow, Goat, etc)"> <!-- This should only be visibile in the event the user selects Other -->
+              <p class="form-question question-type">What is your pet?*<br>
+                <input id="DogRadio" class="radio-input" name="petChoice" type="radio" required>
+                <label for="DogRadio" class="radio-label">Dog</label>
+                <input id="CatRadio" class="radio-input" name="petChoice" type="radio">
+                <label for="CatRadio" class="radio-label">Cat</label>
+                <input id="BirdRadio" class="radio-input" name="petChoice" type="radio">
+                <label for="BirdRadio" class="radio-label">Bird</label>
+                <input id="ReptileRadio" class="radio-input" name="petChoice" type="radio">
+                <label for="ReptileRadio" class="radio-label">Reptile</label>
+                <input id="SmMammalRadio" class="radio-input" name="petChoice" type="radio">
+                <label for="SmMammalRadio" class="radio-label">Small Mammal</label>
+                <input id="OtherRadio" class="radio-input" name="petChoice" type="radio">
+                <label for="OtherRadio" class="radio-label">Other</label>
+                <input id="OtherInput" class="form-input hide" type="text" name="otherPet" placeholder="What is your pet? (Ex: Cow, Goat, etc)"> <!-- This should only be visibile in the event the user selects Other -->
+              </p>
             </div>
 
             <!-- Pet Details -->
@@ -51,11 +53,21 @@
               <input id="PetBreed" class="form-input" type="text" name="petBreed" placeholder="Pet's Breed">
               <input id="PetGender" class="form-input" type="text" name="petGender" placeholder="Pet's Gender">
               <input id="PetAge" class="form-input" type="text" name="petAge" placeholder="Pet's Age">
+              <!-- chip -->
               <p class="form-question">Is your pet chipped?
               <input id="Chipped" name="PetChip" type="radio">
               <label for="Chipped">Yes</label>
               <input id="NoChip" name="PetChip" type="radio">
               <label for="NoChip">No</label></p>
+              <!-- tag -->
+              <p class="form-question">Does your pet have a tag?
+              <input id="Tag" name="PetTag" type="radio">
+              <label for="Tag">Yes</label>
+              <input id="NoTag" name="PetTag" type="radio">
+              <label for="NoTag">No</label></p>
+              <label for="TagInput" class="form-question">What is written on the tag?</label>
+              <input id="TagInput" class="general-input" type="text" name="tagInput" placeholder="Name / Phone / Address"> <!-- This should only be visibile in the event the user selects 'Yes' -->
+
               <p class="form-question">Please list any additional details that will help in identifying your pet (Ex: physical traits, personality, collar color, etc.):</p>
               <textarea class="text-area" name="petDesc" id="" cols="80" rows="10"></textarea>
 
@@ -65,8 +77,8 @@
               <p class="form-question">Where did you last see your pet?</p>
               <input class="form-input" type="text" name="address" placeholder="Street Name/Address">
               <input class="form-input" type="text" name="city" placeholder="City">
-              <input class="form-input" type="text" name="state" placeholder="State/Province">
-              <input class="form-input" type="text" name="zipcode" placeholder="Zip/Postal Code" required>
+              <input class="form-input" type="text" name="state" placeholder="State/Province*" required>
+              <input class="form-input" type="text" name="zipcode" placeholder="Zip/Postal Code*" required>
               <p class="form-question">Describe the area you last saw your pet if possible.</p>
               <textarea id="LastSeenDesc" name="description" cols="80" rows="10"></textarea>
 

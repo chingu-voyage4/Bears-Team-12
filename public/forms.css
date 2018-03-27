@@ -61,6 +61,17 @@
   margin-top: 4rem;
   padding-left: 0.5rem;
 }
+.general-input {
+  margin: 0 0 2rem 1rem;
+  border: none;
+  border-bottom: 1px solid #666;
+  background-color: transparent;
+  font-size: 1rem;
+  padding-right: 5rem;
+}
+.question-type {
+  margin: 1rem 0;
+}
 .hide {
   display: none;
 }
