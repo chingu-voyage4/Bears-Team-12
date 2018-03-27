@@ -1,4 +1,6 @@
-# Bears-Team-12 - Voyage-4
+# PetTrackr
+
+## [Chingu Cohorts](https://chingu-cohorts.github.io/chingu-directory/) - Voyage-4 (Bears-Team-12)
 
 ### Web application to help users find their lost pets, by posting Lost and Found pets
 
@@ -11,15 +13,23 @@ As an unauthenticated user I can:
 * View a post about a lost pet and a pet that has been found
 * Comment on existing posts
 * Search and post by _Location_
-* Filter posts by: _Pet species_, _Breed_, _Name_, _Color_, _Date_
+* Filter posts by: _Pet type_, _Location_, _Name_, _Date_
 
 As an authenticated user I can:
 
 * Create a post for a pet that I have lost
 * Create a post for a pet that I have found
 * Add my contact information
-* Choose to share contact information
+* Choose to share my contact information
 * Comment on posts
+
+#### Contributers: :octocat:
+
+Matt Lee :small_orange_diamond: @TMattLee  
+Caleb Cox :small_orange_diamond: @CalebCox  
+Vered Rekanati :small_orange_diamond: @veredrec
+
+---
 
 #### App Features: :dart:
 
@@ -27,11 +37,11 @@ As an authenticated user I can:
 
 * View posts about Lost and Found pets
 * Create posts about Lost and Found pets
-* Remove found pet
-* Authentication - Google, Facebook, etc.
+* Remove found pet from the list
+* Authentication - Google, Facebook, Twitter and local.
 * Location indicator
 
-** Stretch Goals:**
+**Stretch Goals:**
 
 * Adopt a pet
 * Ability to share posts to linked Social Media accounts
@@ -42,8 +52,8 @@ As an authenticated user I can:
 
 * HTML
 * CSS
-* Vanilla JavaScript
-* jQuery (if needed)
+* JavaScript
+* EJS
 
 **Back-end:**
 
@@ -71,7 +81,6 @@ As an authenticated user I can:
 * Assign yourself to a task and move card to `In-Development` column.
 * When work is complete and you made a PR move card to `To-Review` column.
 * After the PR approved and the branch was merged to `Development`, move the card to the `Done` column. Make sure all the subtasks in the checklist are checked.
-* If you are stuck on a task and can’t find a solution, move the card to `Blocked`. Other team members can try to help.
 
 **GitHub Flow:**
 
