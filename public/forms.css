@@ -85,7 +85,6 @@
 }
 .checkbox-area {
   display: flex;
-  justify-content: space-around;
 }
 .photo-input {
   margin-top: 2rem;
@@ -102,7 +101,6 @@
 .found-details {
   margin-top: 2rem;
 }
-/* Input design */
 input[type='radio'] + label {
   color: #666;
 }
@@ -121,13 +119,25 @@ input[type='date'] {
   padding: 0.2rem 0.5rem;
   margin-left: 1rem;
 }
-input[type='file'] {
-  font-size: 1rem;
-  font-family: 'Muli', sans-serif;
-  color: #666;
-  padding: 0.2rem 0.5rem;
-}
 .radio-label {
   font-size: 1.1rem;
   margin: 0 4rem 0 0;
+}
+.photo-input {
+  display: none;
+}
+label[for='PetImage'] {
+  color: #666;
+  display: block;
+  width: 40%;
+  font-family: 'Muli', sans-serif;
+  margin: 2rem 0;
+  padding: 1rem;
+  background-color: #cfe277;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.file-name {
+  font-size: 1.1rem;
+  opacity: 0.8;
 }

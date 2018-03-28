@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>PetTrackr</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Muli|Righteous" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="global.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="forms.css" />
@@ -85,17 +86,17 @@
               <!-- Incident Details -->
               <p class="form-question">Please describe the incident in which you lost your pet.</p>
               <textarea name="incidentDesc" id="" cols="80" rows="10"></textarea>
-              <p class="choose-file">
-                <input class="photo-input" id="PetImage" name="petImage" type="file">
-                <label class="photo-label" for="petImage">Upload a photo of your pet</label>
-              </p>
+              <input class="photo-input" id="PetImage" name="petImage" type="file" onchange="readURL(this);">
+              <label class="photo-label" for="PetImage">Please upload a photo of your pet</label>
+              <p class="file-name" id="FilePath">No file chosen</p>
+              <img id="photo" src="" alt="" />
           </div>
 
           <button id="SubmitPost" class="form-btn submit">Submit</button>
         </form>
 
     </main>
-
+    <script type="text/javascript" src="./forms.js"></script>
 </body>
 
 </html>
