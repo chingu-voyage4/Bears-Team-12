@@ -6,7 +6,7 @@ const postSchema = new Schema({
     image: String,
     postType: String,               // LOST or FOUND
     petType: {                      // Determined by petChoice Radio button.
-        petCategory: { type: String },     // Selected radio button (Cat, Dog, Other)
+        petCategory: String,     // Selected radio button (Cat, Dog, Other)
         otherType: String              // if Other, user inputted string.
     },
     breed: String,
