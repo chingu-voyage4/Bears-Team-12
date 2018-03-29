@@ -25,68 +25,34 @@
     </section>
 
     <section class="pet-list">
-      <div class="pet">
-        <div class="pet-image-area">
-          <img class="pet-image" src="https://i.kinja-img.com/gawker-media/image/upload/s--ytATzsY9--/c_fill,fl_progressive,g_center,h_450,q_80,w_800/ol9ceoqxidudap8owlwn.jpg" alt="dog">
-        </div>
-        <div class="details-area">
-          <h2 class="pet-name">BARKER</h2>
-          <p class="info">Type: <span class="detail">Dog</span></p>
-          <p class="info">Color: <span class="detail">Light Brown</span></p>
-          <p class="info">Last seen: <span class="detail">Fresno, California, 87534</span></p>
-          <p class="info">Date: <span class="detail">March 12, 2018</span></p>
-          <p class="info">About: <span class="detail desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span></p>
-        </div>
-      </div>
-
-      <hr class="line">
-
-      <div class="pet">
-        <div class="pet-image-area">
-          <img class="pet-image" src="http://dreamicus.com/data/cat/cat-01.jpg" alt="cat">
-        </div>
-        <div class="details-area">
-          <h2 class="pet-name">LOLA</h2>
-          <p class="info">Type: <span class="detail">Cat</span></p>
-          <p class="info">Color: <span class="detail">Brown and white</span></p>
-          <p class="info">Last seen: <span class="detail">Madison, Wisconsin, 22344</span></p>
-          <p class="info">Date: <span class="detail">March 19, 2018</span></p>
-          <p class="info">About: <span class="detail desc">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</span></p>
-        </div>
-      </div>
-
-      <hr class="line">
-
-      <div class="pet">
-        <div class="pet-image-area">
-          <img class="pet-image" src="https://d3n8a8pro7vhmx.cloudfront.net/taxpayers/pages/679/attachments/original/1499663166/4-ways-cheer-up-depressed-cat.jpg?1499663166" alt="cat">
-        </div>
-        <div class="details-area">
-          <h2 class="pet-name">BANDIT</h2>
-          <p class="info">Type: <span class="detail">Cat</span></p>
-          <p class="info">Color: <span class="detail">Black and white</span></p>
-          <p class="info">Last seen: <span class="detail">Chicago, Illinois, 43675</span></p>
-          <p class="info">Date: <span class="detail">March 5, 2018</span></p>
-          <p class="info">About: <span class="detail desc">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></p>
-        </div>
-      </div>
-
-      <hr class="line">
-
-      <div class="pet">
-        <div class="pet-image-area">
-          <img class="pet-image" src="http://3.bp.blogspot.com/-MUG79V_eCB4/T55zfCGHJfI/AAAAAAAACQU/v9bDf8809CI/s1600/pup.jpg" alt="dog">
-        </div>
-        <div class="details-area">
-          <h2 class="pet-name">DEXTER</h2>
-          <p class="info">Type: <span class="detail">Dog</span></p>
-          <p class="info">Color: <span class="detail">Dark grey</span></p>
-          <p class="info">Last seen: <span class="detail">Mesa, Arizona, 65341</span></p>
-          <p class="info">Date: <span class="detail">March 22, 2018</span></p>
-          <p class="info">About: <span class="detail desc">Usd do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></p>
-        </div>
-      </div>
-
+      <% posts.forEach((post, idx, array) => { %>
+          <div class="pet">
+              <div class="pet-image-area">
+                <img class="pet-image" src="<%= post.image %>" alt="<%= post.petType.petCategory %>">
+              </div>
+              <div class="details-area">
+                <% if (post.postType === 'LOST' && post.lost.name !== '') { %>
+                  <h2 class="pet-name"><%= post.lost.name %></h2>
+                <% } else if (post.postType === 'LOST' && post.lost.name === '')  { %>
+                  <h2 class="pet-name"><%= post.title %></h2>
+                <% } else if (post.postType === 'FOUND' && post.found.name !== '') { %>
+                  <h2 class="pet-name"><%= post.found.name %></h2>
+                <% } else if (post.postType === 'FOUND' && post.found.name === '')  { %>
+                  <h2 class="pet-name"><%= post.title %></h2>
+                <% } %>
+                <p class="info">Type: <span class="detail"><%= post.petType.petCategory %></span></p>
+                <p class="info">Color: <span class="detail"><%= post.breed %></span></p>
+                <p class="info">Last seen: <span class="detail"><%= post.location.city %>, <%= post.location.state %>, <%= post.location.postal %></span></p>
+                <p class="info">Date: <span class="detail"><%= post.date %></span></p>
+                <p class="info">About: <span class="detail desc"><%= post.description %></span></p>
+              </div>
+            </div>
+        <% if (idx === array.length - 1) { %>
+          <!-- do nothing -->
+        <% } else { %>
+          <hr class="line">
+        <% } %>
+      <% }) %>
     </section>
   </main>
 

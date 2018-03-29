@@ -6,7 +6,7 @@ module.exports = {
     getAllPosts( page )
     .then( 
       fulfilled => {
-        res.render('./posts/feed', { page: 'posts'})
+        res.render('./posts/feed', { posts: fulfilled.data.posts, page: 'posts'})
         // res.send( fulfilled.data );
       },
       unfulfilled => {
