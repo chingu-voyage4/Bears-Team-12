@@ -14,6 +14,7 @@
     "bcryptjs": "^2.4.3",
     "dec-to-hex": "^2.0.0",
     "dotenv": "^4.0.0",
+    "ejs": "^2.5.8",
     "express": "^4.15.3",
     "express-session": "^1.15.4",
     "mongoose": "^4.11.3",
@@ -25,5 +26,8 @@
     "passport-jwt": "^3.0.1",
     "passport-local": "^1.0.0",
     "passport-twitter": "^1.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.2"
   }
 }

@@ -1,6 +1,6 @@
 module.exports ={
   getLoginPage: ( req, res ) => {
-    res.sendFile(process.cwd() + '/public/login.html');   
+    res.render('login', { page: 'form' });   
   },
   redirectHome: ( req, res ) => {
     res.redirect('/');
