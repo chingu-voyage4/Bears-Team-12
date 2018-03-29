@@ -6,7 +6,8 @@ module.exports = {
     getAllPosts( page )
     .then( 
       fulfilled => {
-        res.send( fulfilled.data );
+        res.render('./posts/feed', { page: 'posts'})
+        // res.send( fulfilled.data );
       },
       unfulfilled => {
         console.log( 'There was an error while trying to retreive post, ', unfulfilled );
