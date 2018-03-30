@@ -58,5 +58,8 @@ module.exports = {
         return;
       })
     .catch( error => console.log( error ) );
+  },
+  getCreateLostPetPage: ( req, res ) => {
+    res.sendFile(process.cwd() + '/public/lostpost.html' );
   }
 }
