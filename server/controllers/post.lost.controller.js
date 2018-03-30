@@ -5,7 +5,7 @@ const createPetPost = require( '../lib/post/createPetPost.js' );
 module.exports = {
   
   getAllLostPetsPage: ( req, res ) => {
-    res.sendFile(process.cwd() + '/public/lost.html');   
+    res.sendFile(process.cwd() + '/public/posts/posts.html');   
   },
   
   getAllLostPets: ( req, res ) => {
@@ -24,8 +24,9 @@ module.exports = {
   },
   
   getLostPetPage: ( req, res ) => {
-    res.sendFile(process.cwd() + '/public/lostpost.html');   
+    res.sendFile(process.cwd() + '/public/posts/post.html');   
   },
+  
   getLostPetPost: ( req, res ) => {
     const { postId } = req.params;
     const type = 'LOST';
@@ -59,6 +60,7 @@ module.exports = {
       })
     .catch( error => console.log( error ) );
   },
+  
   getCreateLostPetPage: ( req, res ) => {
     res.sendFile(process.cwd() + '/public/lostpost.html' );
   }

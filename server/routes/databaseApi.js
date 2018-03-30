@@ -11,7 +11,7 @@ router.route( '/lostpets/all' ).get( postLostController.getAllLostPets );       
 
 router.route( '/lostpet/:postId' ).get( postLostController.getLostPetPost );        // database call for single post
 
-router.route( '/lostpet/new' ).post( postLostController.postLostPetPost );
+router.route( '/lostpet/new' ).post( postLostController.postLostPetPost );          // database call to create a new lost pet post
 
 // Found routes
 
@@ -19,6 +19,6 @@ router.route( '/foundpets/all' ).get( postFoundController.getAllFoundPets );    
 
 router.route( '/foundpet/:postId' ).get( postFoundController.getFoundPetPost );     // database call for a single post
 
-router.route( '/foundpet/new' ).post( postFoundController.postFoundPetPost );
+router.route( '/foundpet/new' ).post( postFoundController.postFoundPetPost );       // database call to create a new lost pet post
 
 module.exports = router;
