@@ -26,6 +26,7 @@
 
     <section class="pet-list">
       <% posts.forEach((post, idx, array) => { %>
+        <a class="pet-link" href="/posts/<%= post.postType.toLowerCase() %>pet/<%= post._id %>">
           <div class="pet">
               <div class="pet-image-area">
                 <img class="pet-image" src="<%= post.image %>" alt="<%= post.petType.petCategory %>">
@@ -46,7 +47,8 @@
                 <p class="info">Date: <span class="detail"><%= post.date %></span></p>
                 <p class="info">About: <span class="detail desc"><%= post.description %></span></p>
               </div>
-            </div>
+          </div>
+        </a>
         <% if (idx === array.length - 1) { %>
           <!-- do nothing -->
         <% } else { %>
