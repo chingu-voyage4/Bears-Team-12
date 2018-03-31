@@ -16,11 +16,12 @@ input:focus {
 textarea {
   display: block;
 }
-.page-title {
-  font-size: 2rem;
+#pet-content .page-title {
+  font-size: 2.2rem;
   margin: 2rem 4rem;
-  font-family: 'Righteous', cursive;
-  /*letter-spacing: 0.1rem;*/
+  font-family: 'Baloo', cursive;
+  font-weight: normal;
+  letter-spacing: 0.1rem;
 }
 /* HEADER */
 .logo-header {

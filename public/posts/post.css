@@ -1,10 +1,7 @@
 /* POST */
-body {
-  font-size: 1.1rem;
-}
 .post-pet {
   background-color: #eceef1;
-  padding: 2rem 0 0 1rem;
+  padding: 3rem 0 0 1rem;
   margin: 2rem 4rem;
   border-radius: 1rem;
 }
@@ -18,7 +15,8 @@ body {
 .name {
   text-align: center;
   font-size: 2rem;
-  font-family: 'Righteous', cursive;
+  font-family: 'Baloo', cursive;
+  font-weight: normal;
   letter-spacing: 0.1rem;
 }
 .line {
@@ -36,10 +34,11 @@ body {
   margin-left: 2rem;
 }
 .post-description {
-  width: 35%;
+  width: 40%;
   margin-left: 2rem;
 }
 .subtitle {
+  font-size: 1.2rem;
   font-weight: bold;
 }
 .span {
@@ -49,13 +48,17 @@ body {
 .desc-title {
   font-weight: bold;
   color: #d88649;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+}
+.description-text {
+  line-height: 2rem;
 }
 .comment {
   background-color: #f5f6f8;
   padding: 1rem 2rem;
   margin: 1rem 4rem;
   border-radius: 1rem;
+  font-size: 1.2rem;
 }
 .comment-title {
   font-size: 1.2rem;
