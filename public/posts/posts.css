@@ -50,6 +50,10 @@
   background-color: #f9f9f9;
   margin: 1rem;
 }
+.pet-link {
+  text-decoration: none;
+  color: #363d48;
+}
 .pet-image-area,
 .details-area {
   margin: 2rem 1rem;

@@ -6,7 +6,19 @@ const validateImageAndCreatePost = require( '../lib/post/validateImageAndCreateP
 module.exports = {
   
   getAllFoundPetsPage: ( req, res ) => {
-    res.sendFile(process.cwd() + '/public/posts/posts.html');   
+    const page = req.query.page;
+    getAllFoundPets( page )
+    .then(
+      fulfilled => {
+        res.render('./posts/feed', { posts: fulfilled.data.posts, page: 'posts' });
+      },
+      unfulfilled => {
+        console.log( 'There was an error retreiving found pet posts:', unfulfilled );
+        res.end();
+        return;
+      }
+    )
+    .catch( error => console.log( error ) );  
   },
   
   getAllFoundPets: ( req, res ) => {
@@ -25,7 +37,19 @@ module.exports = {
   },
   
   getFoundPetPage: ( req, res ) => {
-    res.sendFile(process.cwd() + '/public/posts/post.html');   
+    const { postId } = req.params;
+    const type = 'FOUND';
+    getPetPost( postId, type )
+    .then( 
+      fulfilled => {
+        res.render('./posts/found', { post: fulfilled.data.post, page: 'post' });  
+      },
+      unfulfilled => {
+        console.log( 'There was an error while trying to retreive the post, ', unfulfilled );
+        res.end();
+        return;
+      })
+    .catch( error => console.log( error ) ) 
   },
   
   getFoundPetPost: ( req, res ) => {
@@ -53,7 +77,7 @@ module.exports = {
   },
   
   getCreateFoundPetPage: ( req, res ) => {
-    res.sendFile(process.cwd() + '/public/foundpost.html' );
+    res.render('./posts/foundform', { page: 'form' });
   }
   
 }

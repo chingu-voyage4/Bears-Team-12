@@ -1,0 +1,61 @@
+<% include ../partials/header %>
+
+<main>
+    <h1 class="page-title">Have you seen...</h1>
+
+    <section class="search">
+
+      <p class="search-title"> Search <i class="fas fa-search"></i></p>
+
+      <label class="input-label">By Pet Type:</label>
+      <select class="input search-type">
+        <option class="input" name="type" >Select Type</option>
+        <option value="dog">Dogs</option>
+        <option value="cat">Cats</option>
+        <option value="other">Other</option>
+      </select>
+
+      <label class="input-label">By Location:</label>
+      <input class="input search-location" type="text" name="location" placeholder="Please enter a zipcode"></input>
+
+      <label class="input-label">By Name:</label>
+      <input class="input search-name" type="text" name="petName" placeholder="Please enter the Pet Name"></input>
+
+      <button id="submit" class="form-btn">Submit</button>
+    </section>
+
+    <section class="pet-list">
+      <% posts.forEach((post, idx, array) => { %>
+        <a class="pet-link" href="/posts/<%= post.postType.toLowerCase() %>pet/<%= post._id %>">
+          <div class="pet">
+              <div class="pet-image-area">
+                <img class="pet-image" src="<%= post.image %>" alt="<%= post.petType.petCategory %>">
+              </div>
+              <div class="details-area">
+                <% if (post.postType === 'LOST' && post.lost.name !== '') { %>
+                  <h2 class="pet-name"><%= post.lost.name %></h2>
+                <% } else if (post.postType === 'LOST' && post.lost.name === '')  { %>
+                  <h2 class="pet-name"><%= post.title %></h2>
+                <% } else if (post.postType === 'FOUND' && post.found.name !== '') { %>
+                  <h2 class="pet-name"><%= post.found.name %></h2>
+                <% } else if (post.postType === 'FOUND' && post.found.name === '')  { %>
+                  <h2 class="pet-name"><%= post.title %></h2>
+                <% } %>
+                <p class="info">Type: <span class="detail"><%= post.petType.petCategory %></span></p>
+                <p class="info">Color: <span class="detail"><%= post.breed %></span></p>
+                <p class="info">Last seen: <span class="detail"><%= post.location.city %>, <%= post.location.state %>, <%= post.location.postal %></span></p>
+                <p class="info">Date: <span class="detail"><%= post.date %></span></p>
+                <p class="info">About: <span class="detail desc"><%= post.description %></span></p>
+              </div>
+          </div>
+        </a>
+        <% if (idx === array.length - 1) { %>
+          <!-- do nothing -->
+        <% } else { %>
+          <hr class="line">
+        <% } %>
+      <% }) %>
+    </section>
+  </main>
+
+<% include ../partials/footer %>

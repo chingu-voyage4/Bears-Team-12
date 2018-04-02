@@ -2,7 +2,7 @@ const createNewUser = require( '../lib/auth/createNewUser.js' );
 
 module.exports ={
   getSignupPage: ( req, res ) => {
-    res.sendFile(process.cwd() + '/public/signup.html');   
+    res.render('signup', { page: 'form' });   
   },
   createNewUser: ( req, res ) => {
     const { username, email, password } = req.body;

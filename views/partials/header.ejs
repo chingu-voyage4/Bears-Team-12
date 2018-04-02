@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>PetTrackr</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Muli|Righteous" rel="stylesheet">
+    <% if (page === 'index') { %>
+        <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="global.css" />
+    <% } else if (page === 'form') { %>
+        <link rel="stylesheet" type="text/css" media="screen" href="/forms.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="/global.css" />
+    <% } else if (page === 'post') { %>
+        <link rel="stylesheet" href="/posts/post.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="/global.css" />
+    <% } else if (page === 'posts') { %>
+        <link rel="stylesheet" href="/posts/posts.css">
+        <link rel="stylesheet" type="text/css" media="screen" href="../global.css" />
+    <% } %>
+  </head>
+
+  <body>
+
+    <header class="header">
+      <h1 id="logoHeader" class="logo-header">PetTrackr</h1> <!-- Dynamically remove styles when not on index.html? -->
+      <nav class="menu">
+        <a class="menu-item" href="/">Home</a>
+        <!-- <a class="menu-item" href="#">About</a> -->
+        <a class="menu-item" href="/posts/feed">All Pets</a>
+        <a class="menu-item" href="/posts/lostpets">Lost Pets</a>
+        <a class="menu-item" href="/posts/foundpets">Found Pets</a>
+        <a class="menu-item" href="/signup">Sign Up</a>
+        <a class="menu-item" href="/login">Login</a>
+      </nav>
+    </header>
