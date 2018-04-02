@@ -1,7 +1,5 @@
 const Post = require( '../../models/post.js' );
 const User = require( '../../models/user.js' );
-const fs = require( 'fs' );
-const isImageFile = require( '../image/isImageFile.js' );
 
 const createPetPost = ( postData, user, imageFileName ) => {
   return new Promise( ( resolve, reject ) => {
