@@ -1,9 +1,11 @@
 const Post = require( '../../models/post.js' );
 const User = require( '../../models/user.js' );
+const fs = require( 'fs' );
+const isImageFile = require( '../image/isImageFile.js' );
 
-const createPetPost = ( postData, user ) => {
+const createPetPost = ( postData, user, imageFileName ) => {
   return new Promise( ( resolve, reject ) => {
-    const { title, image, petChoice, otherType, name, breed, gender, age, 
+    const { title, petChoice, otherType, name, breed, gender, age, 
                     chipped, desc, lastSeenDate, lastSeenDesc, incidentDetails, 
                     postType, address, city, state, zip } = postData;
     
@@ -18,7 +20,7 @@ const createPetPost = ( postData, user ) => {
         }
         let post = new Post();
         post.title = title;
-        post.image = image;
+        post.image = imageFileName;
         post.petType.petCategory = petChoice;
         post.petType.otherType = otherType;
         post.breed = breed;
