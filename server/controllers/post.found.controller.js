@@ -1,6 +1,7 @@
 const getPetPost = require( '../lib/post/getPetPost.js' );
 const getAllFoundPets = require( '../lib/post/getAllFoundPets.js' );
 const createPetPost = require( '../lib/post/createPetPost.js' );
+const validateImageAndCreatePost = require( '../lib/post/validateImageAndCreatePost.js' );
 
 module.exports = {
   
@@ -72,20 +73,11 @@ module.exports = {
       res.redirect('/')
       return;
     }
-    createPetPost( req.body, req.user )
-    .then( 
-      fulfilled => {
-      res.send( fulfilled )
-      },
-      unfulfilled => {
-        console.log( unfulfilled )
-        res.end();
-        return;
-      })
-    .catch( error => console.log( error ) );
+    validateImageAndCreatePost( req, res );
   },
   
   getCreateFoundPetPage: ( req, res ) => {
     res.render('./posts/foundform', { page: 'form' });
   }
+  
 }

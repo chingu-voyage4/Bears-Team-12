@@ -2,6 +2,7 @@
 .search {
   display: flex;
   justify-content: center;
+  padding: 2rem;
 }
 .search-title {
   font-size: 1.2rem;
@@ -30,7 +31,7 @@
   line-height: 2.2rem;
   border: none;
   text-align: center;
-  padding: 0.3rem 0.7rem;
+  padding: 0.3rem 1.5rem;
   margin-left: 2rem;
   background-color: transparent;
   color: #e2a477;

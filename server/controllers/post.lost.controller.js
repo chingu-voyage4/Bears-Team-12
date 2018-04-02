@@ -1,6 +1,6 @@
 const getPetPost = require( '../lib/post/getPetPost.js' );
 const getAllLostPets = require( '../lib/post/getAllLostPets.js' );
-const createPetPost = require( '../lib/post/createPetPost.js' );
+const validateImageAndCreatePost = require( '../lib/post/validateImageAndCreatePost.js' );
 
 module.exports = {
   
@@ -72,20 +72,11 @@ module.exports = {
       res.redirect('/')
       return;
     }
-    createPetPost( req.body, req.user )
-    .then( 
-      fulfilled => {
-      res.send( fulfilled )
-      },
-      unfulfilled => {
-        console.log( unfulfilled )
-        res.end();
-        return;
-      })
-    .catch( error => console.log( error ) );
+    validateImageAndCreatePost( req, res );
   },
   
   getCreateLostPetPage: ( req, res ) => {
     res.render('./posts/lostform', { page: 'form' });
   }
+  
 }
