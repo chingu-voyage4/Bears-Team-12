@@ -36,7 +36,19 @@ module.exports = {
   },
   
   getLostPetPage: ( req, res ) => {
-    res.render('./posts/lost', { page: 'post' });   
+    const { postId } = req.params;
+    const type = 'LOST';
+    getPetPost( postId, type )
+    .then( 
+      fulfilled => {
+        res.render('./posts/lost', { post: fulfilled.data.post, page: 'post' });
+      },
+      unfulfilled => {
+        console.log( 'There was an error while trying to retreive the post, ', unfulfilled );
+        res.end();
+        return;
+      })
+    .catch( error => console.log( error ) )   
   },
   
   getLostPetPost: ( req, res ) => {
