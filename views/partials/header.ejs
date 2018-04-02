@@ -32,7 +32,12 @@
         <a class="menu-item" href="/posts/feed">All Pets</a>
         <a class="menu-item" href="/posts/lostpets">Lost Pets</a>
         <a class="menu-item" href="/posts/foundpets">Found Pets</a>
-        <a class="menu-item" href="/signup">Sign Up</a>
-        <a class="menu-item" href="/login">Login</a>
+        <% if (!currentUser) { %>
+            <a class="menu-item" href="/signup">Sign Up</a>
+            <a class="menu-item" href="/login">Login</a>
+        <% } else { %>
+            <a class="menu-item" href="#" disabled>Welcome, <%= currentUser.username %></a>
+            <a class="menu-item" href="/logout">Logout</a>
+        <% } %>
       </nav>
     </header>
