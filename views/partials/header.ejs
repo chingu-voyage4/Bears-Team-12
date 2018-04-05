@@ -36,7 +36,7 @@
             <a class="menu-item" href="/signup">Sign Up</a>
             <a class="menu-item" href="/login">Login</a>
         <% } else { %>
-            <a class="menu-item" href="#" disabled>Welcome, <%= currentUser.username %></a>
+            <a class="menu-item" href="#" disabled>Welcome, <%= currentUser.local.username %></a>
             <a class="menu-item" href="/logout">Logout</a>
         <% } %>
       </nav>

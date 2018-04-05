@@ -39,7 +39,7 @@ app.use(
     cookie: { 
       maxAge:     1000*10*60,
       httpOnly:   true,
-      secure:     true,
+      secure:     false,
       path:       '/',
     },
     resave:     true, 
