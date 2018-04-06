@@ -2,7 +2,7 @@
 
     <main>
         <h2 class="page-title-pet">Tell Us About Your Pet</h2>
-        <form class="form-pet" action="/lost" method="POST">
+        <form class="form-pet" action="/api/lostpet/new" method="POST">
             <div class="checkbox-area">
               <p class="form-question question-type">What is your pet?*<br>
                 <input id="DogRadio" class="radio-input" name="petChoice" type="radio" required>
@@ -69,6 +69,7 @@
         </form>
 
     </main>
-    <script type="text/javascript" src="forms.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="../../forms.js"></script>
 
 <% include ../partials/footer %>

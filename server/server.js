@@ -39,7 +39,7 @@ app.use(
     cookie: { 
       maxAge:     1000*10*60,
       httpOnly:   true,
-      secure:     true,
+      secure:     false,
       path:       '/',
     },
     resave:     true, 
@@ -57,6 +57,12 @@ const routes = require( './routes/index.js' );
 const authentication = require( './routes/authentication.js' );
 const posts = require( './routes/posts.js' );
 const databaseApi = require( './routes/databaseApi.js' );
+
+app.use(function(req, res, next) {
+  res.locals.currentUser = req.user;
+  console.log("Current User: " + res.locals.currentUser);
+  next();
+});
 
 app.use( '/', routes );
 app.use( '/auth', authentication );
