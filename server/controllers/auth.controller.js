@@ -8,6 +8,7 @@ module.exports = {
     const auth = req.isAuthenticated();
     if( !auth ){
       res.redirect( '/login' );
+  
     }
     else {
       getUserInfoById( req.user.userId )
@@ -26,6 +27,7 @@ module.exports = {
       })
       .catch( error => console.log( error ) );
     }
+    
   },
   
   getAuthTwitter: ( req, res ) => {
@@ -33,8 +35,9 @@ module.exports = {
   },
 
   getAuthTwitterCallback: ( req, res ) => {
-    // Successful authentication, redirect dashboard.
-    res.redirect( '/dashboard' );
+    // Successful authentication, redirect profile.
+    req.flash( 'notification', 'You logged in successfully.');
+    res.redirect( '/profile' );
   },
   
   getAuthGoogle: (req, res ) => {
@@ -42,8 +45,9 @@ module.exports = {
   },
   
   getAuthGoogleCallback: ( req, res ) => {
-    // Successful authentication, redirect dashboard.
-    res.redirect( '/dashboard' );
+    // Successful authentication, redirect profile.
+    req.flash( 'notification', 'You logged in successfully.');
+    res.redirect( '/profile' );
   },
   
   getAuthFacebook: (req, res ) => {
@@ -51,8 +55,9 @@ module.exports = {
   },
   
   getAuthFacebookCallback: ( req, res ) => {
-    // Successful authentication, redirect dashboard.
-    res.redirect( '/dashboard' );
+    // Successful authentication, redirect profile.
+    req.flash( 'notification', 'You logged in successfully.');
+    res.redirect( '/profile' );
   }
 }
 

@@ -1,5 +1,7 @@
 const Post = require( '../../models/post.js' );
 
+const messageToUser = 'There was an error while attempting to retrieve post feed. Please contact administrator';
+
 const perPage = 10;
 
 const getAllPosts = ( page ) => {
@@ -20,8 +22,10 @@ const getAllPosts = ( page ) => {
    
       ( error, posts ) => {
         if ( error ) {
-          reject( error );
-          return;
+          return reject({
+            error:    error,
+            message:  messageToUser 
+          });
         }
         resolve({
           status:   'SUCCESS',

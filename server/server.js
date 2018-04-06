@@ -16,22 +16,18 @@ const port = process.env.PORT || 3000;
 ---------------------------- Mongoose and Schemas ------------------------------
 ------------------------------------------------------------------------------*/
 
-/*const dummyData = require('./dummyData.js');
-const User = require('./models/user.js');*/
 mongoose.connect( process.env.MONGOLAB_URI );
 
 
-//-----------------------------------------------------------------------------
-
 //----------------------- Page Rendering ------------------------------
 app.set( "view engine", "ejs" );
-//app.set( "views", path.join( __dirname, "views" ) );
-app.set( 'trust proxy', 1 );
+//app.set( 'trust proxy', 1 );
 
 //----------------------- Express Options ----------------------------
-app.use( express.static(process.cwd() + '/public' ) );
+app.set('images', process.cwd() + '/public/user/images');
+app.use( express.static( process.cwd() + '/public' ) );
 app.use( bodyParser.json() ); // support json encoded bodies
-app.use( bodyParser.urlencoded( { extended: true } ) ); // support encoded bodies
+app.use( bodyParser.urlencoded( { extended: false } ) ); // support encoded bodies
 app.use(
   session({ 
     jwt:        null,
@@ -39,7 +35,7 @@ app.use(
     cookie: { 
       maxAge:     1000*10*60,
       httpOnly:   true,
-      secure:     false,
+      secure:     process.env.NODE_ENV === 'production' ? true : false,
       path:       '/',
     },
     resave:     true, 
@@ -50,11 +46,15 @@ app.use(
 app.use( passport.initialize() );
 app.use( passport.session() );
 
-//------------------------------------------------------------------------------
 
+//-------------------------Message Flashing-------------------------------------
+const flash = require( 'connect-flash' );
+app.use( flash() );
+
+// ----------------------------- Routes ----------------------------------------
 
 const routes = require( './routes/index.js' );
-const authentication = require( './routes/authentication.js' );
+const socialMediaAuthentication = require( './routes/socialMediaAuthentication.js' );
 const posts = require( './routes/posts.js' );
 const databaseApi = require( './routes/databaseApi.js' );
 
@@ -65,7 +65,7 @@ app.use(function(req, res, next) {
 });
 
 app.use( '/', routes );
-app.use( '/auth', authentication );
+app.use( '/auth', socialMediaAuthentication );
 app.use( '/posts', posts );
 app.use( '/api', databaseApi );
 

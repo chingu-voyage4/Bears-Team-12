@@ -3,7 +3,9 @@ module.exports = {
     if( req.session ){
       req.session.destroy( ( error ) => {
         if ( error ) console.log( error );
-          res.redirect( '/login' );
+        req.flash('loginMessage', 'You are currently logged out.');
+        res.redirect( '/login' );
+        return;
       });
     }
   } 
