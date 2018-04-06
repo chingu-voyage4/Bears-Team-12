@@ -1,5 +1,7 @@
 const User = require( '../../models/user.js' );
 
+const errorMessage = 'There was an unexpected error. Please try again or contact administrator.';
+
 const getUserInfoByUsername = ( username ) => {
   return new Promise( (resolve, reject ) => {
     User.findOne(
@@ -9,8 +11,10 @@ const getUserInfoByUsername = ( username ) => {
       ( error, user ) => {
         
         if ( error ) {
-          console.log( error );
-          reject( "ERROR" );
+          return reject({
+            error:    error,
+            message:  errorMessage,
+          });
         }
         else {
           resolve({

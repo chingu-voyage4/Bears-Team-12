@@ -1,5 +1,7 @@
 const Post = require( '../../models/post.js' );
 
+const messageToUser = 'There was an error while attempting to retrieve founds pets from database. Please contact administrator';
+
 const perPage = 10;
 
 const getAllFoundPets = ( page ) => {
@@ -18,8 +20,10 @@ const getAllFoundPets = ( page ) => {
       },
       ( error, posts ) => {
         if ( error ) {
-          reject( error );
-          return;
+          return reject({
+            error:    error,
+            message:  messageToUser 
+          });
         }
         resolve({
           status:   'SUCCESS',

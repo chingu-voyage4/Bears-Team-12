@@ -2,31 +2,66 @@ const upload = require( '../image/multerConfig.js' ).upload;
 const isImageFile = require( '../image/isImageFile.js' );
 const createPetPost = require( './createPetPost.js' );
 const fs = require( 'fs' );
-const minFileSize = 10*1024;
 
-const validateImageAndCreatePost = ( req, res ) => {
+const minFileSize = 10*1024;
+const maxSizeMB = 2;
+const maxSize = maxSizeMB * 1024 * 1024;
+
+const validateImageAndCreatePost = ( req, res, postType ) => {
   // Upload an image using multer and verify that file is png or jpeg.
   // Then create a post with values entered by user
   
   upload( req, res, ( error ) => {
-    console.log( req.file )
     if ( error )  console.log( error );
     
-    if( req.file.size < minFileSize || !isImageFile( req.file.path ) ){               // must be larger than 10kb and be a valid image file
-      fs.unlinkSync( process.cwd() + '/public/user/images/' + req.file.filename ); // deletes uploaded file
-      res.send( 'Photo must be a valid image file' );
-      return;
-    }
+    console.log( req.file, req.body )
     
-    createPetPost( req.body, req.user, req.file.filename )
+    const { url, file } = req;    
+    
+    let filename = 'no-image.jpg';
+    
+    if( file ){
+      filename = file.filename;
+      
+      if( file.size > maxSize ) {
+        req.flash( 'notification', 'Image file is too large. File must be smaller than ' + maxSizeMB + ' MB.' );  
+        res.redirect('/posts/' + url );
+        return; 
+      }
+      
+      else if ( file.size < minFileSize || !isImageFile( file.path ) ) {               
+      
+        fs.unlinkSync( process.cwd() + '/public/user/images/' + filename ); // deletes uploaded file
+        req.flash( 'notification', 'Photo must be a valid image file that is larger than 10 kB' );
+        res.redirect('/posts/' + url );
+        return;
+        /*if( url === '/lostpet/new'){
+          res.render('./posts/lostform', { 
+            page: 'form', 
+            message: req.flash( 'notification' ),
+          });
+        }
+        else{
+          res.render( './posts/foundform', { 
+            page: 'form', 
+            message: req.flash('notification'),
+          });
+        }
+  
+        return;*/
+      }
+    }
+
+    createPetPost( req.body, req.user, filename, postType )
     .then( 
       fulfilled => {
-      res.send( fulfilled )
+        req.flash( 'notification', 'Post created succesfully' );
+        res.redirect( '/')
       },
       unfulfilled => {
-        console.log( unfulfilled )
-        res.end();
-        return;
+        req.flash( 'notification', unfulfilled.message );
+        res.redirect( '/')
+        console.log( 'Error while creating a post ', unfulfilled.error )
       })
     .catch( error => console.log( error ) );
   });

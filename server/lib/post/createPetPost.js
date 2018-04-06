@@ -1,20 +1,23 @@
 const Post = require( '../../models/post.js' );
 const User = require( '../../models/user.js' );
 
-const createPetPost = ( postData, user, imageFileName ) => {
+const messageToUser = 'There was an error attempting to create your post. Please try again or contact adminstrator';
+
+const createPetPost = ( postData, user, imageFileName, postType ) => {
   return new Promise( ( resolve, reject ) => {
     const { title, petChoice, otherType, name, breed, gender, age, 
                     chipped, desc, lastSeenDate, lastSeenDesc, incidentDetails, 
-                    postType, address, city, state, zip } = postData;
-    
+                    address, city, state, zip } = postData;
     User.findOne(
       {
         _id: user._id
       },
       ( error, user ) => {
         if( error ) {
-          reject ( error );
-          return;
+          return reject({
+            error:    error,
+            message:  messageToUser 
+          });
         }
         let post = new Post();
         post.title = title;
@@ -60,14 +63,18 @@ const createPetPost = ( postData, user, imageFileName ) => {
         }
         post.save( error => {
           if( error ) {
-            reject( error)
-            return;
+            return reject({
+              error:    error,
+              message:  messageToUser 
+            });
           }
           user.posts.push( post );
           user.save( error => {
             if( error ) {
-              reject( error)
-              return;
+              return reject({
+                error:    error,
+                message:  messageToUser 
+              });
             }
             resolve({
               status:   'SUCCESS',

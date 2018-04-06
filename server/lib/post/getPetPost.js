@@ -1,5 +1,7 @@
 const Post = require( '../../models/post.js' );
 
+const messageToUser = 'There was an error while attempting to retrieve a post from database. Please contact administrator';
+
 const getPetPost = ( postId, type ) => {
   return new Promise( (resolve, reject ) => {
     Post.findOne( 
@@ -9,8 +11,10 @@ const getPetPost = ( postId, type ) => {
       },
       ( error, post ) => {
         if ( error ) {
-          console.log( error );
-          reject( "ERROR" );
+          return reject({
+            error:    error,
+            message:  messageToUser 
+          });
         }
         else if( post ) {
           resolve({

@@ -1,6 +1,5 @@
 const getPetPost = require( '../lib/post/getPetPost.js' );
 const getAllFoundPets = require( '../lib/post/getAllFoundPets.js' );
-const createPetPost = require( '../lib/post/createPetPost.js' );
 const validateImageAndCreatePost = require( '../lib/post/validateImageAndCreatePost.js' );
 
 module.exports = {
@@ -10,15 +9,20 @@ module.exports = {
     getAllFoundPets( page )
     .then(
       fulfilled => {
-        res.render('./posts/feed', { posts: fulfilled.data.posts, page: 'posts' });
+        res.render( './posts/feed', { 
+          posts: fulfilled.data.posts, 
+          page: 'posts', 
+          message: req.flash( 'notification' ),
+        });
       },
+      
       unfulfilled => {
-        console.log( 'There was an error retreiving found pet posts:', unfulfilled );
-        res.end();
+        req.flash( 'notification', unfulfilled.message  )
+        res.redirect( '/' );
         return;
       }
     )
-    .catch( error => console.log( error ) );  
+    .catch( error => console.log( 'There was an error retreiving all found pet posts: ', error ) );  
   },
   
   getAllFoundPets: ( req, res ) => {
@@ -28,8 +32,8 @@ module.exports = {
       fulfilled => res.send( fulfilled )
       ,
       unfulfilled => {
-        console.log( 'There was an error retreiving found pet posts:', unfulfilled );
-        res.end();
+        console.log( 'There was an error retreiving found pet posts:', unfulfilled.error );
+        res.send( 'There was an error retreiving found pet posts. Please contact adminstrator.' );
         return;
       }
     )
@@ -42,14 +46,18 @@ module.exports = {
     getPetPost( postId, type )
     .then( 
       fulfilled => {
-        res.render('./posts/found', { post: fulfilled.data.post, page: 'post' });  
+        res.render( './posts/found', { 
+          post: fulfilled.data.post, 
+          page: 'post', 
+          message: req.flash( 'notification' ),
+        });  
       },
       unfulfilled => {
-        console.log( 'There was an error while trying to retreive the post, ', unfulfilled );
-        res.end();
+        req.flash( 'notification', unfulfilled.message )
+        res.redirect('/');
         return;
       })
-    .catch( error => console.log( error ) ) 
+    .catch( error => console.log( 'There was an error attempting to retreive a found pet post: ', error ) ) 
   },
   
   getFoundPetPost: ( req, res ) => {
@@ -61,8 +69,8 @@ module.exports = {
         res.send( fulfilled.data );
       },
       unfulfilled => {
-        console.log( 'There was an error while trying to retreive the post, ', unfulfilled );
-        res.end();
+        console.log( 'There was an error while trying to retreive the post, ', unfulfilled.error );
+        res.send( 'There was an error while trying to retreive the post. Please contact administrator ' );
         return;
       })
     .catch( error => console.log( error ) )
@@ -70,14 +78,23 @@ module.exports = {
   
   postFoundPetPost: ( req, res ) => {
     if( !req.isAuthenticated() ) {
-      res.redirect('/')
+      req.flash( 'loginMessage', 'In order to create a post you must first log it.' );
+      res.redirect( '/login' )
       return;
     }
-    validateImageAndCreatePost( req, res );
+    validateImageAndCreatePost( req, res, 'FOUND' );
   },
   
   getCreateFoundPetPage: ( req, res ) => {
-    res.render('./posts/foundform', { page: 'form' });
+    if( !req.isAuthenticated() ) {
+      req.flash( 'loginMessage', 'In order to create a post you must first log it.' );
+      res.redirect( '/login' )
+      return;
+    }
+    res.render( './posts/foundform', { 
+      page: 'form', 
+      message: req.flash('notification'),
+    });
   }
   
 }
