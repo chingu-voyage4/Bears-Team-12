@@ -2,7 +2,7 @@
 
 <main>
     <h2 class="page-title-pet">Tell Us About The Pet You've Found</h2>
-    <form class="form-pet" action="/found" method="POST">
+    <form class="form-pet" action="/api/foundpet/new" method="POST">
       <div class="checkbox-area">
         <p class="form-question question-type">What type of pet have you found?*<br>
           <input id="DogRadio" class="radio-input" name="petChoice" type="radio" required>
@@ -60,6 +60,7 @@
         <button id="SubmitPost" class="form-btn submit">Submit</button>
     </form>
 </main>
-<script type="text/javascript" src="./forms.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="../../forms.js"></script>
 
 <% include ../partials/footer %>
