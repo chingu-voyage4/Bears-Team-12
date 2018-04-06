@@ -1,6 +1,6 @@
 const User = require( '../../models/user.js' );
 
-const errorMessage = 'There was an unexpected error. Please try again or contact administrator.';
+const errorMessage = 'There was an unexpected error. Please try again or contact site administrator.';
 
 const getUserInfoById = ( userId ) => {
   return new Promise( (resolve, reject ) => {
@@ -18,10 +18,8 @@ const getUserInfoById = ( userId ) => {
         }
         else {
           resolve({
-            data:{
-              user
-            },
-            message: 'OK',
+            user:     user,
+            message:  'OK',
           });
         }
       });

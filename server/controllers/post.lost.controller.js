@@ -33,7 +33,7 @@ module.exports = {
       ,
       unfulfilled => {
         console.log( 'There was an error retreiving lost pet posts:', unfulfilled.error );
-        res.send( 'There was an error retreiving lost pet posts. Please contact adminstrator.' );
+        res.send( 'There was an error retreiving lost pet posts. Please contact site adminstrator.' );
         return;
       }
     )

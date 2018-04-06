@@ -7,6 +7,6 @@ module.exports ={
   },
   redirectToProfile: ( req, res ) => {
     req.flash( 'notification', 'You have successfully logged in.' );
-    res.redirect('/');
+    res.redirect( '/dashboard' );
   }
 }

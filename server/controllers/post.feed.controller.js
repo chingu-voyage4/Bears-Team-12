@@ -31,7 +31,7 @@ module.exports = {
       },
       
       unfulfilled => {
-        req.flash('notification', 'There was an error retreiving the post feed. Please contact and administrator.');
+        req.flash('notification', 'There was an error retreiving the post feed. Please contact site administrator.');
         res.redirect('/');
         return;
       })

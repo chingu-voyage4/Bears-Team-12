@@ -70,7 +70,7 @@ module.exports = {
       },
       unfulfilled => {
         console.log( 'There was an error while trying to retreive the post, ', unfulfilled.error );
-        res.send( 'There was an error while trying to retreive the post. Please contact administrator ' );
+        res.send( 'There was an error while trying to retreive the post. Please contact site administrator ' );
         return;
       })
     .catch( error => console.log( error ) )
