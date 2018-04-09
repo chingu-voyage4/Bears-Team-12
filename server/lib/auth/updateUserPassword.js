@@ -45,3 +45,5 @@ const updateUserPassword = ( userId, newPassword ) => {
     });
   });
 }
+
+module.exports = updateUserPassword;

@@ -64,7 +64,7 @@ module.exports = {
           req.flash( 'notification', 'Please enter the correct current password' );
           return res.redirect( '/dashboard' );
         }
-        
+        console.log( fulfilled)
         return updateUserPassword( req.user._id, newPassword );
         
       },
