@@ -25,6 +25,10 @@
   background-color: #f9f9f9;
   margin: 0.5rem;
 }
+.pet-link {
+  text-decoration: none;
+  color: #363d48;
+}
 .pet-image-area,
 .details-area {
   margin: 0.5rem;
