@@ -15,7 +15,8 @@ const signupController = require('../controllers/signup.controller.js' );
 
 router.route( '/' ).get( homeController.home );
 
-router.route( '/dashboard').get( dashboardController.getDashboardPage );   ///  new route for dashboard and post type
+router.route( '/dashboard' ).get( dashboardController.getDashboardPage );   ///  new route for dashboard and post type
+router.route( '/dashboard' ).post( dashboardController.updateUserProfile );
 
 router.route( '/login' ).get( loginController.getLoginPage );
 router.route( '/login' ).post( localAuthentication, loginController.redirectToProfile );

@@ -8,53 +8,63 @@ const errorMessage = 'There was an unexpected error. Please try again or contact
 
 const createNewUser = ( username, email, password ) => {
   return new Promise( ( resolve, reject ) => {
+    
     getUserInfoByEmail( email )
-    .then( fulfilled => {
-      if( fulfilled.data.user ){
-        resolve({
+    .then( 
+      fulfilled => {
+      
+        if( fulfilled.user ) return resolve({
           status:   'FAILED',
           message:  'EMAIL IS ALREADY IN USE'
         });
+  
+        return createSaltAndHash( password )
+      },
+      unfulfilled => {
+        return reject( unfulfilled )
       }
-      else{
-        createSaltAndHash( password )
-        .then( fulfilled => {
-          let newUser = new User();
-          newUser.local = {
-            username: username,
-            email:    email,
-            salt:     fulfilled.data.salt,
-            hash:     fulfilled.data.hash
-          }
-          newUser.posts = [];
-          newUser.save( error => {
-            if( error ){
-              reject({
-                error:    error,
-                message:  errorMessage
-              });
+    )
+    .then( 
+      fulfilled => {
+      
+        let newUser = new User();
+        
+        newUser.local = {
+          username: username,
+          email:    email,
+          salt:     fulfilled.data.salt,
+          hash:     fulfilled.data.hash
+        }
+        
+        newUser.posts = [];
+        
+        newUser.save( error => {
+          
+          if( error ) return reject({
+            error:    error,
+            message:  errorMessage
+          });
+  
+          return resolve({
+            status: 'SUCCESS',
+            message: 'CREATED NEW USER',
+            data:{
+              user: newUser
             }
-            else{
-              resolve({
-                status: 'SUCCESS',
-                message: 'CREATED NEW USER',
-                data:{
-                  user: newUser
-                }
-              })
-            }
-          })
+          });
+          
         })
-        .catch( error => reject({
-                          error:    error,
-                          message:  errorMessage
-                        }) );
+      },
+      unfulfilled => { 
+        return reject( unfulfilled );
+        
       }
-    })
+    )
     .catch( error => reject({
-                      error:    error,
-                      message:  errorMessage
-                    }) );
+        error:    error,
+        message:  errorMessage
+      }) 
+    );
   })
 }
 

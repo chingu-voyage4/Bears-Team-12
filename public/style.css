@@ -1,3 +1,4 @@
+/* Home, Post, Feed */
 .call-to-action {
   display: flex;
   justify-content: center;
@@ -53,4 +54,95 @@
 }
 .tags {
   color: #4d5962;
+}
+
+/* USER PAGE */
+.dashboard-section {
+  text-align: center;
+  width: 50%;
+  display: block;
+  margin: 2rem auto;
+  color: #666;
+}
+.dashboard-title {
+  text-align: left;
+  margin-bottom: 4rem;
+}
+.user-name,
+.user-email {
+  text-align: left;
+  font-size: 1.3rem;
+}
+.edit-section {
+  background-color: #eee;
+  padding: 1rem 3rem;
+  border-radius: 0.2rem;
+}
+.form-group {
+  width: 80%;
+  margin: 1.5rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.form-input {
+  width: 50%;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid #666;
+  text-align: left;
+  color: #666;
+  line-height: 1.8rem;
+  font-size: 1.3rem;
+  margin: 1.5rem;
+  padding-left: 2rem;
+}
+.form-title {
+  text-align: left;
+  color: #666;
+  line-height: 1.8rem;
+  font-size: 1.4rem;
+  margin-top: 4rem;
+}
+.user-question {
+  text-align: left;
+  color: #d88649;
+  line-height: 1.4rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-top: 4rem;
+  width: 45%;
+  padding-bottom: 0.2rem;
+}
+.social-list {
+  display: flex;
+  flex-direction: row;
+}
+.social-item {
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.7rem;
+  text-align: center;
+  padding: 0.4rem 0;
+  margin-left: 1rem;
+  background-color: #e8f5fd;
+  color: #d88649;
+  border: 1px solid #d88649;
+  border-radius: 0.2rem;
+  width: 25%;
+  margin: 1rem auto;
+  list-style-type: none;
+}
+.submit {
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.7rem;
+  text-align: center;
+  padding: 0.4rem 0;
+  background-color: transparent;
+  color: #d88649;
+  border: 1px solid #d88649;
+  border-radius: 0.2rem;
+  width: 40%;
+  margin: 1rem;
 }

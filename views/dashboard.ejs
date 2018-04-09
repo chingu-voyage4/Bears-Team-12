@@ -1,0 +1,30 @@
+<% include ./partials/header %>
+
+<main class="dashboard-section">
+  <h1 class="dashboard-title">My Dashboard</h1>
+  <section class="user-details">
+    <p class="user-name">Username: <%= currentUser.local.username %></p>
+    <p class="user-email">Email: <%= currentUser.local.email %></p>
+
+    <div class="edit-section">
+      <p class="form-title">Edit your information</p>
+      <p class="user-question">Change your password:</p>
+
+      <form action="" method="POST" class="form-group">
+        <input type="password" class="form-input" name="oldPassword" placeholder="Current Password">
+        <input type="password" class="form-input" name="newPassword" placeholder="New Password">
+        <button id="SubmitPassword" class="submit">Change password</button>
+      </form>
+
+      <p class="user-question">Sign in with:</p>
+      <ul class="social-list">
+        <li class="social-item">Google</li>
+        <li class="social-item">Twitter</li>
+        <li class="social-item">Facebook</li>
+      </ul>
+
+    </div>
+  </section>
+</main>
+
+<% include ./partials/footer %>

@@ -2,7 +2,7 @@
 
     <main>
         <h2 class="page-title-pet">Tell Us About Your Pet</h2>
-        <form class="form-pet" action="/api/lostpet/new" method="POST">
+        <form class="form-pet" action="/api/lostpet/new" method="POST" enctype="multipart/form-data">
             <div class="checkbox-area">
               <p class="form-question question-type">What is your pet?*<br>
                 <input id="DogRadio" class="radio-input" name="petChoice" type="radio" required>
@@ -23,21 +23,22 @@
 
             <!-- Pet Details -->
             <div class="pet-details">
-              <input id="PetName" class="form-input" type="text" name="petName" placeholder="Pet's Name">
-              <input id="PetBreed" class="form-input" type="text" name="petBreed" placeholder="Pet's Breed">
-              <input id="PetGender" class="form-input" type="text" name="petGender" placeholder="Pet's Gender">
-              <input id="PetAge" class="form-input" type="text" name="petAge" placeholder="Pet's Age">
+              <input id="PetName" class="form-input" type="text" name="name" placeholder="Pet's Name">
+              <input id="PetBreed" class="form-input" type="text" name="breed" placeholder="Pet's Breed">
+              <input id="PetGender" class="form-input" type="text" name="gender" placeholder="Pet's Gender">
+              <input id="PetAge" class="form-input" type="text" name="age" placeholder="Pet's Age">
+              <input id="PetColor" class="form-input" type="text" name="color" placeholder="Pet's color">
               <!-- chip -->
               <p class="form-question">Is your pet chipped?
-              <input id="Chipped" name="PetChip" type="radio">
+              <input id="Chipped" name="chippped" type="radio">
               <label for="Chipped">Yes</label>
-              <input id="NoChip" name="PetChip" type="radio">
+              <input id="NoChip" name="chipped" type="radio">
               <label for="NoChip">No</label></p>
               <!-- tag -->
               <p class="form-question">Does your pet have a tag?
-              <input id="Tag" name="PetTag" type="radio">
+              <input id="Tag" name="tag" type="radio">
               <label for="Tag">Yes</label>
-              <input id="NoTag" name="PetTag" type="radio">
+              <input id="NoTag" name="tag" type="radio">
               <label for="NoTag">No</label></p>
               <label for="TagInput" class="form-question">What is written on the tag?</label>
               <input id="TagInput" class="general-input" type="text" name="tagInput" placeholder="Name / Phone / Address"> <!-- This should only be visibile in the event the user selects 'Yes' -->
@@ -54,7 +55,7 @@
               <input class="form-input" type="text" name="state" placeholder="State/Province*" required>
               <input class="form-input" type="text" name="zipcode" placeholder="Zip/Postal Code*" required>
               <p class="form-question">Describe the area you last saw your pet if possible.</p>
-              <textarea id="LastSeenDesc" name="description" cols="80" rows="10"></textarea>
+              <textarea id="LastSeenAreaDesc" name="areaDesc" cols="80" rows="10"></textarea>
 
               <!-- Incident Details -->
               <p class="form-question">Please describe the incident in which you lost your pet.</p>

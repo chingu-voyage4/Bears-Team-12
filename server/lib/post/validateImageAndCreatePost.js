@@ -21,7 +21,7 @@ const validateImageAndCreatePost = ( req, res, postType ) => {
     let filename = 'no-image.jpg';
     
     if( file ){
-      filename = file.filename;
+      filename = '/user/images/' + file.filename;
       
       if( file.size > maxSize ) {
         req.flash( 'notification', 'Image file is too large. File must be smaller than ' + maxSizeMB + ' MB.' );  

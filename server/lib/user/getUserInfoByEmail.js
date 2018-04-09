@@ -9,6 +9,7 @@ const getUserInfoByEmail = ( email ) => {
         'local.email': email
       },
       ( error, user ) => {
+        
         if ( error ) {
           return reject({
             error:    error,
@@ -21,6 +22,7 @@ const getUserInfoByEmail = ( email ) => {
             message: 'OK',
           });
         }
+        
       });
   });
 }

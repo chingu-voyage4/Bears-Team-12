@@ -22,6 +22,7 @@ const getUserInfoByUsername = ( username ) => {
             message:  'OK',
           });
         }
+        
       });
   });
 }
