@@ -2,32 +2,31 @@ const bcrypt = require('bcryptjs');
 
 const createSaltAndHash = ( utoken ) => {
   return new Promise( ( resolve, reject ) => {
+    
     bcrypt.genSalt( 10, ( error, salt ) => {
-      if( error ) {
-        reject({
+      
+      if( error ) return reject({
+        status: 'ERROR',
+        message: error
+      });
+
+      bcrypt.hash( utoken, salt, ( error, hash ) => {
+        
+        if( error ) return reject({
           status: 'ERROR',
           message: error
         });
-      }
-      else{
-        bcrypt.hash( utoken, salt, ( error, hash ) => {
-          if( error ) {
-            reject({
-              status: 'ERROR',
-              message: error
-            });
-          }
-          else{
-            resolve({
-              status: 'SUCCESS',
-              data:{
-                salt: salt,
-                hash: hash
-              }
-            });
+ 
+        return resolve({
+          status: 'SUCCESS',
+          data:{
+            salt: salt,
+            hash: hash
           }
         });
-      }
+        
+      });
+      
     });
   })
 };
