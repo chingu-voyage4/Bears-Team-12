@@ -2,7 +2,7 @@
 
 <main>
     <h2 class="page-title-pet">Tell Us About The Pet You've Found</h2>
-    <form class="form-pet" action="/api/foundpet/new" method="POST">
+    <form class="form-pet" action="/api/foundpet/new" method="POST" enctype="multipart/form-data">
       <div class="checkbox-area">
         <p class="form-question question-type">What type of pet have you found?*<br>
           <input id="DogRadio" class="radio-input" name="petChoice" type="radio" required>
@@ -23,13 +23,13 @@
 
         <!-- Pet Details -->
         <div class="pet-details">
-          <input id="PetBreed" class="form-input" name="petBreed" type="text" placeholder="Pet's Breed">
-          <input id="PetGender" class="form-input" name="petGender" type="text" placeholder="Pet's Gender">
+          <input id="PetBreed" class="form-input" name="breed" type="text" placeholder="Pet's Breed">
+          <input id="PetGender" class="form-input" name="gender" type="text" placeholder="Pet's Gender">
 
           <p class="form-question">Does the pet have a tag?
-          <input id="Tag" name="PetTag" type="radio">
+          <input id="Tag" name="tag" type="radio">
           <label for="Tag">Yes</label>
-          <input id="NoTag" name="PetTag" type="radio">
+          <input id="NoTag" name="tag" type="radio">
           <label for="NoTag">No</label></p>
           <label for="TagInput" class="form-question">What is written on the tag?</label>
           <input id="TagInput" class="general-input" type="text" name="tagInput" placeholder="Name / Phone / Address"> <!-- This should only be visibile in the event the user selects 'Yes' -->

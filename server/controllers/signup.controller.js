@@ -23,6 +23,7 @@ module.exports ={
         }
       },
       unfulfilled => {
+        console.log( unfulfilled )
         req.flash( 'signupMessage', unfulfilled.message );
         res.redirect( '/signup' );
         return;

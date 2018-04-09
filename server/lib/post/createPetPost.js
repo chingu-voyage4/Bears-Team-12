@@ -5,9 +5,12 @@ const messageToUser = 'There was an error attempting to create your post. Please
 
 const createPetPost = ( postData, user, imageFileName, postType ) => {
   return new Promise( ( resolve, reject ) => {
-    const { title, petChoice, otherType, name, breed, gender, age, 
-                    chipped, desc, lastSeenDate, lastSeenDesc, incidentDetails, 
-                    address, city, state, zip } = postData;
+    const { 
+      title, petChoice, otherType, name, petBreed, petGender, age, chipped, 
+      petDesc, lostDate, lastSeenDesc, incidentDesc, foundDate, address, city, 
+      state, zip, tagInput, areaDesc, color
+    } = postData;
+    
     User.findOne(
       {
         _id: user._id
@@ -24,26 +27,27 @@ const createPetPost = ( postData, user, imageFileName, postType ) => {
         post.image = imageFileName;
         post.petType.petCategory = petChoice;
         post.petType.otherType = otherType;
-        post.breed = breed;
+        post.breed = petBreed;
         post.name = name;
-        post.gender = gender;
+        post.gender = petGender;
         post.age = age;
-        post.desc = desc;  
+        post.description = petDesc;  
         post.lastSeenDate = lastSeenDesc;
         post.postType = postType;
+        post.date = lostDate || foundDate || 'unknown';
         
         if( postType == 'FOUND'){
           post.found = {
-            incident: incidentDetails,
+            incident: incidentDesc,
             name:   name || 'unknown'
           };
         }
         else {
           post.lost = {
             name: name,
-            areaDesc: desc,
+            areaDesc: areaDesc,
             chipped: chipped,
-            incident: incidentDetails
+            incident: incidentDesc,
           };
         }
         

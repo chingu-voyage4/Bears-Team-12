@@ -4,33 +4,32 @@ const messageToUser = 'There was an error while attempting to retrieve a post fr
 
 const getPetPost = ( postId, type ) => {
   return new Promise( (resolve, reject ) => {
+    
     Post.findOne( 
       {
-        _id: postId,
-        postType:   type,
+        _id:      postId,
+        postType: type,
       },
       ( error, post ) => {
-        if ( error ) {
-          return reject({
-            error:    error,
-            message:  messageToUser 
-          });
-        }
-        else if( post ) {
-          resolve({
-            data:{
-              post: post
-            },
-            status:   'SUCCESS',
-            message:  'Pet post found',
-          });
-        }
-        else{
-          resolve({
-            status:   'FAILED',
-            message:  'Pet post could not be found'
-          });
-        }
+        
+        if ( error ) return reject({
+          error:    error,
+          message:  messageToUser 
+        });
+        
+        if( post ) return resolve({
+          data:{
+            post: post
+          },
+          status:   'SUCCESS',
+          message:  'Pet post found',
+        });
+        
+        return resolve({
+          status:   'FAILED',
+          message:  'Pet post could not be found'
+        });
+      
       }
     );
   })

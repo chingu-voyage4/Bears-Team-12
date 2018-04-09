@@ -12,12 +12,13 @@ const postSchema = new Schema({
     breed: String,
     gender: String,
     age:    Number,
+    color:  String,
     createdAt: {                    // the date the post was created
         type: Date,
         default: Date.now
     },
     date: String,                   // the date the user inputs, stored in string format.
-    description: String,
+    description: String,           // pet description
     location: {
         street: String,
         city: String,
@@ -28,7 +29,7 @@ const postSchema = new Schema({
         name: String,
         areaDesc: String,
         chipped: String,
-        incident: String
+        incident: String,
     },
     found: {
         incident: String,
