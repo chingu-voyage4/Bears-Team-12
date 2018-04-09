@@ -15,6 +15,8 @@ const signupController = require('../controllers/signup.controller.js' );
 
 router.route( '/' ).get( homeController.home );
 
+router.route('/recent').get( homeController.recent ); // new route for recent AJAX call.
+
 router.route( '/dashboard' ).get( dashboardController.getDashboardPage );   ///  new route for dashboard and post type
 router.route( '/dashboard' ).post( dashboardController.updateUserProfile );
 

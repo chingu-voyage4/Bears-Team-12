@@ -4,6 +4,7 @@ const mongoose      = require('mongoose'),
 const postSchema = new Schema({
     title: String,
     image: String,
+    tags: [String],                 // Array of user provided strings that allow for easy search results.
     postType: String,               // LOST or FOUND
     petType: {                      // Determined by petChoice Radio button.
         petCategory: String,        // Selected radio button (Cat, Dog, Other)
