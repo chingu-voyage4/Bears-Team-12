@@ -2,7 +2,7 @@
 
 <main>
     <h2 class="page-title-pet">Add a new Comment</h2>
-    <form class="form-pet" action="/comment" method="POST">
+    <form class="form-pet" action="/posts/<%= post.postType.toLowerCase() %>pet/<%= post._id %>/comment" method="POST">
         <textarea class="text-area" name="comment" id="comment" cols="30" rows="10" placeholder="Your comment.."></textarea>
         <button id="SubmitPost" class="form-btn submit">Submit</button>
     </form>

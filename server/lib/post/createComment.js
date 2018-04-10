@@ -3,13 +3,17 @@ const User = require( '../../models/user.js' );
 
 const messageToUser = 'There was an error attempting to create your comment. Please try again or contact adminstrator';
 
-const createComment = ( commentData, user ) => {
+const createComment = ( commentData, user, postId ) => {
   return new Promise( ( resolve, reject ) => {
     const { 
       comment
     } = commentData;
     
-    Post.findById(req.params.id,
+    // console.log("Comment data: " + commentData);
+    // console.log("User Commenting: " + user);
+    // console.log("Post Id: " + postId);
+
+    Post.findById(postId,
       ( error, post ) => {
         if( error ) {
           return reject({
