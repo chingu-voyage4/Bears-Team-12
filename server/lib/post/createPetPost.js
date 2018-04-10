@@ -6,9 +6,9 @@ const messageToUser = 'There was an error attempting to create your post. Please
 const createPetPost = ( postData, user, imageFileName, postType ) => {
   return new Promise( ( resolve, reject ) => {
     const { 
-      title, petChoice, otherType, name, petBreed, petGender, age, chipped, 
+      title, petChoice, otherType, name, breed, gender, age, chipped, 
       petDesc, lostDate, lastSeenDesc, incidentDesc, foundDate, address, city, 
-      state, zip, tagInput, areaDesc, color
+      state, zipcode, tagInput, areaDesc, color
     } = postData;
     
     User.findOne(
@@ -27,9 +27,9 @@ const createPetPost = ( postData, user, imageFileName, postType ) => {
         post.image = imageFileName;
         post.petType.petCategory = petChoice;
         post.petType.otherType = otherType;
-        post.breed = petBreed;
+        post.breed = breed;
         post.name = name;
-        post.gender = petGender;
+        post.gender = gender;
         post.age = age;
         post.description = petDesc;  
         post.lastSeenDate = lastSeenDesc;
@@ -55,7 +55,7 @@ const createPetPost = ( postData, user, imageFileName, postType ) => {
           address:  address,
           city:     city,
           state:    state,
-          zip:      zip
+          postal:      zipcode
         }
         
         let postUsername = '';
