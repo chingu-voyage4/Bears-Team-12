@@ -17,8 +17,11 @@
                 <label for="SmMammalRadio" class="radio-label">Small Mammal</label>
                 <input id="OtherRadio" class="radio-input" name="petChoice" value="Other" type="radio">
                 <label for="OtherRadio" class="radio-label">Other</label>
-                <input id="OtherInput" class="form-input hide" type="text" name="otherPet" placeholder="What is your pet? (Ex: Cow, Goat, etc)"> <!-- This should only be visibile in the event the user selects Other -->
               </p>
+            </div>
+            <div class="other-input hide-other">
+              <label for="OtherInput" class="form-question">What is the type of your pet?</label>
+              <input id="OtherInput" class="form-input" type="text" placeholder="e.g. cow, goat, etc."><!-- only visibile if the user selects 'Other' -->
             </div>
 
             <hr class="line">
@@ -44,7 +47,7 @@
               <input id="NoTag" name="tag" value="No" type="radio">
               <label for="NoTag">No</label></p>
               <label for="TagInput" class="form-question">What is written on the tag?</label>
-              <input id="TagInput" class="general-input" type="text" name="tagInput" placeholder="Name / Phone / Address"> <!-- This should only be visibile in the event the user selects 'Yes' -->
+              <input id="TagInput" class="general-input" type="text" name="tagInput" placeholder="Name / Phone / Address"> <!-- only visibile if the user selects 'Other' -->
 
               <p class="form-question">Please list any additional details that will help in identifying your pet (Ex: physical traits, personality, collar color, etc.):</p>
               <textarea class="text-area" name="petDesc" id="" cols="80" rows="10"></textarea>
@@ -69,6 +72,11 @@
               <label class="photo-label" for="PetImage">Please upload a photo of your pet</label>
               <p class="file-name" id="FilePath">No file chosen</p>
               <img id="photo" src="" alt="" />
+
+              <!-- tags -->
+              <label class="form-question" for="FoundDate">Please add tags to your post for easier search</label>
+              <input id="tags" class="form-input" name="tags" type="text" placeholder="e.g. dog, brown, new-york, red collar">
+              <button id="SubmitPost" class="form-btn submit">Submit</button>
           </div>
 
           <button id="SubmitPost" class="form-btn submit">Submit</button>

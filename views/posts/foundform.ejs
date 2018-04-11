@@ -17,8 +17,11 @@
           <label for="SmMammalRadio" class="radio-label">Small Mammal</label>
           <input id="OtherRadio" class="radio-input" name="petChoice" value="Other" type="radio">
           <label for="OtherRadio" class="radio-label">Other</label>
-          <input id="OtherInput" class="form-input hide" type="text" placeholder="What is your pet? (Ex: Cow, Goat, etc)"> <!-- This should only be visibile in the event the user selects Other -->
         </p>
+      </div>
+      <div class="other-input hide-other">
+        <label for="OtherInput" class="form-question">What is the type of the pet?</label>
+        <input id="OtherInput" class="form-input" type="text" placeholder="e.g. cow, goat, etc."><!-- only visibile if the user selects 'Other' -->
       </div>
 
       <hr>
@@ -27,13 +30,13 @@
         <input id="PetBreed" class="form-input" name="breed" type="text" placeholder="Pet's Breed">
         <input id="PetGender" class="form-input" name="gender" type="text" placeholder="Pet's Gender">
 
-        <p class="form-question">Does the pet have a tag?
-        <input id="Tag" name="tag" value="Yes" type="radio">
-        <label for="Tag">Yes</label>
-        <input id="NoTag" name="tag" value="No" type="radio">
-        <label for="NoTag">No</label></p>
-        <label for="TagInput" class="form-question">What is written on the tag?</label>
-        <input id="TagInput" class="general-input" type="text" name="tagInput" placeholder="Name / Phone / Address"> <!-- This should only be visibile in the event the user selects 'Yes' -->
+          <p class="form-question">Does the pet have a tag?
+          <input id="Tag" name="tag" value="Yes" type="radio">
+          <label for="Tag">Yes</label>
+          <input id="NoTag" name="tag" value="No" type="radio">
+          <label for="NoTag">No</label></p>
+          <label for="TagInput" class="form-question">What is written on the tag?</label>
+          <input id="TagInput" class="general-input" type="text" name="tagInput" placeholder="Name / Phone / Address"> <!-- only visibile if the user selects 'Yes' -->
 
         <hr class="line">
 

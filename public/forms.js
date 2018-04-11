@@ -1,3 +1,4 @@
+// image upload
 function readURL(input) {
   if (input.files && input.files[0]) {
     var reader = new FileReader();
@@ -24,4 +25,14 @@ $('#commentBody').keyup(function() {
   var length = $(this).val().length;
   var length = maxLength - length;
   $('#left').text(length);
+  
+// hide and show options in form
+$(document).ready(function() {
+  $('input[type=radio][name=petChoice]').change(function() {
+    if (this.value == 'Other') {
+      $('.other-input').removeClass('hide-other');
+    } else {
+      $('.other-input').addClass('hide-other');
+    }
+  });
 });
