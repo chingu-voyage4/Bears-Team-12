@@ -7,7 +7,6 @@ const userSchema = new Schema({
     local:  {
         username: String,
         email: String,
-        password: String,
         salt:               String,
         hash:               String,
     },
