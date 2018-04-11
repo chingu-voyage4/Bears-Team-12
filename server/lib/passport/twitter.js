@@ -65,7 +65,6 @@ const twitterLogin = new TwitterStrategy({
     }
     else {
       // Link social media to local account 
-      
       User.findOne(
         {
         'local.email': req.user.local.email

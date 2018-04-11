@@ -60,7 +60,7 @@ const databaseApi = require( './routes/databaseApi.js' );
 
 app.use(function(req, res, next) {
   res.locals.currentUser = req.user;
-  console.log("Current User: " + res.locals.currentUser);
+  //console.log("Current User: ", res.locals.currentUser);
   next();
 });
 

@@ -1,6 +1,7 @@
 //---------------------------- Auth Router -------------------------------------
 const getUserInfoById = require( '../lib/user/getUserInfoById.js' );
 const createNewUser = require('../lib/auth/createNewUser.js');
+const unlinkSocialMedia = require( '../lib/auth/unlinkSocialMedia' ); 
 
 module.exports = {
   
@@ -57,6 +58,28 @@ module.exports = {
     // Successful authentication, redirect profile.
     req.flash( 'notification', 'You logged in successfully.');
     res.redirect( '/' );
+  },
+  
+  unlink: ( req, res ) => {   // /auth/:authType/unlink etc
+    if( !req.isAuthenticated() ){
+      req.flash( 'loginMessage', 'You need to be logged in to do that.');
+      return res.redirect( '/login' );
+    }
+    const { user } = req;
+    const { authType } = req.params;
+    console.log( 'authtype is ', authType )
+    unlinkSocialMedia( user, authType)
+    .then( 
+      fulfilled => {
+        req.flash( 'notification', 'Profile unlinked successfully' );
+        return res.redirect('/dashboard');
+      },
+      
+      unfulfilled => {
+        req.flash( 'notification', unfulfilled.message );
+        return res.redirect('/dashboard');
+      })
+    .catch( error => console.log( error ) );
   }
 }
 
