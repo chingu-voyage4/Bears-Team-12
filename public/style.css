@@ -61,7 +61,7 @@
   color: #4d5962;
 }
 
-/* USER PAGE */
+/* Dashboard */
 .dashboard-section {
   text-align: center;
   width: 50%;
@@ -127,20 +127,26 @@
   flex-direction: row;
 }
 .social-item {
-  font-size: 2rem;
-  text-align: center;
+  font-size: 1.8rem;
   padding: 1rem;
   background-color: #d88649;
-  border: 1px solid #d88649;
   border-radius: 5%;
   margin: 1rem auto;
-  width: 10%;
   list-style-type: none;
+  width: 12%;
 }
 .social-link {
   color: #fff;
   padding: 0;
   margin: 0;
+  position: relative;
+}
+.plus-minus {
+  font-size: 1rem;
+  position: absolute;
+  top: -15px;
+  right: -12px;
+  color: #c9da7c;
 }
 .submit {
   width: 40%;
