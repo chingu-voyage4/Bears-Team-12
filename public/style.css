@@ -118,24 +118,28 @@
   width: 45%;
   padding-bottom: 0.2rem;
 }
+.full-question {
+  width: 90%;
+}
 .social-list {
   display: flex;
   flex-direction: row;
 }
 .social-item {
-  font-size: 1rem;
-  font-weight: bold;
-  line-height: 1.7rem;
+  font-size: 2rem;
   text-align: center;
-  padding: 0.4rem 0;
-  margin-left: 1rem;
-  background-color: #e8f5fd;
-  color: #d88649;
+  padding: 1rem;
+  background-color: #d88649;
   border: 1px solid #d88649;
-  border-radius: 0.2rem;
-  width: 25%;
+  border-radius: 5%;
   margin: 1rem auto;
+  width: 10%;
   list-style-type: none;
+}
+.social-link {
+  color: #fff;
+  padding: 0;
+  margin: 0;
 }
 .submit {
   width: 40%;

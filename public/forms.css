@@ -164,3 +164,43 @@ label[for='PetImage'] {
 .characters {
   align-self: flex-end;
 }
+/* Social media - from style.css file */
+.user-question {
+  text-align: left;
+  color: #565656;
+  line-height: 1.8rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 4rem;
+  padding-bottom: 0.2rem;
+}
+.full-question {
+  text-align: center;
+}
+.social-list {
+  width: 50%;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: row;
+}
+.social-item {
+  font-size: 2rem;
+  text-align: center;
+  padding: 1rem;
+  background-color: #d88649;
+  border: 1px solid #d88649;
+  border-radius: 5%;
+  margin: 1rem auto;
+  width: 8%;
+  list-style-type: none;
+}
+.social-link {
+  color: #fff;
+  padding: 0;
+  margin: 0;
+}
+/*.signup-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}*/
