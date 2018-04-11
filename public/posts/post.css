@@ -4,6 +4,8 @@
   padding: 3rem 0 0 1rem;
   margin: 2rem 4rem;
   border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 .post-image {
   width: 28rem;
@@ -27,7 +29,7 @@
 .post-text {
   display: flex;
   justify-content: center;
-  padding: 1rem 0;
+  padding: 1rem;
 }
 .post-details {
   width: 20%;
@@ -53,7 +55,26 @@
 .description-text {
   line-height: 2rem;
 }
+.add-comment-area {
+  align-self: center;
+  margin: 2rem;
+}
+.add-comment {
+  font-size: 0.8rem;
+  font-weight: bold;
+  line-height: 1.2rem;
+  text-align: center;
+  padding: 0.4rem;
+  background-color: transparent;
+  color: #d88649;
+  border: 1px solid #d88649;
+  border-radius: 0.2rem;
+  margin: 1rem auto;
+  cursor: pointer;
+  text-decoration: none;
+}
 .comment {
+  color: red;
   background-color: #f5f6f8;
   padding: 1rem 2rem;
   margin: 1rem 4rem;
