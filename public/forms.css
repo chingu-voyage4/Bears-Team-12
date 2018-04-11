@@ -75,6 +75,9 @@
 .hide {
   display: none;
 }
+.hide-other {
+  display: none;
+}
 .text-area {
   margin-bottom: 2rem;
 }

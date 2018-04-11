@@ -37,8 +37,8 @@
             <a class="menu-item" href="/signup">Sign Up</a>
             <a class="menu-item" href="/login">Login</a>
         <% } else { %>
-            <a class="menu-item" href="#" disabled>Welcome, <%= currentUser.local.username %></a>
             <a class="menu-item" href="/logout">Logout</a>
+            <a class="menu-item welcome" href="#" disabled>Welcome, <%= currentUser.local.username %></a>
             <a class="menu-item" href="/dashboard">
               <i class="fas fa-user-circle"></i>
             </a>

@@ -1,3 +1,4 @@
+// image upload
 function readURL(input) {
   if (input.files && input.files[0]) {
     var reader = new FileReader();
@@ -17,3 +18,14 @@ function readURL(input) {
     $('#photo').attr('alt', name.split('.')[0]);
   }
 }
+
+// hide and show options in form
+$(document).ready(function() {
+  $('input[type=radio][name=petChoice]').change(function() {
+    if (this.value == 'Other') {
+      $('.other-input').removeClass('hide-other');
+    } else {
+      $('.other-input').addClass('hide-other');
+    }
+  });
+});
