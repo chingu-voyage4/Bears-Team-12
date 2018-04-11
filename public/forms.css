@@ -36,6 +36,7 @@
   border-radius: 0.2rem;
   width: 30%;
   margin: 2rem auto;
+  cursor: pointer;
 }
 /* LOST & FOUND PET FORMS */
 .form-pet {
@@ -140,6 +141,15 @@ label[for='PetImage'] {
 .file-name {
   font-size: 1.1rem;
   opacity: 0.8;
+}
+.line {
+  margin: 1rem auto;
+  border: 0;
+  height: 1px;
+  background-image: -webkit-linear-gradient(left, #edf4cc, #cfe277, #edf4cc);
+  background-image: -moz-linear-gradient(left, #edf4cc, #cfe277, #edf4cc);
+  background-image: -ms-linear-gradient(left, #edf4cc, #cfe277, #edf4cc);
+  background-image: -o-linear-gradient(left, #edf4cc, #cfe277, #edf4cc);
 }
 /* Comment Form */
 .form-comment {

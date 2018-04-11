@@ -17,3 +17,11 @@ function readURL(input) {
     $('#photo').attr('alt', name.split('.')[0]);
   }
 }
+
+// Set characters counter for comment input
+var maxLength = 500;
+$('#commentBody').keyup(function() {
+  var length = $(this).val().length;
+  var length = maxLength - length;
+  $('#left').text(length);
+});
