@@ -78,3 +78,18 @@
 .detail {
   font-weight: normal;
 }
+.call-to-action {
+  display: flex;
+  justify-content: center;
+}
+.btn-small {
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-family: 'Muli', sans-serif;
+  background-color: #4d5962;
+  margin: 2rem 2rem;
+  border: none;
+  color: #f9f9f9;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}

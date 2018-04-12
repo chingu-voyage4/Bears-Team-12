@@ -27,6 +27,11 @@ textarea {
 .logo-header {
   margin: 0;
   padding: 0.5rem;
+  cursor: pointer;
+}
+.logo-link {
+  color: #363d48;
+  text-decoration: none;
 }
 .header {
   display: flex;
