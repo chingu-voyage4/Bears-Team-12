@@ -32,6 +32,7 @@
               <h3>Be the first to comment!</h3>
             <% } else { %>
               <% post.comments.forEach((comment) => { %>
+                <% console.log(comment.text); %>
                 <div class="comment">
                     <h3 class="comment-title"><%= comment.author %> - <%= comment.createdAt %></h3>
                     <p class="comments-text"><%= comment.text %></p>

@@ -10,9 +10,9 @@ const createComment = ( commentData, user, postId ) => {
       comment
     } = commentData;
     
-    // console.log("Comment data: " + commentData);
-    // console.log("User Commenting: " + user);
-    // console.log("Post Id: " + postId);
+    console.log("Comment data: " + commentData);
+    console.log("User Commenting: " + user);
+    console.log("Post Id: " + postId);
 
     Post.findById(postId,
       ( error, post ) => {

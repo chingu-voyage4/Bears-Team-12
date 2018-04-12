@@ -30,16 +30,16 @@ module.exports = {
             res.redirect('/login');
             return;
         }
-        // console.log(req.body);
-        // console.log(req.user);
-        // console.log(req.params);
-        createComment( req.body, req.user, req.params )
+        console.log(req.body);
+        console.log(req.user);
+        console.log(req.params);
+        createComment( req.body, req.user, req.params.postId )
         .then(
             fulfilled => {
                 console.log('Comment created successfully!');
             },
             unfulfilled => {
-                console.log('Comment could not be created...')
+                console.log('Comment could not be created...:' + unfulfilled.error)
             }
         )
         .catch( error => console.log( error ))
