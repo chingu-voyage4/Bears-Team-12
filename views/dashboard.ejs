@@ -1,5 +1,10 @@
 <% include ./partials/header %>
 
+<% if(message && message.length > 0){ %>
+  <div class="msg-box">
+    <h2 class="msg success-msg"><%- message %></h2>
+  </div>
+  <% } %>
 <main class="dashboard-section">
   <h1 class="dashboard-title">My Dashboard</h1>
   <section class="user-details">

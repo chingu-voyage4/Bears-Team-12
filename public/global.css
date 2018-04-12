@@ -50,3 +50,26 @@ textarea {
 .welcome {
   font-weight: 600;
 }
+
+/* flash messages */
+.msg-box {
+  width: 30%;
+  margin: 3rem;
+}
+.msg {
+  padding: 0.5rem 0.8rem;
+  text-align: center;
+  font-size: 1.2rem;
+  border-radius: 0.8rem;
+  opacity: 0.8;
+}
+.success-msg {
+  background-color: #2ae917;
+}
+.error-msg {
+  background-color: #f62a4f;
+  color: #fff;
+}
+.info-msg {
+  background-color: #2ab5f6;
+}

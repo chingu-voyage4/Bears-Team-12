@@ -63,6 +63,9 @@
           <input id="tags" class="form-input" name="tags" type="text" placeholder="e.g. dog, brown, new-york, red collar">
           <button id="SubmitPost" class="form-btn submit">Submit</button>
         </div>
+        <% if (message && message.length > 0){ %>
+          <div> <%= message %> </div>
+        <% } %>
     </form>
 </main>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
