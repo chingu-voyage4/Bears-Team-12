@@ -37,11 +37,17 @@
             <a class="menu-item" href="/signup">Sign Up</a>
             <a class="menu-item" href="/login">Login</a>
         <% } else { %>
-            <a class="menu-item" href="/logout">Logout</a>
-            <a class="menu-item welcome" href="#" disabled>Welcome, <%= currentUser.local.username %></a>
-            <a class="menu-item" href="/dashboard">
-              <i class="fas fa-user-circle"></i>
-            </a>
+          <div class="dropdown">
+            <i class="dropbtn fas fa-user-circle" onclick="showUserDropdown()"></i>
+            <div id="userDropdown" class="dropdown-content">
+              <a href="#" class="welcome"><%= currentUser.local.username %></p>
+              <a href="/dashboard">Dashboard</a>
+              <a href="/logout">Logout</a>
+            </div>
+          </div>
         <% } %>
       </nav>
     </header>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="../../forms.js"></script>
