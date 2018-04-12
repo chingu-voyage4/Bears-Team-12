@@ -7,12 +7,27 @@
     </div>
     <% } %>
     <h2 class="sign-title">Create an Account</h2>
-    <form class="form-group" action="/signup" method="POST">
+    <form class="form-group create-account" action="/signup" method="POST">
         <input id="UserEmail" class="form-input" type="email" name="email" placeholder="Your email address">
         <input id="UserDisplayName" class="form-input" type="text" name="username" placeholder="Username">
         <input id="UserPass" class="form-input" type="password" name="password" placeholder="Password">
         <button id="SignUpBtn" class="form-btn submit">Sign Up</button>
     </form>
+  </div>
+  <div>
+    <p class="user-question full-question">Or sign up with any of the following:</p>
+    <ul class="social-list">
+      <li class="social-item">
+        <a class="social-link" id="socialLink" href=""><i class="fab fa-google"></i></a>
+      </li>
+      <li class="social-item">
+        <a class="social-link" id="socialLink" href=""><i class="fab fa-twitter"></i></a>
+      </li>
+      <li class="social-item">
+        <a class="social-link" id="socialLink" href=""><i class="fab fa-facebook-f"></i></a>
+      </li>
+    </ul>
+  </div>
 </main>
 
 <% include ./partials/footer %>

@@ -24,10 +24,11 @@
         <input id="OtherInput" class="form-input" type="text" placeholder="e.g. cow, goat, etc."><!-- only visibile if the user selects 'Other' -->
       </div>
 
-        <!-- Pet Details -->
-        <div class="pet-details">
-          <input id="PetBreed" class="form-input" name="breed" type="text" placeholder="Pet's Breed">
-          <input id="PetGender" class="form-input" name="gender" type="text" placeholder="Pet's Gender">
+      <hr>
+      <!-- Pet Details -->
+      <div class="pet-details">
+        <input id="PetBreed" class="form-input" name="breed" type="text" placeholder="Pet's Breed">
+        <input id="PetGender" class="form-input" name="gender" type="text" placeholder="Pet's Gender">
 
           <p class="form-question">Does the pet have a tag?
           <input id="Tag" name="tag" value="Yes" type="radio">
@@ -37,26 +38,25 @@
           <label for="TagInput" class="form-question">What is written on the tag?</label>
           <input id="TagInput" class="general-input" type="text" name="tagInput" placeholder="Name / Phone / Address"> <!-- only visibile if the user selects 'Yes' -->
 
-          <p class="form-question found-details">Please list any additional details that will help in identifying the found pet (Ex: physical traits, personality, collar color, etc.):</p>
-          <textarea class="text-area" name="petDesc" id="" cols="80" rows="10"></textarea>
+        <hr class="line">
 
-          <!-- Found details -->
-          <label class="form-question" for="FoundDate">When did you find this pet?</label>
-          <input id="FoundDate" name="foundDate" type="date">
-          <p class="form-question">Where did you find this pet?</p>
-          <input class="form-input" type="text" name="address" placeholder="Street Name/Address">
-          <input class="form-input" type="text" name="city" placeholder="City">
-          <input class="form-input" type="text" name="state" placeholder="State/Province*" required>
-          <input class="form-input" type="text" name="zipcode" placeholder="Zip/Postal Code*" required>
+        <p class="form-question found-details">Please list any additional details that will help in identifying the found pet (Ex: physical traits, personality, collar color, etc.):</p>
+        <textarea class="text-area" name="petDesc" id="" cols="80" rows="10"></textarea>
 
-          <!-- Incident Details -->
-          <p class="form-question">Please detail how you found this pet.</p>
-          <textarea name="incidentDesc" id="" name="description" cols="80" rows="10"></textarea>
+        <hr class="line">
+        <!-- Found details -->
+        <label class="form-question" for="FoundDate">When did you find this pet?</label>
+        <input id="FoundDate" name="foundDate" type="date">
+        <p class="form-question">Where did you find this pet?</p>
+        <input class="form-input" type="text" name="address" placeholder="Street Name/Address">
+        <input class="form-input" type="text" name="city" placeholder="City">
+        <input class="form-input" type="text" name="state" placeholder="State/Province*" required>
+        <input class="form-input" type="text" name="zipcode" placeholder="Zip/Postal Code*" required>
 
-          <input class="photo-input" id="PetImage" name="petImage" type="file" onchange="readURL(this);">
-          <label class="photo-label" for="PetImage">Please upload a photo of the found pet</label>
-          <p class="file-name" id="FilePath">No file chosen</p>
-          <img id="photo" src="" alt="" />
+        <hr class="line">
+        <!-- Incident Details -->
+        <p class="form-question">Please detail how you found this pet.</p>
+        <textarea name="incidentDesc" id="" name="description" cols="80" rows="10"></textarea>
 
           <!-- tags -->
           <label class="form-question" for="FoundDate">Please add tags to your post for easier search</label>
