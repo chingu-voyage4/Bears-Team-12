@@ -19,6 +19,13 @@ function readURL(input) {
   }
 }
 
+// Set characters counter for comment input
+var maxLength = 500;
+$('#commentBody').keyup(function() {
+  var length = $(this).val().length;
+  var length = maxLength - length;
+  $('#left').text(length);
+  
 // hide and show options in form
 $(document).ready(function() {
   $('input[type=radio][name=petChoice]').change(function() {
