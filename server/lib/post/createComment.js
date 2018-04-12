@@ -1,5 +1,6 @@
 const Post = require( '../../models/post.js' );
 const User = require( '../../models/user.js' );
+const Comment = require('../../models/comment');
 
 const messageToUser = 'There was an error attempting to create your comment. Please try again or contact adminstrator';
 
