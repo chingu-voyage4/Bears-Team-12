@@ -1,7 +1,11 @@
 <% include ./partials/header %>
 
-<main class="signup-section">
-  <div>
+<main>
+  <% if(message && message.length > 0){ %>
+    <div class="msg-box">
+      <h2 class="msg error-msg"><%- message %></h2>
+    </div>
+  <% } %>
     <h2 class="sign-title">Create an Account</h2>
     <form class="form-group create-account" action="/signup" method="POST">
         <input id="UserEmail" class="form-input" type="email" name="email" placeholder="Your email address">

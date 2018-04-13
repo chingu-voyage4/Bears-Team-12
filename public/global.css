@@ -27,6 +27,11 @@ textarea {
 .logo-header {
   margin: 0;
   padding: 0.5rem;
+  cursor: pointer;
+}
+.logo-link {
+  color: #363d48;
+  text-decoration: none;
 }
 .header {
   display: flex;
@@ -40,13 +45,80 @@ textarea {
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  margin-right: 3rem;
 }
 .menu-item {
-  margin: 0 0.8rem;
+  margin: 0 1rem;
   text-decoration: none;
   color: #eceef1;
   font-size: 1.2rem;
 }
+/* Dropdown Button */
+.dropbtn {
+  width: 5rem;
+  background-color: #f4d03f;
+  color: #565656;
+  padding: 0.4rem;
+  margin-left: 1rem;
+  font-size: 1.4rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.3rem;
+}
+.dropbtn:hover,
+.dropbtn:focus {
+  background-color: #bdf43f;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 4rem;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  color: #d88649;
+  padding: 0.2rem 0.4rem;
+  text-decoration: none;
+  display: block;
+  line-height: 1.5rem;
+}
+.dropdown a:hover {
+  background-color: #eee;
+}
+.show {
+  display: block;
+}
 .welcome {
+  cursor: text;
   font-weight: 600;
+}
+
+/* flash messages */
+.msg-box {
+  width: 30%;
+  margin: 3rem;
+}
+.msg {
+  padding: 0.5rem 0.8rem;
+  text-align: center;
+  font-size: 1.2rem;
+  border-radius: 0.8rem;
+  opacity: 0.8;
+}
+.success-msg {
+  background-color: #2ae917;
+}
+.error-msg {
+  background-color: #f62a4f;
+  color: #fff;
+}
+.info-msg {
+  background-color: #2ab5f6;
 }

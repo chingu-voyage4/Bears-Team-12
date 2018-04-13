@@ -1,5 +1,10 @@
 <% include ./partials/header %>
 
+<% if(message && message.length > 0){ %>
+  <div class="msg-box">
+    <h2 class="msg success-msg"><%- message %></h2>
+  </div>
+  <% } %>
 <main class="dashboard-section">
   <h1 class="dashboard-title">My Dashboard</h1>
   <section class="user-details">
@@ -51,9 +56,14 @@
           </a>
         </li>
       </ul>
-
     </div>
   </section>
+
+  <section class="call-to-action">
+    <a href="/posts/foundpet/new"><button id="FoundBtn" class="btn btn-found btn-small">I've found a Pet</button></a>
+    <a href="/posts/lostpet/new"><button id="LostBtn" class="btn btn-lost btn-small">I'm looking for a Lost Pet</button></a>
+  </section>
+  
 </main>
 
 <% include ./partials/footer %>

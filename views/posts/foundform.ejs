@@ -58,16 +58,14 @@
         <p class="form-question">Please detail how you found this pet.</p>
         <textarea name="incidentDesc" id="" name="description" cols="80" rows="10"></textarea>
 
-        <hr class="line">
-        <!-- <input class="file-name" type="text" placeholder="Filename"> -->
-        <input class="photo-input" id="PetImage" name="petImage" type="file" onchange="readURL(this);">
-        <label class="photo-label" for="PetImage">Please upload a photo of the found pet</label>
-        <p class="file-name" id="FilePath">No file chosen</p>
-        <img id="photo" src="" alt="" />
-      </div>
-
-      <hr class="line">
-      <button id="SubmitPost" class="form-btn submit">Submit</button>
+          <!-- tags -->
+          <label class="form-question" for="FoundDate">Please add tags to your post for easier search</label>
+          <input id="tags" class="form-input" name="tags" type="text" placeholder="e.g. dog, brown, new-york, red collar">
+          <button id="SubmitPost" class="form-btn submit">Submit</button>
+        </div>
+        <% if (message && message.length > 0){ %>
+          <div> <%= message %> </div>
+        <% } %>
     </form>
 </main>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
