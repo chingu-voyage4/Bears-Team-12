@@ -29,14 +29,17 @@
       <input id="PetBreed" class="form-input" name="breed" type="text" placeholder="Pet's Breed if known">
       <input id="PetGender" class="form-input" name="gender" type="text" placeholder="Pet's Gender if known">
       <input id="PetColor" class="form-input" type="text" name="color" placeholder="Pet's color">
-      <p class="form-question">Does the pet have a tag?
+      <!-- tag -->
+      <p class="form-question">Does your pet have a tag?
         <input id="Tag" name="tag" value="Yes" type="radio">
         <label for="Tag">Yes</label>
         <input id="NoTag" name="tag" value="No" type="radio">
         <label for="NoTag">No</label>
       </p>
-      <label for="TagInput" class="form-question">What is written on the tag?</label>
-      <input id="TagInput" class="general-input" type="text" name="tagInput" placeholder="Name / Phone / Address"> <!-- only visibile if the user selects 'Yes' -->
+      <div class="tag-expand hide-tag">
+        <label for="TagInput" class="form-question">What is written on the tag?</label>
+        <input id="TagInput" class="general-input" type="text" name="tagInput" placeholder="Name / Phone / Address"> <!-- only visibile if the user selects 'Other' -->
+      </div>
       <hr class="line">
       <p class="form-question found-details">Please list any additional details that will help in identifying the found pet (Ex: physical traits, personality, collar color, etc.):</p>
       <textarea class="text-area" name="petDesc" id="" cols="80" rows="10"></textarea>
