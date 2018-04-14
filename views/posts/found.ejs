@@ -17,7 +17,13 @@
         <p class="subtitle">Type: <span class="span"><%= post.petType.petCategory %></span></p>
         <p class="subtitle">Breed: <span class="span"><%= post.breed %></span></p>
         <p class="subtitle">Gender: <span class="span"><%= post.gender %></span></p>
+        <p class="subtitle">Color: <span class="span"><%= post.color %></span></p>
+        <p class="subtitle">Tag: <span class="span"><%= post.tag %></span></p>
         <p class="subtitle">Contact: <span class="span"><%= post.author.username %></span></p>
+        <!-- , <span class="span"><%= post.author.contact %></span> -->
+        <div class="pet-description">
+          <p class="subtitle">Pet's Description: <span class="span description-text"><%= post.description %></p>
+        </div>
       </div>
       <div class="post-description">
         <p class="desc-title">Details:</p>
@@ -28,6 +34,13 @@
     </div>
     <div class="add-comment-area">
       <a class="btn add-comment" href="">Add New Comment</a>
+    </div>
+    <div class="tags-arae">
+      <% if (post.tags > 0) { %>
+        <% post.tags.forEach((tag) => { %>
+          <p class="post-tag"><%= tag %></p>
+        <% }) %>
+      <% } %>
     </div>
   </section>
 
