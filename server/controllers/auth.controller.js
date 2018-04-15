@@ -71,6 +71,7 @@ module.exports = {
     unlinkSocialMedia( user, authType)
     .then( 
       fulfilled => {
+        console.log( 'unlinked ', 'authType');
         req.flash( 'notification', 'Profile unlinked successfully' );
         return res.redirect('/dashboard');
       },
