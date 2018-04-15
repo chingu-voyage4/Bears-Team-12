@@ -20,6 +20,7 @@ const postSchema = new Schema({
     },
     date: String,                   // the date the user inputs, stored in string format.
     description: String,           // pet description
+    tagInput: String,   
     location: {
         street: String,
         city: String,
@@ -31,6 +32,7 @@ const postSchema = new Schema({
         areaDesc: String,
         chipped: String,
         incident: String,
+        
     },
     found: {
         incident: String,
@@ -41,7 +43,8 @@ const postSchema = new Schema({
             type: Schema.Types.ObjectId,
             ref: "User"
         },
-        username: String
+        username: String,
+        contact:    String,
     },
     comments: [
         {

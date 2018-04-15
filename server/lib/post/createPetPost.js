@@ -5,10 +5,11 @@ const messageToUser = 'There was an error attempting to create your post. Please
 
 const createPetPost = ( postData, user, imageFileName, postType ) => {
   return new Promise( ( resolve, reject ) => {
+    
     const { 
       title, petChoice, otherType, name, breed, gender, age, chipped, 
       petDesc, lostDate, lastSeenDesc, incidentDesc, foundDate, address, city, 
-      state, zipcode, tagInput, areaDesc, color
+      state, zipcode, tagInput, areaDesc, color, contact, tagInput
     } = postData;
     
     User.findOne(
@@ -16,13 +17,16 @@ const createPetPost = ( postData, user, imageFileName, postType ) => {
         _id: user._id
       },
       ( error, user ) => {
+        
         if( error ) {
           return reject({
             error:    error,
             message:  messageToUser 
           });
         }
+        
         let post = new Post();
+        
         post.title = title;
         post.image = imageFileName;
         post.petType.petCategory = petChoice;
@@ -34,6 +38,7 @@ const createPetPost = ( postData, user, imageFileName, postType ) => {
         post.description = petDesc;  
         post.lastSeenDate = lastSeenDesc;
         post.postType = postType;
+        post.tagInput = tagInput;
         post.date = lostDate || foundDate || 'unknown';
         
         if( postType == 'FOUND'){
@@ -63,27 +68,34 @@ const createPetPost = ( postData, user, imageFileName, postType ) => {
         postUsername = user.local ? user.local.username : user.facebook ? user.facebook.name : user.google ? user.google.name : user.twitter ? user.twitter.displayName : 'NO ID';
         post.author = {
           id:       user._id,
-          username: postUsername
+          username: postUsername,
+          contact:  contact
         }
         post.save( error => {
+          
           if( error ) {
             return reject({
               error:    error,
               message:  messageToUser 
             });
           }
+          
           user.posts.push( post );
+          
           user.save( error => {
+            
             if( error ) {
               return reject({
                 error:    error,
                 message:  messageToUser 
               });
             }
-            resolve({
+            
+            return resolve({
               status:   'SUCCESS',
               message:  'Post created successfully'
             });
+            
           });
         });
       }
