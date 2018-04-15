@@ -67,12 +67,14 @@
         <input id="tags" class="form-input" name="tags" type="text" placeholder="e.g. dog, brown, new-york, red collar">
       </div>
       <!-- contact -->
-      <!-- <div>
+      <div>
         <label class="form-question" for="contact">Please add your contact information</label>
         <input id="contact" class="form-input" name="contact" type="text" placeholder="e.g. Phone, Email, Facebook, Twitter">
-      </div> -->
+      </div>
+
       <button id="SubmitPost" class="form-btn submit">Submit</button>
     </div>
+    <!-- flash message -->
     <% if (message && message.length > 0){ %>
     <div> <%= message %> </div>
     <% } %>
