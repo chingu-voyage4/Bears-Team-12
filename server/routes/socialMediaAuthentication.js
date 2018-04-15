@@ -19,6 +19,8 @@ const facebookAuthentication = passport.authenticate( 'facebook', {
 
 router.route( '/getauth').get( authController.getUserAuthorization );
 
+router.route( '/:authType/unlink' ).get( authController.unlink );
+
 router.route( '/twitter' ).get( twitterAuthentication, authController.getAuthTwitter );
 router.route( '/twitter/callback' ).get( twitterAuthentication, authController.getAuthTwitterCallback );
 
@@ -27,5 +29,7 @@ router.route( '/facebook/callback' ).get( facebookAuthentication, authController
 
 router.route( '/google/' ).get( googleAuthentication, authController.getAuthGoogle );
 router.route( '/google/callback' ).get ( googleAuthentication, authController.getAuthGoogleCallback );
+
+
 
 module.exports = router;

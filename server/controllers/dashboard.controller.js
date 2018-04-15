@@ -60,7 +60,7 @@ module.exports = {
       
       fulfilled => {
         
-        if( fulfilled.status === 'FAILED'){
+        if( fulfilled.status !== 'SUCCESS'){
           req.flash( 'notification', 'Please enter the correct current password' );
           return res.redirect( '/dashboard' );
         }
