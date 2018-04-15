@@ -34,26 +34,29 @@
         <li class="social-item">
           <a class="social-link" id="socialLink" href="">
             <i class="fab fa-google"></i>
-            <span class="plus-minus">
-              <i class="fas fa-plus-circle"></i>
-            </span>
           </a>
+          <p class="plus-minus">
+            <i id="dash-google-p" class="fas fa-plus-circle"></i>
+            <i id="dash-google-m" class="fas fa-minus-circle"></i>
+          </p>
         </li>
         <li class="social-item">
           <a class="social-link" id="socialLink" href="">
             <i class="fab fa-twitter"></i>
-            <span class="plus-minus">
-              <i class="fas fa-plus-circle"></i>
-            </span>
           </a>
+          <p class="plus-minus">
+            <i id="dash-tw-p" class="fas fa-plus-circle"></i>
+            <i id="dash-tw-m" class="fas fa-minus-circle"></i>
+          </p>
         </li>
         <li class="social-item">
           <a class="social-link" id="socialLink" href="">
             <i class="fab fa-facebook-f"></i>
-            <span class="plus-minus">
-              <i class="fas fa-plus-circle"></i>
-            </span>
           </a>
+          <p class="plus-minus">
+            <i id="dash-fb-p" class="fas fa-plus-circle"></i>
+            <i id="dash-fb-m" class="fas fa-minus-circle"></i>
+          </p>
         </li>
       </ul>
     </div>
@@ -63,7 +66,10 @@
     <a href="/posts/foundpet/new"><button id="FoundBtn" class="btn btn-found btn-small">I've found a Pet</button></a>
     <a href="/posts/lostpet/new"><button id="LostBtn" class="btn btn-lost btn-small">I'm looking for a Lost Pet</button></a>
   </section>
-  
+
 </main>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="../social.js"></script>
 
 <% include ./partials/footer %>

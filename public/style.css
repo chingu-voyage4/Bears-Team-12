@@ -125,28 +125,37 @@
 .social-list {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  margin: 1rem auto;
 }
 .social-item {
-  font-size: 1.8rem;
-  padding: 1rem;
-  background-color: #d88649;
-  border-radius: 5%;
-  margin: 1rem auto;
+  font-size: 2rem;
+  padding: 1.2rem;
+  background-color: #f4863f; /* maybe the new orange for all the app orange elements? */
+  border-radius: 50%;
+  margin: 1rem;
   list-style-type: none;
-  width: 12%;
+  width: 14%;
 }
 .social-link {
   color: #fff;
   padding: 0;
   margin: 0;
-  position: relative;
 }
 .plus-minus {
-  font-size: 1rem;
-  position: absolute;
-  top: -15px;
-  right: -12px;
+  font-size: 1.2rem;
+  margin: 0;
+  padding: 0;
+  padding-top: 0.5rem;
+}
+.grey-social {
+  color: #eee;
+}
+.green-social {
   color: #c9da7c;
+}
+.red-social {
+  color: #bd2e14;
 }
 .submit {
   width: 40%;
