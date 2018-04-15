@@ -29,7 +29,7 @@ const unlinkSocialMedia = ( sessionUser, authType ) => {
             
           case 'facebook':
             
-            if( user.facebook ) user.facebooke = undefined;
+            if( user.facebook ) user.facebook = undefined;
             
             user.save( error => {
               if ( error ) {
