@@ -76,7 +76,9 @@
 .hide {
   display: none;
 }
-.hide-other {
+.hide-other,
+.hide-chip,
+.hide-tag {
   display: none;
 }
 .text-area {
