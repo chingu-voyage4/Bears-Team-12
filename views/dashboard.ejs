@@ -1,5 +1,10 @@
 <% include ./partials/header %>
 
+<% if(message && message.length > 0){ %>
+  <div class="msg-box">
+    <h2 class="msg success-msg"><%- message %></h2>
+  </div>
+  <% } %>
 <main class="dashboard-section">
   <h1 class="dashboard-title">My Dashboard</h1>
   <section class="user-details">
@@ -8,23 +13,57 @@
 
     <div class="edit-section">
       <p class="form-title">Edit your information</p>
-      <p class="user-question">Change your password:</p>
 
-      <form action="" method="POST" class="form-group">
-        <input type="password" class="form-input" name="oldPassword" placeholder="Current Password">
-        <input type="password" class="form-input" name="newPassword" placeholder="New Password">
-        <button id="SubmitPassword" class="submit">Change password</button>
-      </form>
+      <% if (currentUser.local.hash) { %>
+        <p class="user-question">Change your password</p>
+        <form action="" method="POST" class="form-group">
+          <input type="password" class="form-input" name="oldPassword" placeholder="Current Password">
+          <input type="password" class="form-input" name="newPassword" placeholder="New Password">
+          <button id="SubmitPassword" class="submit">Change password</button>
+        </form>
+      <% } else { %>
+        <p class="user-question">Create a password</p>
+        <form action="" method="POST" class="form-group">
+          <input type="password" class="form-input" name="newPassword" placeholder="New Password">
+          <button id="SubmitPassword" class="submit">Create password</button>
+        </form>
+      <% } %>
 
-      <p class="user-question">Sign in with:</p>
+      <p class="user-question full-question">You can manage your account with any of the following:</p>
       <ul class="social-list">
-        <li class="social-item">Google</li>
-        <li class="social-item">Twitter</li>
-        <li class="social-item">Facebook</li>
+        <li class="social-item">
+          <a class="social-link" id="socialLink" href="">
+            <i class="fab fa-google"></i>
+            <span class="plus-minus">
+              <i class="fas fa-plus-circle"></i>
+            </span>
+          </a>
+        </li>
+        <li class="social-item">
+          <a class="social-link" id="socialLink" href="">
+            <i class="fab fa-twitter"></i>
+            <span class="plus-minus">
+              <i class="fas fa-plus-circle"></i>
+            </span>
+          </a>
+        </li>
+        <li class="social-item">
+          <a class="social-link" id="socialLink" href="">
+            <i class="fab fa-facebook-f"></i>
+            <span class="plus-minus">
+              <i class="fas fa-plus-circle"></i>
+            </span>
+          </a>
+        </li>
       </ul>
-
     </div>
   </section>
+
+  <section class="call-to-action">
+    <a href="/posts/foundpet/new"><button id="FoundBtn" class="btn btn-found btn-small">I've found a Pet</button></a>
+    <a href="/posts/lostpet/new"><button id="LostBtn" class="btn btn-lost btn-small">I'm looking for a Lost Pet</button></a>
+  </section>
+  
 </main>
 
 <% include ./partials/footer %>

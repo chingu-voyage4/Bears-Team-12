@@ -12,6 +12,7 @@
   border: none;
   color: #f9f9f9;
   border-radius: 0.4rem;
+  cursor: pointer;
 }
 .pet-list {
   width: 90%;
@@ -60,7 +61,7 @@
   color: #4d5962;
 }
 
-/* USER PAGE */
+/* Dashboard */
 .dashboard-section {
   text-align: center;
   width: 50%;
@@ -118,26 +119,37 @@
   width: 45%;
   padding-bottom: 0.2rem;
 }
+.full-question {
+  width: 90%;
+}
 .social-list {
   display: flex;
   flex-direction: row;
 }
 .social-item {
-  font-size: 1rem;
-  font-weight: bold;
-  line-height: 1.7rem;
-  text-align: center;
-  padding: 0.4rem 0;
-  margin-left: 1rem;
-  background-color: #e8f5fd;
-  color: #d88649;
-  border: 1px solid #d88649;
-  border-radius: 0.2rem;
-  width: 25%;
+  font-size: 1.8rem;
+  padding: 1rem;
+  background-color: #d88649;
+  border-radius: 5%;
   margin: 1rem auto;
   list-style-type: none;
+  width: 12%;
+}
+.social-link {
+  color: #fff;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+.plus-minus {
+  font-size: 1rem;
+  position: absolute;
+  top: -15px;
+  right: -12px;
+  color: #c9da7c;
 }
 .submit {
+  width: 40%;
   font-size: 1rem;
   font-weight: bold;
   line-height: 1.7rem;
@@ -149,4 +161,20 @@
   border-radius: 0.2rem;
   width: 40%;
   margin: 1rem;
+  cursor: pointer;
+}
+.call-to-action {
+  display: flex;
+  justify-content: center;
+}
+.btn-small {
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-family: 'Muli', sans-serif;
+  background-color: #4d5962;
+  margin: 2rem 2rem;
+  border: none;
+  color: #f9f9f9;
+  border-radius: 0.3rem;
+  cursor: pointer;
 }

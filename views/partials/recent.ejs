@@ -17,7 +17,11 @@
         <div class="details-area">
             <!-- <p class="info">Type: <span class="detail"><%= post.petType.petCategory %></span></p>
             <p class="info">Color: <span class="detail"><%= post.breed %></span></p> -->
-            <p class="info">Last seen: <span class="detail"><%= post.location.city %>, <%= post.location.state %>, <%= post.location.postal %></span></p>
+            <% if (post.postType === 'LOST') { %>
+                <p class="info">Last seen: <span class="detail"><%= post.location.city %>, <%= post.location.state %>, <%= post.location.postal %></span></p>
+            <% } else if (post.postType === 'FOUND') { %>
+                <p class="info">Found  Near: <span class="detail"><%= post.location.city %>, <%= post.location.state %>, <%= post.location.postal %></span></p>
+            <% } %>
             <p class="info">Date: <span class="detail"><%= post.date %></span></p>
             <p class="info">About: <span class="detail desc"><%= post.description %></span></p>
             <% if (post.tags.length === 0) { %>

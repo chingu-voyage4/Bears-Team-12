@@ -1,6 +1,7 @@
 //---------------------------- Auth Router -------------------------------------
 const getUserInfoById = require( '../lib/user/getUserInfoById.js' );
 const createNewUser = require('../lib/auth/createNewUser.js');
+const unlinkSocialMedia = require( '../lib/auth/unlinkSocialMedia' ); 
 
 module.exports = {
   
@@ -8,7 +9,6 @@ module.exports = {
     const auth = req.isAuthenticated();
     if( !auth ){
       res.redirect( '/login' );
-  
     }
     else {
       getUserInfoById( req.user.userId )
@@ -37,7 +37,7 @@ module.exports = {
   getAuthTwitterCallback: ( req, res ) => {
     // Successful authentication, redirect profile.
     req.flash( 'notification', 'You logged in successfully.');
-    res.redirect( '/profile' );
+    res.redirect( '/' );
   },
   
   getAuthGoogle: (req, res ) => {
@@ -47,7 +47,7 @@ module.exports = {
   getAuthGoogleCallback: ( req, res ) => {
     // Successful authentication, redirect profile.
     req.flash( 'notification', 'You logged in successfully.');
-    res.redirect( '/profile' );
+    res.redirect( '/' );
   },
   
   getAuthFacebook: (req, res ) => {
@@ -57,7 +57,30 @@ module.exports = {
   getAuthFacebookCallback: ( req, res ) => {
     // Successful authentication, redirect profile.
     req.flash( 'notification', 'You logged in successfully.');
-    res.redirect( '/profile' );
+    res.redirect( '/' );
+  },
+  
+  unlink: ( req, res ) => {   // /auth/:authType/unlink etc
+    if( !req.isAuthenticated() ){
+      req.flash( 'loginMessage', 'You need to be logged in to do that.');
+      return res.redirect( '/login' );
+    }
+    const { user } = req;
+    const { authType } = req.params;
+    console.log( 'authtype is ', authType )
+    unlinkSocialMedia( user, authType)
+    .then( 
+      fulfilled => {
+        console.log( 'unlinked ', 'authType');
+        req.flash( 'notification', 'Profile unlinked successfully' );
+        return res.redirect('/dashboard');
+      },
+      
+      unfulfilled => {
+        req.flash( 'notification', unfulfilled.message );
+        return res.redirect('/dashboard');
+      })
+    .catch( error => console.log( error ) );
   }
 }
 

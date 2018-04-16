@@ -26,10 +26,11 @@
   <body>
 
     <header class="header">
-      <h1 id="logoHeader" class="logo-header">PetTrackr</h1> <!-- Dynamically remove styles when not on index.html? -->
+      <a class="logo-link" href="/">
+        <h1 id="logoHeader" class="logo-header">PetTrackr</h1>
+      </a> <!-- Dynamically remove styles when not on index.html? -->
       <nav class="menu">
         <a class="menu-item" href="/">Home</a>
-        <!-- <a class="menu-item" href="#">About</a> -->
         <a class="menu-item" href="/posts/feed">All Pets</a>
         <a class="menu-item" href="/posts/lostpets">Lost Pets</a>
         <a class="menu-item" href="/posts/foundpets">Found Pets</a>
@@ -37,11 +38,17 @@
             <a class="menu-item" href="/signup">Sign Up</a>
             <a class="menu-item" href="/login">Login</a>
         <% } else { %>
-            <a class="menu-item" href="#" disabled>Welcome, <%= currentUser.local.username %></a>
-            <a class="menu-item" href="/logout">Logout</a>
-            <a class="menu-item" href="/dashboard">
-              <i class="fas fa-user-circle"></i>
-            </a>
+          <div class="dropdown">
+            <i class="dropbtn fas fa-user-circle" onclick="showUserDropdown()"></i>
+            <div id="userDropdown" class="dropdown-content">
+              <a href="#" class="welcome"><%= currentUser.local.username %></p>
+              <a href="/dashboard">Dashboard</a>
+              <a href="/logout">Logout</a>
+            </div>
+          </div>
         <% } %>
       </nav>
     </header>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="../../forms.js"></script>

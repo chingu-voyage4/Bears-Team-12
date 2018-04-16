@@ -1,7 +1,12 @@
 <% include ./partials/header %>
 
 <main>
-    <h2 class="sign-title">Sign In</h2>
+  <% if(message && message.length > 0){ %>
+    <div class="msg-box">
+       <h2 class="msg success-msg"><%- message %></h2>
+     </div>
+  <% } %>
+    <h2 class="sign-title">Login</h2>
     <form class="form-group" action="/login" method="POST">
         <input id="UserDisplayName" class="form-input" type="text" name="email" placeholder="Email">
         <input id="UserPass" class="form-input" type="password" name="password" placeholder="Password">

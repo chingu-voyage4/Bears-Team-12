@@ -12,24 +12,41 @@
               <p class="subtitle">Type: <span class="span"><%= post.petType.petCategory %></span></p>
               <p class="subtitle">Breed: <span class="span"><%= post.breed %></span></p>
               <p class="subtitle">Gender: <span class="span"><%= post.gender %></span></p>
+              <p class="subtitle">Color: <span class="span"><%= post.color %></span></p>
+              <p class="subtitle">Age: <span class="span"><%= post.lost.age %></span></p>
               <p class="subtitle">Chipped: <span class="span"><%= post.lost.chipped %></span></p>
-              <p class="subtitle">Contact: <span class="span"><%= post.author.username %></span></p>
+              <p class="subtitle">Tag: <span class="span"><%= post.tag %></span></p>
+              <p class="subtitle">Contact: <span class="span"><%= post.author.username %>, </span>, <span class="span"><%= post.author.contact %></span></p>
+
+              <div class="pet-description">
+                <p class="subtitle">Pet's Description: <span class="span description-text"><%= post.description %></p>
+              </div>
             </div>
-  
+
             <div class="post-description">
               <p class="desc-title">Last Seen:</p>
               <p class="subtitle">Date: <span class="span"><%= post.date %></span></p>
               <p class="subtitle">Location: <span class="span"><%= post.location.street %> <%= post.location.city %>, <%= post.location.state %>, <%= post.location.postal %></span>
               <p class="subtitle">Description: <span class="span description-text"><%= post.lost.areaDesc %></p>
-              <p class="subtitle">Incident Description: <span class="span description-text"><%= post.lost.incident %></span></p> 
+              <p class="subtitle">Incident Description: <span class="span description-text"><%= post.lost.incident %></span></p>
             </div>
+          </div>
+          <div class="tags-arae">
+            <% if (post.tags > 0) { %>
+              <% post.tags.forEach((tag) => { %>
+                <p class="post-tag"><%= tag %></p>
+              <% }) %>
+            <% } %>
+          </div>
+          <div class="add-comment-area">
+            <a class="btn add-comment" href="">Add New Comment</a>
           </div>
         </section>
   
         <section class="comments">
             <a href="/posts/lostpet/<%= post._id %>/comment">Add Comment</a>
             <% if (post.comments.length === 0) { %>
-              <h3>Be the first to comment!</h3>
+              <h3 class="comment-title">Be the first to comment!</h3>
             <% } else { %>
               <% post.comments.forEach((comment) => { %>
                 <% console.log(comment.text); %>
