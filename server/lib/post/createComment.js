@@ -7,12 +7,12 @@ const messageToUser = 'There was an error attempting to create your comment. Ple
 const createComment = ( commentData, user, postId ) => {
   return new Promise( ( resolve, reject ) => {
     const { 
-      comment
+      commentText
     } = commentData;
     
-    console.log("Comment data: " + commentData);
-    console.log("User Commenting: " + user);
-    console.log("Post Id: " + postId);
+    // console.log("Comment data: " + commentData);
+    // console.log("User Commenting: " + user);
+    // console.log("Post Id: " + postId);
 
     Post.findById(postId,
       ( error, post ) => {
@@ -23,7 +23,7 @@ const createComment = ( commentData, user, postId ) => {
           });
         }
         let comment = new Comment();
-        comment.text = comment
+        comment.text = commentText;
 
         let commentAuthor = '';
         commentAuthor = user.local ? user.local.username : user.facebook ? user.facebook.name : user.google ? user.google.name : user.twitter ? user.twitter.displayName : 'NO ID';

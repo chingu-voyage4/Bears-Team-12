@@ -31,7 +31,7 @@ const getPetPost = ( postId, type ) => {
         });
       
       }
-    );
+    ).populate("comments");
   })
 }
 
