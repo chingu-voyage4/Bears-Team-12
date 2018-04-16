@@ -9,7 +9,7 @@ const createPetPost = ( postData, user, imageFileName, postType ) => {
     const { 
       title, petChoice, otherType, name, breed, gender, age, chipped, 
       petDesc, lostDate, lastSeenDesc, incidentDesc, foundDate, address, city, 
-      state, zipcode, tagInput, areaDesc, color, contact, tagInput
+      state, zipcode, tagInput, areaDesc, color, contact, 
     } = postData;
     
     User.findOne(
