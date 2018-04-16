@@ -28,10 +28,10 @@
       <input id="PetName" class="form-input" type="text" name="name" placeholder="Pet's Name if known">
       <input id="PetBreed" class="form-input" name="breed" type="text" placeholder="Pet's Breed if known">
       <input id="PetGender" class="form-input" name="gender" type="text" placeholder="Pet's Gender if known">
-      <input id="PetColor" class="form-input" type="text" name="color" placeholder="Pet's color">
+      <input id="PetColor" class="form-input" type="text" name="color" placeholder="Pet's color*" required>
       <!-- tag -->
-      <p class="form-question">Does your pet have a tag?
-        <input id="Tag" name="tag" value="Yes" type="radio">
+      <p class="form-question">Does your pet have a tag?*
+        <input id="Tag" name="tag" value="Yes" type="radio" required>
         <label for="Tag">Yes</label>
         <input id="NoTag" name="tag" value="No" type="radio">
         <label for="NoTag">No</label>
@@ -45,8 +45,8 @@
       <textarea class="text-area" name="petDesc" id="" cols="80" rows="10"></textarea>
       <hr class="line">
       <!-- Found details -->
-      <label class="form-question" for="FoundDate">When did you find this pet?</label>
-      <input id="FoundDate" name="foundDate" type="date">
+      <label class="form-question" for="FoundDate">When did you find this pet?*</label>
+      <input id="FoundDate" name="foundDate" type="date" required>
       <p class="form-question">Where did you find this pet?</p>
       <input class="form-input" type="text" name="address" placeholder="Street Name/Address">
       <input class="form-input" type="text" name="city" placeholder="City">
@@ -54,11 +54,11 @@
       <input class="form-input" type="text" name="zipcode" placeholder="Zip/Postal Code*" required>
       <hr class="line">
       <!-- Incident Details -->
-      <p class="form-question">Please detail how you found this pet.</p>
-      <textarea name="incidentDesc" id="" name="description" cols="80" rows="10"></textarea>
+      <p class="form-question">Please detail how you found this pet*</p>
+      <textarea name="incidentDesc" id="" name="description" cols="80" rows="10" required></textarea>
       <!-- image -->
-      <input class="photo-input" id="PetImage" name="petImage" type="file" onchange="readURL(this);">
-      <label class="photo-label" for="PetImage">Please upload a photo of your pet</label>
+      <input class="photo-input" id="PetImage" name="petImage" type="file" onchange="readURL(this);" required>
+      <label class="photo-label" for="PetImage">Please upload a photo of your pet*</label>
       <p class="file-name" id="FilePath">No file chosen</p>
       <img id="photo" src="" alt="" />
       <!-- tags -->
@@ -68,8 +68,8 @@
       </div>
       <!-- contact -->
       <div>
-        <label class="form-question" for="contact">Please add your contact information</label>
-        <input id="contact" class="form-input" name="contact" type="text" placeholder="e.g. Phone, Email, Facebook, Twitter">
+        <label class="form-question" for="contact">Please add your contact information*</label>
+        <input id="contact" class="form-input" name="contact" type="text" placeholder="e.g. Phone, Email, Facebook, Twitter" required>
       </div>
 
       <button id="SubmitPost" class="form-btn submit">Submit</button>

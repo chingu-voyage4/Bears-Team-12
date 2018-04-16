@@ -25,15 +25,15 @@
     <hr class="line">
     <!-- Pet Details -->
     <div class="pet-details">
-      <input id="PetName" class="form-input" type="text" name="name" placeholder="Pet's Name">
+      <input id="PetName" class="form-input" type="text" name="name" placeholder="Pet's Name*" required>
       <input id="PetBreed" class="form-input" type="text" name="breed" placeholder="Pet's Breed">
       <input id="PetGender" class="form-input" type="text" name="gender" placeholder="Pet's Gender">
       <input id="PetAge" class="form-input" type="text" name="age" placeholder="Pet's Age">
-      <input id="PetColor" class="form-input" type="text" name="color" placeholder="Pet's color">
+      <input id="PetColor" class="form-input" type="text" name="color" placeholder="Pet's color*" required>
       <hr class="line">
       <!-- chip -->
-      <p class="form-question">Is your pet chipped?
-        <input id="Chipped" name="chipped" value="Yes" type="radio">
+      <p class="form-question">Is your pet chipped?*
+        <input id="Chipped" name="chipped" value="Yes" type="radio" required>
         <label for="Chipped">Yes</label>
         <input id="NoChip" name="chipped" value="No" type="radio">
         <label for="NoChip">No</label>
@@ -43,8 +43,8 @@
         <input id="ChipInput" class="general-input" type="text" name="tagInput" placeholder="chip number"> <!-- only visibile if the user selects 'Other' -->
       </div>
       <!-- tag -->
-      <p class="form-question">Does your pet have a tag?
-        <input id="Tag" name="tag" value="Yes" type="radio">
+      <p class="form-question">Does your pet have a tag?*
+        <input id="Tag" name="tag" value="Yes" type="radio" required>
         <label for="Tag">Yes</label>
         <input id="NoTag" name="tag" value="No" type="radio">
         <label for="NoTag">No</label>
@@ -57,8 +57,8 @@
       <textarea class="text-area" name="petDesc" id="" cols="80" rows="10"></textarea>
       <hr class="line">
       <!-- Last Seen details -->
-      <label class="form-question" for="LastSeenDate">When did you last see your pet?</label>
-      <input id="LastSeenDate" name="lostDate" type="date">
+      <label class="form-question" for="LastSeenDate">When did you last see your pet?*</label>
+      <input id="LastSeenDate" name="lostDate" type="date" required>
       <p class="form-question">Where did you last see your pet?</p>
       <input class="form-input" type="text" name="address" placeholder="Street Name/Address">
       <input class="form-input" type="text" name="city" placeholder="City">
@@ -68,11 +68,11 @@
       <textarea id="LastSeenAreaDesc" name="areaDesc" cols="80" rows="10"></textarea>
       <hr class="line">
       <!-- Incident Details -->
-      <p class="form-question">Please describe the incident in which you lost your pet.</p>
+      <p class="form-question">Please describe the incident in which you lost your pet</p>
       <textarea name="incidentDesc" id="" cols="80" rows="10"></textarea>
       <!-- image -->
-      <input class="photo-input" id="PetImage" name="petImage" type="file" onchange="readURL(this);">
-      <label class="photo-label" for="PetImage">Please upload a photo of your pet</label>
+      <input class="photo-input" id="PetImage" name="petImage" type="file" onchange="readURL(this);" required>
+      <label class="photo-label" for="PetImage">Please upload a photo of your pet*</label>
       <p class="file-name" id="FilePath">No file chosen</p>
       <img id="photo" src="" alt="" />
       <!-- tags -->
@@ -82,8 +82,8 @@
       </div>
       <!-- contact -->
       <div>
-        <label class="form-question" for="contact">Please add your contact information</label>
-        <input id="contact" class="form-input" name="contact" type="text" placeholder="e.g. Phone, Email, Facebook, Twitter">
+        <label class="form-question" for="contact">Please add your contact information*</label>
+        <input id="contact" class="form-input" name="contact" type="text" placeholder="e.g. Phone, Email, Facebook, Twitter" required>
       </div>
 
     <button id="SubmitPost" class="form-btn submit">Submit</button>

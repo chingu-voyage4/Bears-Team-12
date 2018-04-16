@@ -130,23 +130,22 @@
 }
 .social-item {
   font-size: 2rem;
-  padding: 1.2rem;
-  background-color: #f4863f; /* maybe the new orange for all the app orange elements? */
-  border-radius: 50%;
   margin: 1rem;
   list-style-type: none;
-  width: 14%;
+  line-height: 0;
 }
 .social-link {
+  padding: 1.2rem;
+  background-color: #f4863f; /* maybe the new orange for all the app orange elements? */
+  width: 14%;
+  border-radius: 50%;
   color: #fff;
-  padding: 0;
-  margin: 0;
+  margin: 1rem;
 }
 .plus-minus {
   font-size: 1.2rem;
   margin: 0;
-  padding: 0;
-  padding-top: 0.5rem;
+  padding-top: 2rem;
 }
 .grey-social {
   color: #eee;

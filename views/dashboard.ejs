@@ -35,29 +35,36 @@
           <a class="social-link" id="socialLink" href="">
             <i class="fab fa-google"></i>
           </a>
-          <p class="plus-minus">
-            <i id="dash-google-p" class="fas fa-plus-circle"></i>
-            <i id="dash-google-m" class="fas fa-minus-circle"></i>
-          </p>
-        </li>
+        <p class="plus-minus">
+            <!-- <i id="dash-google-p show-green" class="fas fa-plus-circle"></i>
+            <i id="dash-google-m show-grey" class="fas fa-minus-circle"></i> -->
+            <i id="dash-google-p show-grey" class="fas fa-plus-circle"></i>
+            <i id="dash-google-m show-red" class="fas fa-minus-circle"></i>
+        </p>
+      </li>
         <li class="social-item">
           <a class="social-link" id="socialLink" href="">
             <i class="fab fa-twitter"></i>
           </a>
-          <p class="plus-minus">
-            <i id="dash-tw-p" class="fas fa-plus-circle"></i>
-            <i id="dash-tw-m" class="fas fa-minus-circle"></i>
-          </p>
-        </li>
+        <p class="plus-minus">
+          <% if (!currentUser.twitter.displayName) { %>
+            <i id="dash-tw-p show-green" class="fas fa-plus-circle"></i>
+            <i id="dash-tw-m show-grey" class="fas fa-minus-circle"></i>
+          <% } else { %>
+            <i id="dash-tw-p show-grey" class="fas fa-plus-circle"></i>
+            <i id="dash-tw-m show-red" class="fas fa-minus-circle"></i>
+          <% } %>
+        </p>
+      </li>
         <li class="social-item">
           <a class="social-link" id="socialLink" href="">
-            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-facebook-square"></i>
           </a>
-          <p class="plus-minus">
-            <i id="dash-fb-p" class="fas fa-plus-circle"></i>
-            <i id="dash-fb-m" class="fas fa-minus-circle"></i>
-          </p>
-        </li>
+        <p class="plus-minus">
+          <i id="dash-fb-p" class="fas fa-plus-circle"></i>
+          <i id="dash-fb-m" class="fas fa-minus-circle"></i>
+        </p>
+      </li>
       </ul>
     </div>
   </section>
@@ -70,6 +77,6 @@
 </main>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="../social.js"></script>
+<!-- <script type="text/javascript" src="../social.js"></script> -->
 
 <% include ./partials/footer %>
