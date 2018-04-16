@@ -1,74 +1,86 @@
 <% include ../partials/header %>
-
 <main>
-    <h2 class="page-title-pet">Tell Us About The Pet You've Found</h2>
-    <form class="form-pet" action="/api/foundpet/new" method="POST" enctype="multipart/form-data">
-      <div class="checkbox-area">
-        <p class="form-question question-type">What type of pet have you found?*<br>
-          <input id="DogRadio" class="radio-input" name="petChoice" type="radio" value="Dog" required>
-          <label for="DogRadio" class="radio-label">Dog</label>
-          <input id="CatRadio" class="radio-input" name="petChoice" value="Cat" type="radio">
-          <label for="CatRadio" class="radio-label">Cat</label>
-          <input id="BirdRadio" class="radio-input" name="petChoice" value="Bird" type="radio">
-          <label for="BirdRadio" class="radio-label">Bird</label>
-          <input id="ReptileRadio" class="radio-input" name="petChoice" value="Reptile" type="radio">
-          <label for="ReptileRadio" class="radio-label">Reptile</label>
-          <input id="SmMammalRadio" class="radio-input" name="petChoice" value="Small Mammal" type="radio">
-          <label for="SmMammalRadio" class="radio-label">Small Mammal</label>
-          <input id="OtherRadio" class="radio-input" name="petChoice" value="Other" type="radio">
-          <label for="OtherRadio" class="radio-label">Other</label>
-        </p>
+  <h2 class="page-title-pet">Tell Us About The Pet You've Found</h2>
+  <form class="form-pet" action="/api/foundpet/new" method="POST" enctype="multipart/form-data">
+    <div class="checkbox-area">
+      <p class="form-question question-type">What type of pet have you found?*<br>
+        <input id="DogRadio" class="radio-input" name="petChoice" type="radio" value="Dog" required>
+        <label for="DogRadio" class="radio-label">Dog</label>
+        <input id="CatRadio" class="radio-input" name="petChoice" value="Cat" type="radio">
+        <label for="CatRadio" class="radio-label">Cat</label>
+        <input id="BirdRadio" class="radio-input" name="petChoice" value="Bird" type="radio">
+        <label for="BirdRadio" class="radio-label">Bird</label>
+        <input id="ReptileRadio" class="radio-input" name="petChoice" value="Reptile" type="radio">
+        <label for="ReptileRadio" class="radio-label">Reptile</label>
+        <input id="SmMammalRadio" class="radio-input" name="petChoice" value="Small Mammal" type="radio">
+        <label for="SmMammalRadio" class="radio-label">Small Mammal</label>
+        <input id="OtherRadio" class="radio-input" name="petChoice" value="Other" type="radio">
+        <label for="OtherRadio" class="radio-label">Other</label>
+      </p>
+    </div>
+    <div class="other-input hide-other">
+      <label for="OtherInput" class="form-question">What is the type of the pet?</label>
+      <input id="OtherInput" class="form-input" type="text" placeholder="e.g. cow, goat, etc."><!-- only visibile if the user selects 'Other' -->
+    </div>
+    <hr class="line">
+    <!-- Pet Details -->
+    <div class="pet-details">
+      <input id="PetName" class="form-input" type="text" name="name" placeholder="Pet's Name if known">
+      <input id="PetBreed" class="form-input" name="breed" type="text" placeholder="Pet's Breed if known">
+      <input id="PetGender" class="form-input" name="gender" type="text" placeholder="Pet's Gender if known">
+      <input id="PetColor" class="form-input" type="text" name="color" placeholder="Pet's color">
+      <!-- tag -->
+      <p class="form-question">Does your pet have a tag?
+        <input id="Tag" name="tag" value="Yes" type="radio">
+        <label for="Tag">Yes</label>
+        <input id="NoTag" name="tag" value="No" type="radio">
+        <label for="NoTag">No</label>
+      </p>
+      <div class="tag-expand hide-tag">
+        <label for="TagInput" class="form-question">What is written on the tag?</label>
+        <input id="TagInput" class="general-input" type="text" name="tagInput" placeholder="Name / Phone / Address"> <!-- only visibile if the user selects 'Other' -->
       </div>
-      <div class="other-input hide-other">
-        <label for="OtherInput" class="form-question">What is the type of the pet?</label>
-        <input id="OtherInput" class="form-input" type="text" placeholder="e.g. cow, goat, etc."><!-- only visibile if the user selects 'Other' -->
+      <hr class="line">
+      <p class="form-question found-details">Please list any additional details that will help in identifying the found pet (Ex: physical traits, personality, collar color, etc.):</p>
+      <textarea class="text-area" name="petDesc" id="" cols="80" rows="10"></textarea>
+      <hr class="line">
+      <!-- Found details -->
+      <label class="form-question" for="FoundDate">When did you find this pet?</label>
+      <input id="FoundDate" name="foundDate" type="date">
+      <p class="form-question">Where did you find this pet?</p>
+      <input class="form-input" type="text" name="address" placeholder="Street Name/Address">
+      <input class="form-input" type="text" name="city" placeholder="City">
+      <input class="form-input" type="text" name="state" placeholder="State/Province*" required>
+      <input class="form-input" type="text" name="zipcode" placeholder="Zip/Postal Code*" required>
+      <hr class="line">
+      <!-- Incident Details -->
+      <p class="form-question">Please detail how you found this pet.</p>
+      <textarea name="incidentDesc" id="" name="description" cols="80" rows="10"></textarea>
+      <!-- image -->
+      <input class="photo-input" id="PetImage" name="petImage" type="file" onchange="readURL(this);">
+      <label class="photo-label" for="PetImage">Please upload a photo of your pet</label>
+      <p class="file-name" id="FilePath">No file chosen</p>
+      <img id="photo" src="" alt="" />
+      <!-- tags -->
+      <div>
+        <label class="form-question" for="tags">Please add tags to your post for easier search</label>
+        <input id="tags" class="form-input" name="tags" type="text" placeholder="e.g. dog, brown, new-york, red collar">
+      </div>
+      <!-- contact -->
+      <div>
+        <label class="form-question" for="contact">Please add your contact information</label>
+        <input id="contact" class="form-input" name="contact" type="text" placeholder="e.g. Phone, Email, Facebook, Twitter">
       </div>
 
-      <hr>
-      <!-- Pet Details -->
-      <div class="pet-details">
-        <input id="PetBreed" class="form-input" name="breed" type="text" placeholder="Pet's Breed">
-        <input id="PetGender" class="form-input" name="gender" type="text" placeholder="Pet's Gender">
-
-          <p class="form-question">Does the pet have a tag?
-          <input id="Tag" name="tag" value="Yes" type="radio">
-          <label for="Tag">Yes</label>
-          <input id="NoTag" name="tag" value="No" type="radio">
-          <label for="NoTag">No</label></p>
-          <label for="TagInput" class="form-question">What is written on the tag?</label>
-          <input id="TagInput" class="general-input" type="text" name="tagInput" placeholder="Name / Phone / Address"> <!-- only visibile if the user selects 'Yes' -->
-
-        <hr class="line">
-
-        <p class="form-question found-details">Please list any additional details that will help in identifying the found pet (Ex: physical traits, personality, collar color, etc.):</p>
-        <textarea class="text-area" name="petDesc" id="" cols="80" rows="10"></textarea>
-
-        <hr class="line">
-        <!-- Found details -->
-        <label class="form-question" for="FoundDate">When did you find this pet?</label>
-        <input id="FoundDate" name="foundDate" type="date">
-        <p class="form-question">Where did you find this pet?</p>
-        <input class="form-input" type="text" name="address" placeholder="Street Name/Address">
-        <input class="form-input" type="text" name="city" placeholder="City">
-        <input class="form-input" type="text" name="state" placeholder="State/Province*" required>
-        <input class="form-input" type="text" name="zipcode" placeholder="Zip/Postal Code*" required>
-
-        <hr class="line">
-        <!-- Incident Details -->
-        <p class="form-question">Please detail how you found this pet.</p>
-        <textarea name="incidentDesc" id="" name="description" cols="80" rows="10"></textarea>
-
-          <!-- tags -->
-          <label class="form-question" for="FoundDate">Please add tags to your post for easier search</label>
-          <input id="tags" class="form-input" name="tags" type="text" placeholder="e.g. dog, brown, new-york, red collar">
-          <button id="SubmitPost" class="form-btn submit">Submit</button>
-        </div>
-        <% if (message && message.length > 0){ %>
-          <div> <%= message %> </div>
-        <% } %>
-    </form>
+      <button id="SubmitPost" class="form-btn submit">Submit</button>
+    </div>
+    <!-- flash message -->
+    <% if (message && message.length > 0){ %>
+    <div> <%= message %> </div>
+    <% } %>
+  </form>
 </main>
+
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="../../forms.js"></script>
-
 <% include ../partials/footer %>

@@ -27,13 +27,35 @@ $('#commentBody').keyup(function() {
   $('#left').text(length);
 });
 
-// hide and show options in form
+// hide and show options in form - for pet type
 $(document).ready(function() {
   $('input[type=radio][name=petChoice]').change(function() {
     if (this.value == 'Other') {
-      $('.other-input').removeClass('hide-other');
+      $('.other-expand').removeClass('hide-other');
     } else {
-      $('.other-input').addClass('hide-other');
+      $('.other-expand').addClass('hide-other');
+    }
+  });
+});
+
+// hide and show options in form - for chip
+$(document).ready(function() {
+  $('input[type=radio][name=chipped]').change(function() {
+    if (this.value == 'Yes') {
+      $('.chip-expand').removeClass('hide-chip');
+    } else {
+      $('.chip-expand').addClass('hide-chip');
+    }
+  });
+});
+
+// hide and show options in form - for tag
+$(document).ready(function() {
+  $('input[type=radio][name=tag]').change(function() {
+    if (this.value == 'Yes') {
+      $('.tag-expand').removeClass('hide-tag');
+    } else {
+      $('.tag-expand').addClass('hide-tag');
     }
   });
 });
