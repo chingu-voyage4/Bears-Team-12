@@ -148,13 +148,15 @@
   padding-top: 2rem;
 }
 .grey-social {
-  color: #eee;
+  color: #9c9c9c;
 }
 .green-social {
-  color: #c9da7c;
+  color: #00cc33;
+  cursor: pointer;
 }
 .red-social {
   color: #bd2e14;
+  cursor: pointer;
 }
 .submit {
   width: 40%;
@@ -168,7 +170,7 @@
   border: 1px solid #d88649;
   border-radius: 0.2rem;
   width: 40%;
-  margin: 1rem;
+  margin: 1rem auto;
   cursor: pointer;
 }
 .call-to-action {
