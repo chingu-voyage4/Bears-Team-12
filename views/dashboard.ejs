@@ -14,18 +14,18 @@
     <div class="edit-section">
       <p class="form-title">Edit your information</p>
 
-      <% if (currentUser.local.hash) { %>
+      <% if (!currentUser.local) { %>
+        <p class="user-question">Create a password</p>
+        <form action="" method="POST" class="form-group">
+          <input type="password" class="form-input" name="newPassword" placeholder="New Password">
+          <button id="SubmitPassword" class="submit">Create password</button>
+        </form>
+      <% } else { %>
         <p class="user-question">Change your password</p>
         <form action="" method="POST" class="form-group">
           <input type="password" class="form-input" name="oldPassword" placeholder="Current Password">
           <input type="password" class="form-input" name="newPassword" placeholder="New Password">
           <button id="SubmitPassword" class="submit">Change password</button>
-        </form>
-      <% } else { %>
-        <p class="user-question">Create a password</p>
-        <form action="" method="POST" class="form-group">
-          <input type="password" class="form-input" name="newPassword" placeholder="New Password">
-          <button id="SubmitPassword" class="submit">Create password</button>
         </form>
       <% } %>
 
@@ -34,27 +34,45 @@
         <li class="social-item">
           <a class="social-link" id="socialLink" href="">
             <i class="fab fa-google"></i>
-            <span class="plus-minus">
-              <i class="fas fa-plus-circle"></i>
-            </span>
           </a>
-        </li>
+        <p class="plus-minus">
+          <% if (!currentUser.twitter) { %>
+            <i id="dash-goo-p" class="fas fa-plus-circle green-social"></i>
+            <i id="dash-goo-m" class="fas fa-minus-circle grey-social"></i>
+          <% } else { %>
+            <i id="dash-goo-p" class="fas fa-plus-circle grey-social"></i>
+            <i id="dash-goo-m" class="fas fa-minus-circle red-social"></i>
+          <% } %>
+        </p>
+      </li>
         <li class="social-item">
           <a class="social-link" id="socialLink" href="">
             <i class="fab fa-twitter"></i>
-            <span class="plus-minus">
-              <i class="fas fa-plus-circle"></i>
-            </span>
           </a>
-        </li>
+        <p class="plus-minus">
+          <% if (!currentUser.twitter) { %>
+            <i id="dash-tw-p" class="fas fa-plus-circle green-social"></i>
+            <i id="dash-tw-m" class="fas fa-minus-circle grey-social"></i>
+          <% } else { %>
+            <i id="dash-tw-p" class="fas fa-plus-circle grey-social"></i>
+            <i id="dash-tw-m" class="fas fa-minus-circle red-social"></i>
+          <% } %>
+        </p>
+      </li>
         <li class="social-item">
           <a class="social-link" id="socialLink" href="">
-            <i class="fab fa-facebook-f"></i>
-            <span class="plus-minus">
-              <i class="fas fa-plus-circle"></i>
-            </span>
+            <i class="fab fa-facebook-square"></i>
           </a>
-        </li>
+        <p class="plus-minus">
+          <% if (!currentUser.facebook) { %>
+            <i id="dash-fb-p" class="fas fa-plus-circle green-social"></i>
+            <i id="dash-fb-m" class="fas fa-minus-circle grey-social"></i>
+          <% } else { %>
+            <i id="dash-fb-p" class="fas fa-plus-circle grey-social"></i>
+            <i id="dash-fb-m" class="fas fa-minus-circle red-social"></i>
+          <% } %>
+        </p>
+      </li>
       </ul>
     </div>
   </section>
@@ -63,7 +81,7 @@
     <a href="/posts/foundpet/new"><button id="FoundBtn" class="btn btn-found btn-small">I've found a Pet</button></a>
     <a href="/posts/lostpet/new"><button id="LostBtn" class="btn btn-lost btn-small">I'm looking for a Lost Pet</button></a>
   </section>
-  
+
 </main>
 
 <% include ./partials/footer %>
