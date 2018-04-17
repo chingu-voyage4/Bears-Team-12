@@ -32,7 +32,7 @@ const validateImageAndCreatePost = ( req, res, postType ) => {
       }
       
       else if ( file.size < minFileSize || !isImageFile( file.path ) ) {            
-        fs.unlinkSync( process.cwd() + filename ); // deletes uploaded file
+        fs.unlinkSync( file.path ); // deletes uploaded file
         req.flash( 'notification', 'Photo must be a valid image file that is larger than 10 kB' );
         res.redirect('/posts/' + url );
         return;
@@ -48,18 +48,17 @@ const validateImageAndCreatePost = ( req, res, postType ) => {
           createPetPost( req.body, req.user, filename, postType )
             .then( 
               fulfilled => {
+                fs.unlinkSync( file.path ); // deletes uploaded file
                 req.flash( 'notification', 'Post created succesfully' );
                 res.redirect( '/')
               },
               unfulfilled => {
+                fs.unlinkSync( file.path ); // deletes uploaded file
                 req.flash( 'notification', unfulfilled.message );
                 res.redirect( '/')
                 console.log( 'Error while creating a post ', unfulfilled.error )
               })
             .catch( error => console.log( error ) );
-          
-          console.log( 'image uploaded successfully')
-          
         })
       .catch( error => console.log( error ) );
       return;  
@@ -69,10 +68,12 @@ const validateImageAndCreatePost = ( req, res, postType ) => {
       createPetPost( req.body, req.user, filename, postType )
       .then( 
         fulfilled => {
+          fs.unlinkSync( file.path ); // deletes uploaded file
           req.flash( 'notification', 'Post created succesfully' );
           res.redirect( '/')
         },
         unfulfilled => {
+          fs.unlinkSync( file.path ); // deletes uploaded file
           req.flash( 'notification', unfulfilled.message );
           res.redirect( '/')
           console.log( 'Error while creating a post ', unfulfilled.error )
