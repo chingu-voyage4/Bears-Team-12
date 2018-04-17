@@ -1,0 +1,31 @@
+<% include ./partials/header %>
+
+<main>
+    <% if(message && message.length > 0){ %>
+        <div class="msg-box">
+           <h2 class="msg success-msg"><%- message %></h2>
+         </div>
+    <% } %>
+    <h2 class="sign-title">Login</h2>
+    <form class="form-group" action="/login" method="POST">
+        <input id="UserDisplayName" class="form-input" type="text" name="email" placeholder="Email">
+        <input id="UserPass" class="form-input" type="password" name="password" placeholder="Password">
+        <button id="LoginBtn" class="form-btn submit">Login</button>
+    </form>
+    <div>
+      <p class="user-question full-question">Or login with:</p>
+      <ul class="social-list">
+        <li class="social-item">
+          <a class="social-link" id="socialLink" href=""><i class="fab fa-google"></i></a>
+        </li>
+        <li class="social-item">
+          <a class="social-link" id="socialLink" href=""><i class="fab fa-twitter"></i></a>
+        </li>
+        <li class="social-item">
+          <a class="social-link" id="socialLink" href=""><i class="fab fa-facebook-f"></i></a>
+        </li>
+      </ul>
+    </div>
+</main>
+
+<% include ./partials/footer %>

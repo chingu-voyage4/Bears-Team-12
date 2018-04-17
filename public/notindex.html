@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>PetTrackr</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Muli|Righteous" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="global.css" />
+    <script src="script.js"></script>
+  </head>
+
+  <body>
+
+    <header class="header">
+      <h1 id="logoHeader" class="logo-header">PetTrackr</h1> <!-- Dynamically remove styles when not on index.html? -->
+      <nav class="menu">
+        <a class="menu-item" href="#">Home</a>
+        <a class="menu-item" href="#">About</a>
+        <a class="menu-item" href="#">Lost Pets</a>
+        <a class="menu-item" href="#">Found Pets</a>
+        <a class="menu-item" href="#">Sign Up</a>
+        <a class="menu-item" href="#">Login</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="call-to-action">
+        <!-- Use CSS to position logo-header in place on index? -->
+        <button id="FoundBtn" class="btn btn-found">I've found a Pet</button>
+        <button id="LostBtn" class="btn btn-lost">I'm looking for a Lost Pet</button>
+      </section>
+
+      <h2 class="recent-heading page-title">Have you seen...</h2>
+
+      <section class="recent-posts">
+        <!-- Placeholder data for visual reference -->
+        <div class="pet">
+          <div class="pet-image-area">
+            <h2 class="pet-name">BARKER</h2>
+            <img class="pet-image" src="https://i.kinja-img.com/gawker-media/image/upload/s--ytATzsY9--/c_fill,fl_progressive,g_center,h_450,q_80,w_800/ol9ceoqxidudap8owlwn.jpg" alt="dog">
+          </div>
+          <div class="details-area">
+            <!-- <p class="info">Type: <span class="detail">Dog</span></p>
+            <p class="info">Color: <span class="detail">Light Brown</span></p> -->
+            <p class="info">Last seen: <span class="detail">Fresno, California, 87534</span></p>
+            <p class="info">Date: <span class="detail">March 12, 2018</span></p>
+            <p class="info">About: <span class="detail desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span></p>
+            <p class="label-small">Tags:
+              <span class="tags" id="TagListing tags">tag1, tag2, tag3</span>
+            </p>
+          </div>
+        </div>
+
+        <hr class="line">
+
+        <div class="pet">
+          <div class="pet-image-area">
+            <h2 class="pet-name">LOLA</h2>
+            <img class="pet-image" src="http://dreamicus.com/data/cat/cat-01.jpg" alt="cat">
+          </div>
+          <div class="details-area">
+            <p class="info">Last seen: <span class="detail">Madison, Wisconsin, 22344</span></p>
+            <p class="info">Date: <span class="detail">March 19, 2018</span></p>
+            <p class="info">About: <span class="detail desc">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</span></p>
+            <p class="label-small">Tags:
+              <span class="tags" id="TagListing tags">tag1, tag2, tag3</span>
+            </p>
+          </div>
+        </div>
+
+        <hr class="line">
+
+        <div class="pet">
+          <div class="pet-image-area">
+            <h2 class="pet-name">BANDIT</h2>
+            <img class="pet-image" src="https://d3n8a8pro7vhmx.cloudfront.net/taxpayers/pages/679/attachments/original/1499663166/4-ways-cheer-up-depressed-cat.jpg?1499663166" alt="cat">
+          </div>
+          <div class="details-area">
+            <p class="info">Last seen: <span class="detail">Chicago, Illinois, 43675</span></p>
+            <p class="info">Date: <span class="detail">March 5, 2018</span></p>
+            <p class="info">About: <span class="detail desc">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></p>
+            <p class="label-small">Tags:
+              <span class="tags" id="TagListing">tag1, tag2, tag3</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+  </body>
+</html>

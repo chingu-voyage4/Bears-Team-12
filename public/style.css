@@ -1,0 +1,190 @@
+/* Home, Post, Feed */
+.call-to-action {
+  display: flex;
+  justify-content: center;
+}
+.btn {
+  padding: 2rem;
+  font-size: 2rem;
+  font-family: 'Muli', sans-serif;
+  background-color: #4d5962;
+  margin: 7rem 2rem;
+  border: none;
+  color: #f9f9f9;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+.pet-list {
+  width: 90%;
+  display: block;
+  margin: 0 auto;
+}
+.pet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9;
+  margin: 0.5rem;
+}
+.pet-link {
+  text-decoration: none;
+  color: #363d48;
+}
+.pet-image-area,
+.details-area {
+  margin: 0.5rem;
+  padding: 0;
+  width: 50%;
+}
+.pet-image-area {
+  width: 25%;
+}
+.pet-name {
+  margin-bottom: 1rem;
+}
+.pet-image {
+  width: 8rem;
+  height: 6rem;
+  border-radius: 0.5rem;
+}
+.tags,
+.detail {
+  font-weight: normal;
+}
+.label-small,
+.info {
+  font-size: 0.9rem;
+  font-weight: bold;
+  min-width: 50%;
+}
+.tags {
+  color: #4d5962;
+}
+
+/* Dashboard */
+.dashboard-section {
+  text-align: center;
+  width: 50%;
+  display: block;
+  margin: 2rem auto;
+  color: #666;
+}
+.dashboard-title {
+  text-align: left;
+  margin-bottom: 4rem;
+}
+.user-name,
+.user-email {
+  text-align: left;
+  font-size: 1.3rem;
+}
+.edit-section {
+  background-color: #eee;
+  padding: 1rem 3rem;
+  border-radius: 0.2rem;
+}
+.form-group {
+  width: 80%;
+  margin: 1.5rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.form-input {
+  width: 50%;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid #666;
+  text-align: left;
+  color: #666;
+  line-height: 1.8rem;
+  font-size: 1.3rem;
+  margin: 1.5rem;
+  padding-left: 2rem;
+}
+.form-title {
+  text-align: left;
+  color: #666;
+  line-height: 1.8rem;
+  font-size: 1.4rem;
+  margin-top: 4rem;
+}
+.user-question {
+  text-align: left;
+  color: #d88649;
+  line-height: 1.4rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-top: 4rem;
+  width: 45%;
+  padding-bottom: 0.2rem;
+}
+.full-question {
+  width: 90%;
+}
+.social-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 1rem auto;
+}
+.social-item {
+  font-size: 2rem;
+  margin: 1rem;
+  list-style-type: none;
+  line-height: 0;
+}
+.social-link {
+  padding: 1.2rem;
+  background-color: #f4863f; /* maybe the new orange for all the app orange elements? */
+  width: 14%;
+  border-radius: 50%;
+  color: #fff;
+  margin: 1rem;
+}
+.plus-minus {
+  font-size: 1.2rem;
+  margin: 0;
+  padding-top: 2rem;
+}
+.grey-social {
+  color: #9c9c9c;
+}
+.green-social {
+  color: #00cc33;
+  cursor: pointer;
+}
+.red-social {
+  color: #bd2e14;
+  cursor: pointer;
+}
+.submit {
+  width: 40%;
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.7rem;
+  text-align: center;
+  padding: 0.4rem 0;
+  background-color: transparent;
+  color: #d88649;
+  border: 1px solid #d88649;
+  border-radius: 0.2rem;
+  width: 40%;
+  margin: 1rem auto;
+  cursor: pointer;
+}
+.call-to-action {
+  display: flex;
+  justify-content: center;
+}
+.btn-small {
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-family: 'Muli', sans-serif;
+  background-color: #4d5962;
+  margin: 2rem 2rem;
+  border: none;
+  color: #f9f9f9;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
