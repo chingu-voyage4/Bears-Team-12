@@ -1,13 +1,13 @@
-<% include ../partials/header %>
+<% include ./partials/header %>
 
 <main>
     <h2 class="page-title">Leave a Comment</h2>
-    <form class="form-comment" action="/api/comment/new" method="POST" enctype="">
+    <form class="form-comment" action="/posts/<%= post.postType.toLowerCase() %>pet/<%= post._id %>/comment" method="POST" enctype="">
 
       <!-- Comment -->
       <div class="comment-body">
         <p class="form-question">Please write your comment below:</p>
-        <textarea name="comment-body" id="commentBody" cols="80" rows="10" maxlength="500" required></textarea>
+        <textarea name="commentBody" id="commentBody" cols="80" rows="10" maxlength="500" required></textarea>
         <p class="characters"><span id="left">500 </span>/ 500</p>
       </div>
 
@@ -22,6 +22,6 @@
 </main>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="../../forms.js"></script>
+<script type="text/javascript" src="../../../forms.js"></script>
 
-<% include ../partials/footer %>
+<% include ./partials/footer %>

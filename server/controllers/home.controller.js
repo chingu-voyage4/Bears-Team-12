@@ -10,7 +10,6 @@ module.exports = {
 
   recent: (req, res) => {
     const page = req.query.page;
-    console.log("Page: " + page);
     getAllPosts ( page )
     .then(
       fulfilled => {

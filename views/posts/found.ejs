@@ -33,9 +33,9 @@
       </div>
     </div>
     <div class="add-comment-area">
-      <a class="btn add-comment" href="">Add New Comment</a>
+      <a class="btn add-comment" href="/posts/foundpet/<%= post._id %>/comment">Add New Comment</a>
     </div>
-    <div class="tags-arae">
+    <div class="tags-area">
       <% if (post.tags > 0) { %>
         <% post.tags.forEach((tag) => { %>
           <p class="post-tag"><%= tag %></p>
@@ -50,7 +50,7 @@
       <% } else { %>
         <% post.comments.forEach((comment) => { %>
           <div class="comment">
-              <h3 class="comment-title"><%= comment.author %> - <%= comment.createdAt %></h3>
+              <h3 class="comment-title"><%= comment.author.username %> - <%= moment(comment.createdAt).fromNow() %></h3>
               <p class="comments-text"><%= comment.text %></p>
           </div>
         <% }) %>

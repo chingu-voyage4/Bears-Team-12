@@ -39,18 +39,18 @@
             <% } %>
           </div>
           <div class="add-comment-area">
-            <a class="btn add-comment" href="">Add New Comment</a>
+            <a class="btn add-comment" href="/posts/lostpet/<%= post._id %>/comment">Add New Comment</a>
           </div>
         </section>
-
-
-        <section class="comment">
+  
+        <section class="comments">
             <% if (post.comments.length === 0) { %>
               <h3 class="comment-title">Be the first to comment!</h3>
             <% } else { %>
               <% post.comments.forEach((comment) => { %>
+                <% console.log(comment.text); %>
                 <div class="comment">
-                    <h3 class="comment-title"><%= comment.author %> - <%= comment.createdAt %></h3>
+                    <h3 class="comment-title"><%= comment.author.username %> - <%= moment(comment.createdAt).fromNow() %></h3>
                     <p class="comments-text"><%= comment.text %></p>
                 </div>
               <% }) %>

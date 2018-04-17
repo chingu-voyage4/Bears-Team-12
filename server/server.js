@@ -58,9 +58,10 @@ const socialMediaAuthentication = require( './routes/socialMediaAuthentication.j
 const posts = require( './routes/posts.js' );
 const databaseApi = require( './routes/databaseApi.js' );
 
+app.locals.moment = require('moment');
+
 app.use(function(req, res, next) {
   res.locals.currentUser = req.user;
-  //console.log("Current User: ", res.locals.currentUser);
   next();
 });
 
