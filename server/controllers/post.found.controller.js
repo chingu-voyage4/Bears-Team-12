@@ -78,7 +78,7 @@ module.exports = {
   
   postFoundPetPost: ( req, res ) => {
     if( !req.isAuthenticated() ) {
-      req.flash( 'loginMessage', 'In order to create a post you must first log it.' );
+      req.flash( 'loginMessage', 'In order to create a post you must first log in.' );
       res.redirect( '/login' )
       return;
     }
@@ -87,7 +87,7 @@ module.exports = {
   
   getCreateFoundPetPage: ( req, res ) => {
     if( !req.isAuthenticated() ) {
-      req.flash( 'loginMessage', 'In order to create a post you must first log it.' );
+      req.flash( 'loginMessage', 'In order to create a post you must first log in.' );
       res.redirect( '/login' )
       return;
     }
