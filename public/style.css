@@ -125,28 +125,38 @@
 .social-list {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  margin: 1rem auto;
 }
 .social-item {
-  font-size: 1.8rem;
-  padding: 1rem;
-  background-color: #d88649;
-  border-radius: 5%;
-  margin: 1rem auto;
+  font-size: 2rem;
+  margin: 1rem;
   list-style-type: none;
-  width: 12%;
+  line-height: 0;
 }
 .social-link {
+  padding: 1.2rem;
+  background-color: #f4863f; /* maybe the new orange for all the app orange elements? */
+  width: 14%;
+  border-radius: 50%;
   color: #fff;
-  padding: 0;
-  margin: 0;
-  position: relative;
+  margin: 1rem;
 }
 .plus-minus {
-  font-size: 1rem;
-  position: absolute;
-  top: -15px;
-  right: -12px;
-  color: #c9da7c;
+  font-size: 1.2rem;
+  margin: 0;
+  padding-top: 2rem;
+}
+.grey-social {
+  color: #9c9c9c;
+}
+.green-social {
+  color: #00cc33;
+  cursor: pointer;
+}
+.red-social {
+  color: #bd2e14;
+  cursor: pointer;
 }
 .submit {
   width: 40%;
@@ -160,7 +170,7 @@
   border: 1px solid #d88649;
   border-radius: 0.2rem;
   width: 40%;
-  margin: 1rem;
+  margin: 1rem auto;
   cursor: pointer;
 }
 .call-to-action {
