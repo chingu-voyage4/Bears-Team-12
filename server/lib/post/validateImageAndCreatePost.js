@@ -7,7 +7,7 @@ const base64Encode = require( '../image/base64Encode.js' )
 const fs = require( 'fs' );
 
 const minFileSize = 10*1024;
-const maxSizeMB = 2;
+const maxSizeMB = 10;
 const maxSize = maxSizeMB * 1024 * 1024;
 
 const validateImageAndCreatePost = ( req, res, postType ) => {
@@ -37,7 +37,6 @@ const validateImageAndCreatePost = ( req, res, postType ) => {
         res.redirect('/posts/' + url );
         return;
       }
-      console.log( file )
 
       imageString = base64Encode( file.path );
       

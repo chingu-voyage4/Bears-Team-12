@@ -20,7 +20,7 @@
         </p>
       </div>
       <div class="other-input hide-other">
-        <label for="OtherInput" class="form-question">Please specify the type of pet.</label>
+        <label for="OtherInput" class="form-question">What is the type of the pet?</label>
         <input id="OtherInput" class="form-input" type="text" placeholder="e.g. cow, goat, etc."><!-- only visibile if the user selects 'Other' -->
       </div>
 
@@ -61,8 +61,6 @@
           <!-- tags -->
           <label class="form-question" for="FoundDate">Please add tags to your post for easier search</label>
           <input id="tags" class="form-input" name="tags" type="text" placeholder="e.g. dog, brown, new-york, red collar">
-          <input class="photo-input" id="PetImage" name="petImage" type="file" onchange="readURL(this);">
-          <label class="photo-label" for="PetImage">Please upload a photo of the pet</label>
           <button id="SubmitPost" class="form-btn submit">Submit</button>
         </div>
         <% if (message && message.length > 0){ %>

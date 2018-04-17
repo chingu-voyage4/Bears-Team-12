@@ -1,10 +1,10 @@
 <% include ../partials/header %>
 
     <main>
-        <h2 class="page- -pet">Tell Us About Your Pet</h2>
+        <h2 class="page-title-pet">Tell Us About Your Pet</h2>
         <form class="form-pet" action="/api/lostpet/new" method="POST" enctype="multipart/form-data">
             <div class="checkbox-area">
-              <p class="form-question question-type">What type of pet have you lost?*<br>
+              <p class="form-question question-type">What is your pet?*<br>
                 <input id="DogRadio" class="radio-input" name="petChoice" value="Dog" type="radio" required>
                 <label for="DogRadio" class="radio-label">Dog</label>
                 <input id="CatRadio" class="radio-input" name="petChoice" value="Cat" type="radio">
@@ -20,8 +20,8 @@
               </p>
             </div>
             <div class="other-input hide-other">
-              <label for="OtherInput" class="form-question">Please specify the type of pet.</label>
-              <input id="OtherInput" class="form-input" name="petChoice" type="text" placeholder="e.g. cow, goat, etc."><!-- only visibile if the user selects 'Other' -->
+              <label for="OtherInput" class="form-question">What is the type of your pet?</label>
+              <input id="OtherInput" class="form-input" type="text" placeholder="e.g. cow, goat, etc."><!-- only visibile if the user selects 'Other' -->
             </div>
 
             <hr class="line">
@@ -56,7 +56,7 @@
               <!-- Last Seen details -->
               <label class="form-question" for="LastSeenDate">When did you last see your pet?</label>
               <input id="LastSeenDate" name="lostDate" type="date">
-              <p class="form-question">Location where you last saw your pet?</p>
+              <p class="form-question">Where did you last see your pet?</p>
               <input class="form-input" type="text" name="address" placeholder="Street Name/Address">
               <input class="form-input" type="text" name="city" placeholder="City">
               <input class="form-input" type="text" name="state" placeholder="State/Province*" required>
