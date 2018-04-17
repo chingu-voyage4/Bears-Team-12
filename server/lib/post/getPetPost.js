@@ -9,7 +9,9 @@ const getPetPost = ( postId, type ) => {
       {
         _id:      postId,
         postType: type,
-      },
+      })
+    .populate('comments')
+    .exec(
       ( error, post ) => {
         
         if ( error ) return reject({
@@ -29,9 +31,8 @@ const getPetPost = ( postId, type ) => {
           status:   'FAILED',
           message:  'Pet post could not be found'
         });
-      
       }
-    ).populate("comments");
+    )
   })
 }
 
