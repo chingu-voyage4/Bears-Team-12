@@ -15,7 +15,7 @@ module.exports = {
             if (error) {
                 console.log(error);
             } else {
-                res.render('./temp/comment', {
+                res.render('./commentform', {
                     post: post,
                     page: 'form',
                     message: req.flash('notification')
@@ -30,9 +30,6 @@ module.exports = {
             res.redirect('/login');
             return;
         }
-        console.log(req.body);
-        console.log(req.user);
-        console.log(req.params);
         createComment( req.body, req.user, req.params.postId )
         .then(
             fulfilled => {
