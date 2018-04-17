@@ -44,45 +44,33 @@ const validateImageAndCreatePost = ( req, res, postType ) => {
       .then( 
         fulfilled =>{
           if ( fulfilled.status == 200 ) filename = fulfilled.data.link;
-          console.log(  fulfilled.data.link)
-          createPetPost( req.body, req.user, filename, postType )
-            .then( 
-              fulfilled => {
-                fs.unlinkSync( file.path ); // deletes uploaded file
-                req.flash( 'notification', 'Post created succesfully' );
-                res.redirect( '/')
-              },
-              unfulfilled => {
-                fs.unlinkSync( file.path ); // deletes uploaded file
-                req.flash( 'notification', unfulfilled.message );
-                res.redirect( '/')
-                console.log( 'Error while creating a post ', unfulfilled.error )
-              })
-            .catch( error => console.log( error ) );
+          postPromiseHandler( req, res, filename, file, postType );
         })
       .catch( error => console.log( error ) );
       return;  
     }
     else{
-
-      createPetPost( req.body, req.user, filename, postType )
-      .then( 
-        fulfilled => {
-          fs.unlinkSync( file.path ); // deletes uploaded file
-          req.flash( 'notification', 'Post created succesfully' );
-          res.redirect( '/')
-        },
-        unfulfilled => {
-          fs.unlinkSync( file.path ); // deletes uploaded file
-          req.flash( 'notification', unfulfilled.message );
-          res.redirect( '/')
-          console.log( 'Error while creating a post ', unfulfilled.error )
-        })
-      .catch( error => console.log( error ) );
-      
+      postPromiseHandler( req, res, filename, file, postType );
     }
   });
   
+}
+
+const postPromiseHandler = ( req, res, filename, file, postType ) => {
+  createPetPost( req.body, req.user, filename, postType )
+  .then( 
+    fulfilled => {
+      fs.unlinkSync( file.path ); // deletes uploaded file
+      req.flash( 'notification', 'Post created succesfully' );
+      res.redirect( '/')
+    },
+    unfulfilled => {
+      fs.unlinkSync( file.path ); // deletes uploaded file
+      req.flash( 'notification', unfulfilled.message );
+      res.redirect( '/')
+      console.log( 'Error while creating a post ', unfulfilled.error )
+    })
+  .catch( error => console.log( error ) );
 }
 
 module.exports = validateImageAndCreatePost;
