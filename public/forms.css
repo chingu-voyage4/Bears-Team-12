@@ -1,12 +1,31 @@
 /* SIGN UP & LOGIN */
+.signup-container,
+.login-container {
+  display: flex;
+  justify-content: center;
+}
 .sign-title {
   font-size: 2rem;
   text-align: center;
   margin-top: 4rem;
 }
+.signup-local,
+.login-local,
+.signup-social,
+.login-social {
+  width: 50%;
+  margin-top: 2rem;
+}
+.signup-local,
+.login-local {
+  border-right: 0.5px solid rgba(255, 161, 80, 0.5);
+}
+.signup-social,
+.login-social {
+  border-left: 0.5px solid rgba(255, 161, 80, 0.5);
+}
 .form-group {
-  width: 30%;
-  margin: 2rem auto;
+  margin: 2rem 0 0 5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -38,6 +57,15 @@
   margin: 2rem auto;
   cursor: pointer;
 }
+.signup-social .social-list,
+.login-local .social-list {
+  margin-top: 5rem;
+}
+.create-account .form-input {
+  width: 60%;
+  margin: 2rem auto;
+}
+
 /* LOST & FOUND PET FORMS */
 .form-pet {
   width: 70%;
@@ -183,8 +211,8 @@ label[for='PetImage'] {
   text-align: center;
 }
 .social-list {
-  width: 50%;
-  margin: 1rem auto;
+  width: 70%;
+  margin: 2rem auto;
   display: flex;
   flex-direction: row;
 }
@@ -208,4 +236,5 @@ label[for='PetImage'] {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}*/
 }*/
