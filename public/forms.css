@@ -31,8 +31,8 @@
   padding: 0.3rem 0.7rem;
   margin-left: 2rem;
   background-color: transparent;
-  color: #d88649;
-  border: 1px solid #d88649;
+  color: #ffa150;
+  border: 1px solid #ffa150;
   border-radius: 0.2rem;
   width: 30%;
   margin: 2rem auto;
@@ -192,8 +192,8 @@ label[for='PetImage'] {
   font-size: 2rem;
   text-align: center;
   padding: 1rem 0.8rem;
-  background-color: #d88649;
-  border: 1px solid #d88649;
+  background-color: #ffa150;
+  border: 1px solid #ffa150;
   border-radius: 50%;
   margin: 1rem auto;
   width: 8%;

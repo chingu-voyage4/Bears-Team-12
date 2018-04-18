@@ -111,7 +111,7 @@
 }
 .user-question {
   text-align: left;
-  color: #d88649;
+  color: #ffa150;
   line-height: 1.4rem;
   font-size: 1.2rem;
   font-weight: 500;
@@ -166,8 +166,8 @@
   text-align: center;
   padding: 0.4rem 0;
   background-color: transparent;
-  color: #d88649;
-  border: 1px solid #d88649;
+  color: #ffa150;
+  border: 1px solid #ffa150;
   border-radius: 0.2rem;
   width: 40%;
   margin: 1rem auto;

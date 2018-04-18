@@ -26,10 +26,8 @@ textarea {
 /* HEADER */
 .logo-header {
   margin: 0;
-  padding: 0.5rem;
   cursor: pointer;
   width: 200px;
-  height: 80px;
 }
 .logo-link {
   color: #363d48;
@@ -38,9 +36,9 @@ textarea {
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 1rem 2rem;
+  padding: 1rem;
   margin: 0;
-  background-color: #d88649;
+  background-color: #ffa150;
   color: #eceef1;
 }
 .menu {
@@ -85,7 +83,7 @@ textarea {
   z-index: 1;
 }
 .dropdown-content a {
-  color: #d88649;
+  color: #ffa150;
   padding: 0.2rem 0.4rem;
   text-decoration: none;
   display: block;
