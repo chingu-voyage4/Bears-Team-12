@@ -9,7 +9,7 @@ const createPetPost = ( postData, user, imageFileName, postType ) => {
     const { 
       title, petChoice, otherType, name, breed, gender, age, chipped, 
       petDesc, lostDate, lastSeenDesc, incidentDesc, foundDate, address, city, 
-      state, zipcode, tagInput, areaDesc, color, contact, 
+      state, zipcode, tagInput, areaDesc, color, contact, tags,
     } = postData;
     
     User.findOne(
@@ -40,6 +40,7 @@ const createPetPost = ( postData, user, imageFileName, postType ) => {
         post.postType = postType;
         post.tagInput = tagInput;
         post.date = lostDate || foundDate || 'unknown';
+        post.tags = tags.split(',');
         
         if( postType == 'FOUND'){
           post.found = {
@@ -57,6 +58,7 @@ const createPetPost = ( postData, user, imageFileName, postType ) => {
         }
         
         post.location = {
+          name: name,
           address:  address,
           city:     city,
           state:    state,

@@ -4,6 +4,8 @@ const createPetPost = require( './createPetPost.js' );
 const imgurUpload = require( '../image/imgurUpload.js' );
 const base64Encode = require( '../image/base64Encode.js' )
 
+const extractPostType = require( './extractPostType.js' );
+
 const fs = require( 'fs' );
 
 const minFileSize = 10*1024;
@@ -13,6 +15,8 @@ const maxSize = maxSizeMB * 1024 * 1024;
 const validateImageAndCreatePost = ( req, res, postType ) => {
   // Upload an image using multer and verify that file is png or jpeg.
   // Then create a post with values entered by user
+
+  const type = extractPostType( postType );
   
   upload( req, res, ( error ) => {
     if ( error )  console.log( error );
@@ -44,20 +48,20 @@ const validateImageAndCreatePost = ( req, res, postType ) => {
       .then( 
         fulfilled =>{
           if ( fulfilled.status == 200 ) filename = fulfilled.data.link;
-          postPromiseHandler( req, res, filename, file, postType );
+          postPromiseHandler( req, res, filename, file, type );
         })
       .catch( error => console.log( error ) );
       return;  
     }
     else{
-      postPromiseHandler( req, res, filename, file, postType );
+      postPromiseHandler( req, res, filename, file, type );
     }
   });
   
 }
 
-const postPromiseHandler = ( req, res, filename, file, postType ) => {
-  createPetPost( req.body, req.user, filename, postType )
+const postPromiseHandler = ( req, res, filename, file, type ) => {
+  createPetPost( req.body, req.user, filename, type )
   .then( 
     fulfilled => {
       fs.unlinkSync( file.path ); // deletes uploaded file

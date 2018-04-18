@@ -1,12 +1,18 @@
 const getPetPost = require( '../lib/post/getPetPost.js' );
+const getAllPosts = require( '../lib/post/getAllPosts.js' );
+
 const getAllLostPets = require( '../lib/post/getAllLostPets.js' );
 const validateImageAndCreatePost = require( '../lib/post/validateImageAndCreatePost.js' );
 
 module.exports = {
   
-  getAllLostPetsPage: ( req, res ) => {
-    const page = req.query.page;
-    getAllLostPets( page )
+  getAllPetsPage: ( req, res ) => {
+    
+    const { postType } = req.params;
+    
+    const { page, petName, zipCode, petType } = req.query;
+
+    getAllPosts( page, postType, petName, zipCode, petType )
     .then(
       fulfilled => {
         res.render( './posts/feed', { 
@@ -25,9 +31,12 @@ module.exports = {
     .catch( error => console.log( 'There was an error retreiving all lost pet posts: ', error ) ); 
   },
   
-  getAllLostPets: ( req, res ) => {
-    const page = req.query.page;
-    getAllLostPets( page )
+  getAllPets: ( req, res ) => {
+    const { postType } = req.params;
+    
+    const { page, petName, zipCode, petType } = req.query;
+
+    getAllPosts( page, postType, petName, zipCode, petType )
     .then(
       fulfilled => res.send( fulfilled.data )
       ,
@@ -40,17 +49,25 @@ module.exports = {
     .catch( error => console.log( error ) );
   },
   
-  getLostPetPage: ( req, res ) => {
+  getPetPage: ( req, res ) => {
     const { postId } = req.params;
-    const type = 'LOST';
-    getPetPost( postId, type )
+    getPetPost( postId )
     .then( 
       fulfilled => {
-        res.render('./posts/lost', { 
-          post: fulfilled.data.post, 
-          page: 'post', 
-          message: req.flash( 'notification' ),
-        });
+        if( fulfilled.data.postType == 'LOST'){
+          res.render('./posts/lost', { 
+            post: fulfilled.data.post, 
+            page: 'post', 
+            message: req.flash( 'notification' ),
+          });
+        }
+        else{
+          res.render('./posts/found', { 
+            post: fulfilled.data.post, 
+            page: 'post', 
+            message: req.flash( 'notification' ),
+          });
+        }
       },
       
       unfulfilled => {
@@ -61,10 +78,9 @@ module.exports = {
     .catch( error => console.log( 'There was an error attempting to retreive a found pet post: ', error ) )   
   },
   
-  getLostPetPost: ( req, res ) => {
+  getPetPost: ( req, res ) => {
     const { postId } = req.params;
-    const type = 'LOST';
-    getPetPost( postId, type )
+    getPetPost( postId )
     .then( 
       fulfilled => {
         res.send( fulfilled.data );
@@ -77,16 +93,18 @@ module.exports = {
     .catch( error => console.log( error ) )
   },
   
-  postLostPetPost: ( req, res ) => {
+  postPetPost: ( req, res ) => {
     if( !req.isAuthenticated() ) {
       req.flash( 'loginMessage', 'In order to create a post you must first log in.' );
       res.redirect('/login');
       return;
     }
-    validateImageAndCreatePost( req, res, 'LOST' );
+    const { postType } = req.params;
+
+    validateImageAndCreatePost( req, res,  postType );
   },
   
-  getCreateLostPetPage: ( req, res ) => {
+  getCreatePostPage: ( req, res ) => {
     if( !req.isAuthenticated() ) {
       req.flash( 'loginMessage', 'In order to create a post you must first log in.' );
       res.redirect( '/login' )
@@ -96,6 +114,29 @@ module.exports = {
       page: 'form', 
       message: req.flash( 'notification' ),
     });
+  },
+  
+  search: ( req, res ) => {
+    
+    const { postType } = req.params;
+    
+    const { page, petName, zipCode, petType } = req.query;
+
+    getAllPosts( page, postType, petName, zipCode, petType )
+    .then( 
+      fulfilled => {
+        res.render('./posts/feed', { 
+          posts: fulfilled.data.posts, 
+          page: 'posts',
+          message: req.flash( 'notification' ),
+        })
+      },
+      
+      unfulfilled => {
+        req.flash('notification', 'There was an error while attempting to search. Please contact site administrator.');
+        res.redirect('/');
+        return;
+      })
   }
   
 }

@@ -1,33 +1,35 @@
 const express = require( 'express' );
 const router = express.Router();
 
-const postFoundController = require( '../controllers/post.found.controller.js' );
-const postLostController = require( '../controllers/post.lost.controller.js' );
-const postFeedController = require( '../controllers/post.feed.controller.js' );
+const postController = require( '../controllers/post.controller.js' );
 const commentController = require('../controllers/comment.controller.js');
 
-router.route( '/feed' ).get( postFeedController.getPostFeedPage );
+router.route( '/feed' ).get( postController.getAllPetsPage );
 
-router.route( '/lostpets' ).get( postLostController.getAllLostPetsPage );           // html view all lost pets
+router.route( '/search').get( postController.search );
 
-router.route( '/lostpet/new' ).get( postLostController.getCreateLostPetPage );
+router.route( '/:postType' ).get( postController.getAllPetsPage );           // html view all lost pets
 
-router.route( '/lostpet/:postId' ).get( postLostController.getLostPetPage);     // html view single post
+router.route( '/:postType/new' ).get( postController.getCreatePostPage );
 
-router.route('/lostpet/:postId/comment').get( commentController.getNewCommentPage ) // comment form view
+router.route( '/:postType/:postId' ).get( postController.getPetPage);     // html view single post
 
-router.route('/lostpet/:postId/comment').post( commentController.postNewComment ) // comment submit
+router.route('/:postType/:postId/comment').get( commentController.getNewCommentPage ) // comment form view
+
+router.route('/:postType/:postId/comment').post( commentController.postNewComment ) // comment submit
 
 // Found routes
 
-router.route( '/foundpets' ).get( postFoundController.getAllFoundPetsPage );        // html view all pets
+/*router.route( '/foundpets' ).get( postFoundController.getAllFoundPetsPage );        // html view all pets
 
 router.route( '/foundpet/new' ).get( postFoundController.getCreateFoundPetPage );
+
+//router.route( '/foundpet/search' ).get( postFoundController.search );
 
 router.route( '/foundpet/:postId' ).get(postFoundController.getFoundPetPage );   // html view for single post
 
 router.route('/foundpet/:postId/comment').get( commentController.getNewCommentPage ) // comment form view
 
-router.route('/foundpet/:postId/comment').post( commentController.postNewComment ) // comment submit
+router.route('/foundpet/:postId/comment').post( commentController.postNewComment ) // comment submit*/
 
 module.exports = router;
