@@ -28,6 +28,8 @@ textarea {
   margin: 0;
   padding: 0.5rem;
   cursor: pointer;
+  width: 200px;
+  height: 80px;
 }
 .logo-link {
   color: #363d48;
