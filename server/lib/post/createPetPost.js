@@ -26,21 +26,21 @@ const createPetPost = ( postData, user, imageFileName, postType ) => {
         }
         
         let post = new Post();
-        
+        postType = postType.toUpperCase();
         post.title = title;
         post.image = imageFileName;
-        post.petType.petCategory = petChoice;
-        post.petType.otherType = otherType;
-        post.breed = breed;
+        post.petType.petCategory = petChoice ? petChoice.toLowerCase() : undefined;
+        post.petType.otherType = otherType ? otherType.toLowerCase() : undefined;
+        post.breed = breed ? breed.toLowerCase() : undefined;
         post.name = name;
-        post.gender = gender;
+        post.gender = gender ? gender.toLowerCase() : undefined;
         post.age = age;
         post.description = petDesc;  
         post.lastSeenDate = lastSeenDesc;
         post.postType = postType;
         post.tagInput = tagInput;
         post.date = lostDate || foundDate || 'unknown';
-        post.tags = tags.split(',');
+        post.tags = tags ? tags.toLowerCase().split(',') : undefined;
         
         if( postType == 'FOUND'){
           post.found = {
@@ -62,7 +62,7 @@ const createPetPost = ( postData, user, imageFileName, postType ) => {
           address:  address,
           city:     city,
           state:    state,
-          postal:      zipcode
+          postal:   zipcode
         }
         
         let postUsername = '';

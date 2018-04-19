@@ -17,7 +17,7 @@ const validateImageAndCreatePost = ( req, res, postType ) => {
   // Then create a post with values entered by user
 
   const type = extractPostType( postType );
-  
+  console.log('extracted type is ', type )
   upload( req, res, ( error ) => {
     if ( error )  console.log( error );
     
