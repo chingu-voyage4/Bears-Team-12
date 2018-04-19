@@ -1,3 +1,91 @@
+/* POST */
+.post-pet {
+  background-color: #eceef1;
+  padding: 3rem 0 0 1rem;
+  margin: 2rem 4rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.post-image {
+  width: 28rem;
+  height: 20rem;
+  display: block;
+  margin: 0 auto;
+  border-radius: 0.5rem;
+}
+.name {
+  text-align: center;
+  font-size: 2rem;
+  font-family: 'Fredoka One', cursive;
+  font-weight: normal;
+  letter-spacing: 0.1rem;
+}
+.line {
+  width: 70%;
+  opacity: 0.5;
+  margin: 0 auto;
+}
+.post-text {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+.post-details {
+  width: 20%;
+  margin-left: 2rem;
+}
+.post-description {
+  width: 40%;
+  margin-left: 2rem;
+}
+.subtitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.span {
+  font-weight: normal;
+}
+.details-title,
+.desc-title {
+  font-weight: bold;
+  color: #ffa150;
+  font-size: 1.4rem;
+}
+.description-text {
+  line-height: 2rem;
+}
+.add-comment-area {
+  align-self: center;
+  margin: 2rem;
+}
+.add-comment {
+  font-size: 0.8rem;
+  font-weight: bold;
+  line-height: 1.2rem;
+  text-align: center;
+  padding: 0.4rem;
+  background-color: transparent;
+  color: #ffa150;
+  border: 1px solid #ffa150;
+  border-radius: 0.2rem;
+  margin: 1rem auto;
+  cursor: pointer;
+  text-decoration: none;
+}
+.comment {
+  color: red;
+  background-color: #f5f6f8;
+  padding: 1rem 2rem;
+  margin: 1rem 4rem;
+  border-radius: 1rem;
+  font-size: 1.2rem;
+}
+.comment-title {
+  font-size: 1.2rem;
+  color: #ffa150;
+}
+
 /* POSTS */
 .search {
   display: flex;
