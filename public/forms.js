@@ -61,7 +61,6 @@ $(document).ready(function() {
 });
 
 // Dropdown Header logic
-
 // Show dropdown menu when user clicks the button
 function showUserDropdown() {
   $('#userDropdown').toggleClass('show');
