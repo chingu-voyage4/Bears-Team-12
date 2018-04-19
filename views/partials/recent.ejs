@@ -3,42 +3,42 @@
     <div class="pet-link" onclick="location.href = '/posts/<%= post.postType.toLowerCase() %>pet/<%= post._id %>'">
       <div class="pet">
           <div class="pet-image-area">
-              <% if (post.postType === 'LOST' && post.lost.name !== '') { %>
-                  <h2 class="pet-name"><%= post.lost.name %></h2>
-              <% } else if (post.postType === 'LOST' && post.lost.name === '')  { %>
-                  <h2 class="pet-name"><%= post.title %></h2>
-              <% } else if (post.postType === 'FOUND' && post.found.name !== '') { %>
-                  <h2 class="pet-name"><%= post.found.name %></h2>
-              <% } else if (post.postType === 'FOUND' && post.found.name === '')  { %>
-                  <h2 class="pet-name"><%= post.title %></h2>
-              <% } %>
               <img class="pet-image" src="<%= post.image %>" alt="<%= post.petType.petCategory %>">
           </div>
           <div class="details-area">
-              <% if (post.postType === 'LOST') { %>
-                  <p class="info">Last seen: <span class="detail"><%= post.location.city %>, <%= post.location.state %>, <%= post.location.postal %></span></p>
-              <% } else if (post.postType === 'FOUND') { %>
-                  <p class="info">Found  Near: <span class="detail"><%= post.location.city %>, <%= post.location.state %>, <%= post.location.postal %></span></p>
-              <% } %>
-              <p class="info">Date: <span class="detail"><%= post.date %></span></p>
-              <p class="info">About: <span class="detail desc"><%= post.description %></span></p>
-              <% if (post.tags.length === 0) { %>
-              <p class="label-small">Tags:
-              <span class="tags" id="tagListing tags">No Tags</span>
-              </p>
-              <% } else { %>
-              <p class="label-small">Tags:
-              <span class="tags" id="tagListing tags">
-                  <% post.tags.forEach((tag, idx, array) => { %>
-                  <% if (idx === array.length - 1) { %>
-                      <span class="tag-link" onclick="location.href = '#'"><%= tag %></span>
-                  <% } else { %>
-                      <span class="tag-link" onclick="location.href = '#'"><%= tag %></span>,
-                  <% } %>
-                  <% }) %>
-              </span>
-              </p>
-              <% } %>
+            <% if (post.postType === 'LOST' && post.lost.name !== '') { %>
+              <h2 class="pet-name"><%= post.lost.name %></h2>
+            <% } else if (post.postType === 'LOST' && post.lost.name === '')  { %>
+              <h2 class="pet-name"><%= post.title %></h2>
+            <% } else if (post.postType === 'FOUND' && post.found.name !== '') { %>
+              <h2 class="pet-name"><%= post.found.name %></h2>
+            <% } else if (post.postType === 'FOUND' && post.found.name === '')  { %>
+              <h2 class="pet-name"><%= post.title %></h2>
+            <% } %>
+            <% if (post.postType === 'LOST') { %>
+                <p class="info">Last seen: <span class="detail"><%= post.location.city %>, <%= post.location.state %>, <%= post.location.postal %></span></p>
+            <% } else if (post.postType === 'FOUND') { %>
+                <p class="info">Found  Near: <span class="detail"><%= post.location.city %>, <%= post.location.state %>, <%= post.location.postal %></span></p>
+            <% } %>
+            <p class="info">Date: <span class="detail"><%= post.date %></span></p>
+            <p class="info">About: <span class="detail desc"><%= post.description %></span></p>
+            <% if (post.tags.length === 0) { %>
+            <p class="label-small">Tags:
+            <span class="tags" id="tagListing tags">No Tags</span>
+            </p>
+            <% } else { %>
+            <p class="label-small">Tags:
+            <span class="tags" id="tagListing tags">
+                <% post.tags.forEach((tag, idx, array) => { %>
+                <% if (idx === array.length - 1) { %>
+                    <span class="tag-link" onclick="location.href = '#'"><%= tag %></span>
+                <% } else { %>
+                    <span class="tag-link" onclick="location.href = '#'"><%= tag %></span>,
+                <% } %>
+                <% }) %>
+            </span>
+            </p>
+            <% } %>
           </div>
       </div>
     </div>

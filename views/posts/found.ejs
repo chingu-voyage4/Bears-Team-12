@@ -19,8 +19,10 @@
         <p class="subtitle">Gender: <span class="span"><%= post.gender %></span></p>
         <p class="subtitle">Color: <span class="span"><%= post.color %></span></p>
         <p class="subtitle">Tag: <span class="span"><%= post.tag %></span></p>
-        <p class="subtitle">Contact: <span class="span"><%= post.author.username %></span>, <span class="span"><%= post.author.contact %></span></p>
-        
+        <p class="subtitle">Contact: <span class="span"><%= post.author.username %></span>,
+          <span class="span"><%= post.author.contact %></span>
+        </p>
+
         <div class="pet-description">
           <p class="subtitle">Pet's Description: <span class="span description-text"><%= post.description %></p>
         </div>
@@ -46,7 +48,7 @@
 
   <section class="comments">
       <% if (post.comments.length === 0) { %>
-        <h3>Be the first to comment!</h3>
+        <h3 class="comment-title">Be the first to comment!</h3>
       <% } else { %>
         <% post.comments.forEach((comment) => { %>
           <div class="comment">
