@@ -73,7 +73,10 @@
 .tag-link {
   text-decoration: underline;
 }
-
+.full-pets-list {
+  display: block;
+  text-decoration: none;
+}
 /* Dashboard */
 .dashboard-section {
   text-align: center;
