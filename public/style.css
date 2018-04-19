@@ -68,7 +68,7 @@
 /* Dashboard */
 .dashboard-section {
   text-align: center;
-  width: 50%;
+  width: 70%;
   display: block;
   margin: 2rem auto;
   color: #666;
@@ -103,28 +103,25 @@
   color: #666;
   line-height: 1.8rem;
   font-size: 1.3rem;
-  margin: 1.5rem;
+  margin: 1rem auto;
   padding-left: 2rem;
 }
 .form-title {
   text-align: left;
-  color: #666;
+  color: #f4863f;
   line-height: 1.8rem;
   font-size: 1.4rem;
-  margin-top: 4rem;
+  margin-top: 1rem;
+  font-weight: 600;
 }
-.user-question {
-  text-align: left;
-  color: #ffa150;
+.dashboard-question {
+  color: #666;
+  text-align: center;
   line-height: 1.4rem;
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 600;
   margin-top: 4rem;
-  width: 45%;
   padding-bottom: 0.2rem;
-}
-.full-question {
-  width: 90%;
 }
 .social-list {
   display: flex;
@@ -140,7 +137,7 @@
 }
 .social-link {
   padding: 1.2rem;
-  background-color: #f4863f; /* maybe the new orange for all the app orange elements? */
+  background-color: #f4863f;
   width: 14%;
   border-radius: 50%;
   color: #fff;

@@ -15,13 +15,13 @@
       <p class="form-title">Edit your information</p>
 
       <% if (!currentUser.local) { %>
-        <p class="user-question">Create a password</p>
+        <p class="dashboard-question">Create a password</p>
         <form action="" method="POST" class="form-group">
           <input type="password" class="form-input" name="newPassword" placeholder="New Password">
           <button id="SubmitPassword" class="submit">Create password</button>
         </form>
       <% } else { %>
-        <p class="user-question">Change your password</p>
+        <p class="dashboard-question">Change your password</p>
         <form action="" method="POST" class="form-group">
           <input type="password" class="form-input" name="oldPassword" placeholder="Current Password">
           <input type="password" class="form-input" name="newPassword" placeholder="New Password">
@@ -29,7 +29,7 @@
         </form>
       <% } %>
 
-      <p class="user-question full-question">You can manage your account with any of the following:</p>
+      <p class="dashboard-question">You can manage your account with any of the following:</p>
       <ul class="social-list">
         <li class="social-item">
           <a class="social-link" id="socialLink" href="">
