@@ -29,6 +29,7 @@
 .pet-link {
   text-decoration: none;
   color: #363d48;
+  cursor: pointer;
 }
 .pet-image-area,
 .details-area {
@@ -59,6 +60,9 @@
 }
 .tags {
   color: #4d5962;
+}
+.tag-link {
+  text-decoration: underline;
 }
 
 /* Dashboard */
