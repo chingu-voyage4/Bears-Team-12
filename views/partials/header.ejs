@@ -7,15 +7,15 @@
     <title>PetTrackr</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Muli|Righteous" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli|Fredoka+One" rel="stylesheet">
     <% if (page === 'index' || page === 'dashboard') { %>
-        <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-        <link rel="stylesheet" type="text/css" media="screen" href="global.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="/style.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="/global.css" />
     <% } else if (page === 'form') { %>
         <link rel="stylesheet" type="text/css" media="screen" href="/forms.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="/global.css" />
     <% } else if (page === 'post') { %>
-        <link rel="stylesheet" href="/posts/post.css">
+        <link rel="stylesheet" href="/posts/posts.css">
         <link rel="stylesheet" type="text/css" media="screen" href="/global.css" />
     <% } else if (page === 'posts') { %>
         <link rel="stylesheet" href="/posts/posts.css">
@@ -27,8 +27,8 @@
 
     <header class="header">
       <a class="logo-link" href="/">
-        <h1 id="logoHeader" class="logo-header">PetTrackr</h1>
-      </a> <!-- Dynamically remove styles when not on index.html? -->
+        <img id="logoHeader" class="logo-header" src="https://image.ibb.co/bxNbRn/logo.png" alt="PetTrackr Logo">
+      </a>
       <nav class="menu">
         <a class="menu-item" href="/">Home</a>
         <a class="menu-item" href="/posts/feed">All Pets</a>

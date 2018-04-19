@@ -7,24 +7,30 @@
          </div>
     <% } %>
     <h2 class="sign-title">Login</h2>
-    <form class="form-group" action="/login" method="POST">
-        <input id="UserDisplayName" class="form-input" type="text" name="email" placeholder="Email">
-        <input id="UserPass" class="form-input" type="password" name="password" placeholder="Password">
-        <button id="LoginBtn" class="form-btn submit">Login</button>
-    </form>
-    <div>
-      <p class="user-question full-question">Or login with:</p>
-      <ul class="social-list">
-        <li class="social-item">
-          <a class="social-link" id="socialLink" href=""><i class="fab fa-google"></i></a>
-        </li>
-        <li class="social-item">
-          <a class="social-link" id="socialLink" href=""><i class="fab fa-twitter"></i></a>
-        </li>
-        <li class="social-item">
-          <a class="social-link" id="socialLink" href=""><i class="fab fa-facebook-f"></i></a>
-        </li>
-      </ul>
+    <div class="login-container">
+      <div class="login-local">
+        <h3 class="user-question full-question">Login with your detalis</h3>
+        <form class="form-group create-account" action="/login" method="POST">
+            <input id="UserDisplayName" class="form-input" type="text" name="email" placeholder="Email">
+            <input id="UserPass" class="form-input" type="password" name="password" placeholder="Password">
+            <button id="LoginBtn" class="form-btn submit">Login</button>
+        </form>
+      </div>
+
+      <div class="login-social">
+        <h3 class="user-question full-question">Or login with any of the following:</h3>
+        <ul class="social-list">
+          <li class="social-item">
+            <a class="social-link" id="socialLink" href=""><i class="fab fa-google"></i></a>
+          </li>
+          <li class="social-item">
+            <a class="social-link" id="socialLink" href=""><i class="fab fa-twitter"></i></a>
+          </li>
+          <li class="social-item">
+            <a class="social-link" id="socialLink" href=""><i class="fab fa-facebook-f"></i></a>
+          </li>
+        </ul>
+      </div>
     </div>
 </main>
 
