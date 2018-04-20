@@ -16,18 +16,21 @@ input:focus {
 textarea {
   display: block;
 }
+button:focus {
+  outline: none;
+}
 .page-title {
   font-size: 2.2rem;
   margin: 2rem 4rem;
-  font-family: 'Baloo', cursive;
+  font-family: 'Fredoka One', cursive;
   font-weight: normal;
   letter-spacing: 0.1rem;
 }
 /* HEADER */
 .logo-header {
   margin: 0;
-  padding: 0.5rem;
   cursor: pointer;
+  width: 200px;
 }
 .logo-link {
   color: #363d48;
@@ -36,10 +39,10 @@ textarea {
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 1rem 2rem;
+  padding: 1rem;
   margin: 0;
-  background-color: #d88649;
-  color: #eceef1;
+  background-color: #f4863f;
+  color: #eee;
 }
 .menu {
   display: flex;
@@ -50,24 +53,35 @@ textarea {
 .menu-item {
   margin: 0 1rem;
   text-decoration: none;
-  color: #eceef1;
+  color: #eee;
   font-size: 1.2rem;
+  transition: all 0.3s ease-in;
+}
+.menu-item:hover {
+  color: #363d48;
+  font-size: 1.25rem;
+}
+.active-menu {
+  color: #363d48;
+  font-size: 1.3rem;
 }
 /* Dropdown Button */
 .dropbtn {
-  width: 5rem;
-  background-color: #f4d03f;
-  color: #565656;
-  padding: 0.4rem;
-  margin-left: 1rem;
-  font-size: 1.4rem;
-  border: none;
+  width: 8rem;
+  background-color: #f4863f;
+  color: #eee;
+  padding: 0.6rem;
+  margin: auto 0 -0.3rem 1rem;
+  font-size: 1.8rem;
+  border: 2px solid #666;
   cursor: pointer;
-  border-radius: 0.3rem;
+  border-radius: 50%;
+  transition: all 0.3s ease-in;
 }
 .dropbtn:hover,
 .dropbtn:focus {
-  background-color: #bdf43f;
+  background-color: #90f43f;
+  color: #666;
 }
 .dropdown {
   position: relative;
@@ -76,14 +90,14 @@ textarea {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
+  background-color: #eee;
   min-width: 4rem;
   overflow: auto;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 .dropdown-content a {
-  color: #d88649;
+  color: #f4863f;
   padding: 0.2rem 0.4rem;
   text-decoration: none;
   display: block;
@@ -113,10 +127,10 @@ textarea {
   opacity: 0.8;
 }
 .success-msg {
-  background-color: #2ae917;
+  background-color: #90f43f;
 }
 .error-msg {
-  background-color: #f62a4f;
+  background-color: #c92c18;
   color: #fff;
 }
 .info-msg {

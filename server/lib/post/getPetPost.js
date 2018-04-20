@@ -8,7 +8,6 @@ const getPetPost = ( postId, type ) => {
     Post.findOne( 
       {
         _id:      postId,
-        postType: type,
       })
     .populate('comments')
     .exec(
@@ -28,7 +27,7 @@ const getPetPost = ( postId, type ) => {
         });
         
         return resolve({
-          status:   'FAILED',
+          status:   'FAIL',
           message:  'Pet post could not be found'
         });
       }

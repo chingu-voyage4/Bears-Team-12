@@ -6,27 +6,32 @@
       <h2 class="msg error-msg"><%- message %></h2>
     </div>
   <% } %>
-    <h2 class="sign-title">Create an Account</h2>
-    <form class="form-group create-account" action="/signup" method="POST">
-        <input id="UserEmail" class="form-input" type="email" name="email" placeholder="Your email address">
-        <input id="UserDisplayName" class="form-input" type="text" name="username" placeholder="Username">
-        <input id="UserPass" class="form-input" type="password" name="password" placeholder="Password">
-        <button id="SignUpBtn" class="form-btn submit">Sign Up</button>
-    </form>
-  </div>
-  <div>
-    <p class="user-question full-question">Or sign up with any of the following:</p>
-    <ul class="social-list">
-      <li class="social-item">
-        <a class="social-link" id="socialLink" href=""><i class="fab fa-google"></i></a>
-      </li>
-      <li class="social-item">
-        <a class="social-link" id="socialLink" href=""><i class="fab fa-twitter"></i></a>
-      </li>
-      <li class="social-item">
-        <a class="social-link" id="socialLink" href=""><i class="fab fa-facebook-f"></i></a>
-      </li>
-    </ul>
+  <h2 class="sign-title">Sign Up</h2>
+  <div class="signup-container">
+    <div class="signup-local">
+      <h3 class="user-question full-question">Create an Account</h3>
+      <form class="form-group create-account" action="/signup" method="POST">
+          <input id="UserEmail" class="form-input" type="email" name="email" placeholder="Your email address">
+          <input id="UserDisplayName" class="form-input" type="text" name="username" placeholder="Username">
+          <input id="UserPass" class="form-input" type="password" name="password" placeholder="Password">
+          <button id="SignUpBtn" class="form-btn submit">Sign Up</button>
+      </form>
+    </div>
+
+    <div class="signup-social">
+      <h3 class="user-question full-question">Or sign up with any of the following:</h3>
+      <ul class="social-list">
+        <li class="social-item">
+          <a class="social-link" id="socialLink" href="/auth/google"><i class="fab fa-google"></i></a>
+        </li>
+        <li class="social-item">
+          <a class="social-link" id="socialLink" href="/auth/twitter"><i class="fab fa-twitter"></i></a>
+        </li>
+        <li class="social-item">
+          <a class="social-link" id="socialLink" href="/auth/facebook"><i class="fab fa-facebook-f"></i></a>
+        </li>
+      </ul>
+    </div>
   </div>
 </main>
 

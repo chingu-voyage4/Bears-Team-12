@@ -1,3 +1,97 @@
+/* POST */
+.post-pet {
+  background-color: #eee;
+  padding: 3rem 0 0 1rem;
+  margin: 2rem 4rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.post-image {
+  width: 28rem;
+  height: 20rem;
+  display: block;
+  margin: 0 auto;
+  border-radius: 0.5rem;
+}
+.name {
+  text-align: center;
+  font-size: 2rem;
+  font-family: 'Fredoka One', cursive;
+  font-weight: normal;
+  letter-spacing: 0.1rem;
+}
+.line {
+  width: 70%;
+  opacity: 0.5;
+  margin: 0 auto;
+}
+.post-text {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+.post-details {
+  width: 20%;
+  margin-left: 2rem;
+}
+.post-description {
+  width: 40%;
+  margin-left: 2rem;
+}
+.subtitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.span {
+  font-weight: normal;
+}
+.details-title,
+.desc-title {
+  font-weight: bold;
+  color: #f48637;
+  font-size: 1.4rem;
+}
+.description-text {
+  line-height: 2rem;
+}
+.add-comment-area {
+  align-self: center;
+  margin: 2rem;
+}
+.add-comment {
+  font-size: 0.8rem;
+  font-weight: bold;
+  line-height: 1.2rem;
+  text-align: center;
+  padding: 0.4rem;
+  background-color: transparent;
+  color: #f4863f;
+  border: 1px solid #f4863f;
+  border-radius: 0.2rem;
+  margin: 1rem auto;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease-in;
+}
+.add-comment:hover {
+  background-color: #f4863f;
+  color: #eee;
+}
+.comment {
+  color: red;
+  background-color: #f9f9f9;
+  padding: 1rem 2rem;
+  margin: 1rem 4rem;
+  border-radius: 1rem;
+  font-size: 1.2rem;
+}
+.comment-title {
+  font-size: 1.2rem;
+  color: #f4863f;
+  margin-left: 2rem;
+}
+
 /* POSTS */
 .search {
   display: flex;
@@ -34,9 +128,14 @@
   padding: 0.3rem 1.5rem;
   margin-left: 2rem;
   background-color: transparent;
-  color: #e2a477;
-  border: 1px solid #e2a477;
+  color: #f4b33f;
+  border: 1px solid #f4b33f;
   border-radius: 0.2rem;
+  transition: all 0.3s ease-in;
+}
+.form-btn:hover {
+  background-color: #f4863f;
+  color: #eee;
 }
 .pet-list {
   width: 80%;
@@ -67,7 +166,7 @@
   margin: 0;
 }
 .pet-image {
-  width: 12rem;
+  max-width: 12rem;
   height: 10rem;
   border-radius: 0.5rem;
 }
@@ -86,7 +185,7 @@
   padding: 1rem;
   font-size: 1.2rem;
   font-family: 'Muli', sans-serif;
-  background-color: #4d5962;
+  background-color: #363d48;
   margin: 2rem 2rem;
   border: none;
   color: #f9f9f9;

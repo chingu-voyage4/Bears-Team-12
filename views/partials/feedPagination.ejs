@@ -1,0 +1,8 @@
+<div style="margin: 5px; display:flex; justify-content: flex-end; width: 80%">
+  <% if( query && query.previousPage ){ %>
+    <button  class="form-btn" onclick="setPage(<%= query ? query.previousPage : 1 %>)">Previous Page</button>
+  <% } %>
+  <% if( query && query.nextPage ){ %>
+    <button class="form-btn" onclick="setPage(<%= query ? query.nextPage : 1 %>)">Next Page</button>
+  <% } %>
+</div>
