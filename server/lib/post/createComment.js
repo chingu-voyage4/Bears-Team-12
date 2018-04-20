@@ -7,8 +7,9 @@ const messageToUser = 'There was an error attempting to create your comment. Ple
 const createComment = ( commentData, user, postId ) => {
   return new Promise( ( resolve, reject ) => {
     const { 
-      commentBody
+      commentBody, commentContact
     } = commentData;
+
     
     // console.log("Comment data: " + commentData);
     // console.log("User Commenting: " + user);
@@ -24,6 +25,7 @@ const createComment = ( commentData, user, postId ) => {
         }
         let comment = new Comment();
         comment.text = commentBody;
+        comment.contact = commentContact;
 
         let commentAuthor = '';
         commentAuthor = user.local ? user.local.username : user.facebook ? user.facebook.name : user.google ? user.google.name : user.twitter ? user.twitter.displayName : 'NO ID';
