@@ -2,45 +2,50 @@
 <% var pageNumber = query? query.page : 1 %>
 <script type="text/javascript" src="../search.js"></script>
 <main>
-    <section class="search">
-      <form id="searchForm" action="search" method="GET">
+    <section id="search" class="search">
 
-        <p class="search-title"> Search <i class="fas fa-search"></i></p>
-      
-        <label class="input-label">Lost or Found</label>
-        <select class="input search-type" name="postType">
-          <option value="" >Both</option>
-          <option value="LOST" <%= query && query.postType === 'LOST' ? 'selected' : '' %>>Lost Pets</option>
-          <option value="FOUND" <%= query && query.postType === 'FOUND' ? 'selected' : '' %>>Found Pets</option>
-        </select>
-        <label class="input-label">Pet Type:</label>
-        <select class="input search-type" name="petType">
-          <option class="input" value="" >All Types</option>
-          <option value="Dog" <%= query && query.petType === 'Dog' ? 'selected' : '' %> >Dog</option>
-          <option value="Cat" <%= query && query.petType === 'Cat' ? 'selected' : '' %> >Cat</option>
-          <option value="Bird" <%= query && query.petType === 'Bird' ? 'selected' : '' %> >Bird</option>
-          <option value="Reptile" <%= query && query.petType === 'Reptile' ? 'selected' : '' %> >Reptile</option>
-          <option value="Other" <%= query && query.petType === 'Other' ? 'selected' : '' %> >Other</option>
-        </select>
-  
-        <label class="input-label">Zip Code:</label>
-        <input class="input search-location" type="text" name="zipCode" 
-          placeholder="Please enter a zipcode" value="<%= query ? query.zipCode : ''%>"
-          pattern="[0-9]{5}"
-        >
-        </input>
-  
-        <label class="input-label">Name:</label>
-        <input class="input search-name" type="text" name="petName" 
-          placeholder="Please enter the Pet Name" value="<%= query ? query.petName : ''%>"
-        >
-        </input>
-        <input style="visibility: hidden;" name="page" value="<%=pageNumber%>" />
-  
+      <form id="searchForm" class="search-form" action="search" method="GET">
+
+        <p class="page-title"> Search <i class="fas fa-search"></i></p>
+
+        <div class="search-row">
+          <label class="input-label">Lost or Found</label>
+          <select class="input search-type" name="postType">
+            <option value="" >Both</option>
+            <option value="LOST" <%= query && query.postType === 'LOST' ? 'selected' : '' %>>Lost Pets</option>
+            <option value="FOUND" <%= query && query.postType === 'FOUND' ? 'selected' : '' %>>Found Pets</option>
+          </select>
+          <label class="input-label">Pet Type:</label>
+          <select class="input search-type" name="petType">
+            <option class="input" value="" >All Types</option>
+            <option value="Dog" <%= query && query.petType === 'Dog' ? 'selected' : '' %> >Dog</option>
+            <option value="Cat" <%= query && query.petType === 'Cat' ? 'selected' : '' %> >Cat</option>
+            <option value="Bird" <%= query && query.petType === 'Bird' ? 'selected' : '' %> >Bird</option>
+            <option value="Reptile" <%= query && query.petType === 'Reptile' ? 'selected' : '' %> >Reptile</option>
+            <option value="Other" <%= query && query.petType === 'Other' ? 'selected' : '' %> >Other</option>
+          </select>
+        </div>
+
+        <div class="search-row">
+          <label class="input-label">Zip Code:</label>
+          <input class="input search-location" type="text" name="zipCode"
+            placeholder="Please enter a zipcode" value="<%= query ? query.zipCode : ''%>"
+            pattern="[0-9]{5}"
+          >
+          </input>
+
+          <label class="input-label">Name:</label>
+          <input class="input search-name" type="text" name="petName"
+            placeholder="Please enter the Pet Name" value="<%= query ? query.petName : ''%>"
+          >
+          </input>
+          <input style="visibility: hidden;" name="page" value="<%=pageNumber%>" />
+        </div>
+
         <button class="form-btn" onclick"search(1)">Submit</button>
       </form>
     </section>
-    
+
     <section class="pet-list">
     <% if( firstRun ){ %>
       <p class="search-title"> Please select search options from above</i></p>
@@ -48,7 +53,7 @@
     <% if( searchResults && count && query) { %>
       <% console.log( query ) %>
         <p class="search-title"> Showing <%= query.firstEntry %>-<%= query.lastEntry %> of <%= query.count %> Results Found</i></p>
-        
+
       <% searchResults.forEach( (result, idx, array) => { %>
         <a class="pet-link" href="/posts/<%= result.postType.toLowerCase() %>pet/<%= result._id %>">
           <div class="pet">
@@ -96,9 +101,9 @@
         <p class="search-title"> 0 Results Found</i></p>
       <% } %>
     <% } %>
-    
+
     </section>
   </main>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  
+
 <% include ./partials/footer %>
