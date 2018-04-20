@@ -176,7 +176,6 @@
   cursor: pointer;
 }
 .submit {
-  width: 40%;
   font-size: 1rem;
   font-weight: bold;
   line-height: 1.7rem;
@@ -216,4 +215,125 @@
   background-color: #f9f9f9;
   color: #363d48;
   border: 2px solid #363d48;
+}
+
+/* Responsive Design - Index page */
+@media screen and (max-width: 900px) {
+  .btn {
+    padding: 1rem;
+    font-size: 1.5rem;
+    margin: 4rem 1rem;
+  }
+  .pet-list {
+    width: 95%;
+    margin: 0 auto;
+  }
+  .pet {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 0 0 1rem;
+    margin: 1rem 2rem;
+  }
+}
+@media screen and (max-width: 650px) {
+  .call-to-action {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 1rem auto;
+  }
+  .btn {
+    padding: 1rem;
+    font-size: 1.5rem;
+    margin: 1rem 0;
+  }
+  .btn-a {
+    margin: 0 auto;
+  }
+  .pet {
+    padding: 1rem 0 0 1rem;
+    margin: 1rem;
+    align-items: flex-start;
+  }
+  .pet-name {
+    margin-bottom: 0.8rem;
+  }
+  .pet-image {
+    padding-top: 2rem;
+    max-width: 9rem;
+    height: 7rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  .btn {
+    padding: 0.8rem;
+    font-size: 1.2rem;
+    margin: 0.6rem 0;
+  }
+  .pet {
+    padding: 0.8rem 0 0 0.8rem;
+    margin: 0.8rem;
+  }
+  .pet-name {
+    margin-bottom: 0.5rem;
+  }
+  .pet-image {
+    max-width: 8rem;
+    height: 6rem;
+  }
+}
+@media screen and (max-width: 370px) {
+  .pet-image {
+    max-width: 7rem;
+    height: 5rem;
+  }
+}
+
+/* Responsive Design - Dashboard */
+@media screen and (max-width: 800px) {
+  .dashboard-section {
+    width: 90%;
+    margin: 1rem auto;
+  }
+  .dashboard-title {
+    margin-bottom: 2rem;
+  }
+  .edit-section {
+    padding: 1rem 2rem;
+  }
+  .form-input {
+    padding-left: 1rem;
+    width: 70%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .social-list {
+    justify-content: space-around;
+  }
+  .social-link {
+    width: 20%;
+  }
+  .submit {
+    width: 50%;
+    font-size: 1.1rem;
+    margin: 0 auto;
+  }
+  .call-to-action {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .form-input {
+    padding-left: 0.8rem;
+    width: 80%;
+  }
+}
+@media screen and (max-width: 520px) {
+  .social-list {
+    flex-direction: column;
+  }
+  .social-item {
+    padding: 1rem 0;
+  }
 }

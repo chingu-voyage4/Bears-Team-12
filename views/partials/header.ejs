@@ -1,54 +1,75 @@
 <!DOCTYPE html>
 <html>
-
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>PetTrackr</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Muli|Fredoka+One" rel="stylesheet">
-    <% if (page === 'index' || page === 'dashboard') { %>
-        <link rel="stylesheet" type="text/css" media="screen" href="/style.css" />
-        <link rel="stylesheet" type="text/css" media="screen" href="/global.css" />
-    <% } else if (page === 'form') { %>
-        <link rel="stylesheet" type="text/css" media="screen" href="/forms.css" />
-        <link rel="stylesheet" type="text/css" media="screen" href="/global.css" />
-    <% } else if (page === 'post') { %>
-        <link rel="stylesheet" href="/posts/posts.css">
-        <link rel="stylesheet" type="text/css" media="screen" href="/global.css" />
-    <% } else if (page === 'posts') { %>
-        <link rel="stylesheet" href="/posts/posts.css">
-        <link rel="stylesheet" type="text/css" media="screen" href="../global.css" />
-    <% } %>
-  </head>
-
-  <body>
-
-    <header class="header">
-      <a class="logo-link" href="/">
-        <img id="logoHeader" class="logo-header" src="https://image.ibb.co/eGQpz7/Pet_Trackr.png" alt="PetTrackr Logo">
-      </a>
-      <nav class="menu">
-        <a id="home-menu" class="menu-item" href="/">Home</a>
-        <a id="pets-menu" class="menu-item" href="/posts/feed">All Pets</a>
-        <a id="lost-menu" class="menu-item" href="/posts/lostpets">Lost Pets</a>
-        <a id="found-menu" class="menu-item" href="/posts/foundpets">Found Pets</a>
-        <% if (!currentUser) { %>
-            <a id="signup-menu" class="menu-item" href="/signup">Sign Up</a>
-            <a id="login-menu" class="menu-item" href="/login">Login</a>
-        <% } else { %>
-          <div class="dropdown">
-            <i class="dropbtn fas fa-user-circle" onclick="showUserDropdown()"></i>
-            <div id="userDropdown" class="dropdown-content">
-              <a href="#" class="welcome"><%= currentUser.local.username %></p>
-              <a href="/dashboard">Dashboard</a>
-              <a href="/logout">Logout</a>
-            </div>
-          </div>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>PetTrackr</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css?family=Muli|Fredoka+One" rel="stylesheet">
+        <% if (page === 'index' || page === 'dashboard') { %>
+            <link rel="stylesheet" type="text/css" media="screen" href="/style.css" />
+            <link rel="stylesheet" type="text/css" media="screen" href="/global.css" />
+        <% } else if (page === 'form') { %>
+            <link rel="stylesheet" type="text/css" media="screen" href="/forms.css" />
+            <link rel="stylesheet" type="text/css" media="screen" href="/global.css" />
+        <% } else if (page === 'post' || page === 'search') { %>
+            <link rel="stylesheet" href="/posts/posts.css">
+            <link rel="stylesheet" type="text/css" media="screen" href="/global.css" />
+        <% } else if (page === 'posts') { %>
+            <link rel="stylesheet" href="/posts/posts.css">
+            <link rel="stylesheet" type="text/css" media="screen" href="../global.css" />
         <% } %>
-      </nav>
-    </header>
+    </head>
+    <body>
+        <header class="header">
+            <a class="logo-link" href="/">
+            <img id="logoHeader" class="logo-header" src="https://image.ibb.co/eGQpz7/Pet_Trackr.png" alt="PetTrackr Logo">
+            </a>
+            <nav class="menu">
+                <a id="home-menu" class="menu-item" href="/">Home</a>
+                <a id="pets-menu" class="menu-item" href="/posts/feed">All Pets</a>
+                <a id="lost-menu" class="menu-item" href="/posts/lostpets">Lost Pets</a>
+                <a id="found-menu" class="menu-item" href="/posts/foundpets">Found Pets</a>
+                <a id="search-menu" class="menu-item" href="/posts/search">Search</a>
+                <% if (!currentUser) { %>
+                    <a id="signup-menu" class="menu-item" href="/signup">Sign Up</a>
+                    <a id="login-menu" class="menu-item" href="/login">Login</a>
+                <% } else { %>
+                    <div class="dropdown">
+                        <i class="dropbtn fas fa-user-circle" onclick="showUserDropdown()"></i>
+                        <div id="userDropdown" class="dropdown-content">
+                            <a href="#" class="welcome"><%= currentUser.local.username %></p>
+                            <a href="/dashboard">Dashboard</a>
+                            <a href="/logout">Logout</a>
+                        </div>
+                    </div>
+                <% } %>
+            </nav>
+            <div class="menu-btn" id="menuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </header>
+        <div class="mobile-nav">
+            <div class="responsive-menu">
+                <div class="mobile-menu">
+                    <a class="mobile-menu-item" href="/">Home</a>
+                    <a class="mobile-menu-item" href="/posts/feed">All Pets</a>
+                    <a class="mobile-menu-item" href="/posts/lostpets">Lost Pets</a>
+                    <a class="mobile-menu-item" href="/posts/foundpets">Found Pets</a>
+                    <a class="mobile-menu-item" href="/posts/search">Search</a>
+                    <% if (!currentUser) { %>
+                      <a class="mobile-menu-item" href="/signup">Sign Up</a>
+                      <a class="mobile-menu-item" href="/login">Login</a>
+                    <% } else { %>
+                      <a class="mobile-menu-item" href="/dashboard">Dashboard</a>
+                      <a class="mobile-menu-item" href="/logout">Logout</a>
+                    <% } %>
+                </div>
+            </div>
+        </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="../../forms.js"></script>
