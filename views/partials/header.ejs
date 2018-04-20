@@ -14,7 +14,7 @@
     <% } else if (page === 'form') { %>
         <link rel="stylesheet" type="text/css" media="screen" href="/forms.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="/global.css" />
-    <% } else if (page === 'post') { %>
+    <% } else if (page === 'post' || page === 'search') { %>
         <link rel="stylesheet" href="/posts/posts.css">
         <link rel="stylesheet" type="text/css" media="screen" href="/global.css" />
     <% } else if (page === 'posts') { %>
@@ -34,6 +34,7 @@
         <a id="pets-menu" class="menu-item" href="/posts/feed">All Pets</a>
         <a id="lost-menu" class="menu-item" href="/posts/lostpets">Lost Pets</a>
         <a id="found-menu" class="menu-item" href="/posts/foundpets">Found Pets</a>
+        <a id="search-menu" class="menu-item" href="/posts/search">Search</a>
         <% if (!currentUser) { %>
             <a id="signup-menu" class="menu-item" href="/signup">Sign Up</a>
             <a id="login-menu" class="menu-item" href="/login">Login</a>

@@ -1,28 +1,10 @@
 <% include ../partials/header %>
 
 <main>
+  <div class="feed-opening">
     <h1 class="page-title">Have you seen...</h1>
-
-    <section class="search">
-
-      <p class="search-title"> Search <i class="fas fa-search"></i></p>
-
-      <label class="input-label">By Pet Type:</label>
-      <select class="input search-type">
-        <option class="input" name="type" >Select Type</option>
-        <option value="dog">Dogs</option>
-        <option value="cat">Cats</option>
-        <option value="other">Other</option>
-      </select>
-
-      <label class="input-label">By Location:</label>
-      <input class="input search-location" type="text" name="location" placeholder="Please enter a zipcode"></input>
-
-      <label class="input-label">By Name:</label>
-      <input class="input search-name" type="text" name="petName" placeholder="Please enter the Pet Name"></input>
-
-      <button id="submit" class="form-btn">Submit</button>
-    </section>
+    <button class="btn-small search-button" onclick="location.href = '/posts/search'">Search</button>
+  </div>
 
     <section class="pet-list">
       <% posts.forEach((post, idx, array) => { %>

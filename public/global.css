@@ -19,9 +19,12 @@ textarea {
 button:focus {
   outline: none;
 }
+input:focus {
+  outline: 0;
+}
 .page-title {
   font-size: 2.2rem;
-  margin: 2rem 4rem;
+  margin: 2rem;
   font-family: 'Fredoka One', cursive;
   font-weight: normal;
   letter-spacing: 0.1rem;
