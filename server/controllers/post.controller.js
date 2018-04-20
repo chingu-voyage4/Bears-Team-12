@@ -10,14 +10,23 @@ module.exports = {
     
     const { postType } = req.params;
     
-    const { page, petName, zipCode, petType } = req.query;
-
+    const { petName, zipCode, petType } = req.query;
+    
+    let page = req.query.page || 1;
+    
     getAllPosts( page, postType, petName, zipCode, petType )
     .then(
       fulfilled => {
+        const count = fulfilled.data.count;
+        if ( page < 1) page = 1;
         res.render( './posts/feed', { 
           posts: fulfilled.data.posts, 
           page: 'posts', 
+          query:{
+            page: page,
+            previousPage: ( page > 1 ) ? ( page - 1 ) : null,
+            nextPage:     page * 10 <= count ? page * 1 + 1 : null   // multiplication by 1 changes string to int
+          },
           message: req.flash( 'notification' ),
         }); 
       },
@@ -146,20 +155,29 @@ module.exports = {
       });
     }
     
-    const { page, petName, zipCode, petType, postType } = req.query;
-    
+    const {petName, zipCode, petType, postType } = req.query;
+    let page = req.query.page || 1;
     getAllPosts( page, postType, petName, zipCode, petType )
     .then( 
       fulfilled => {
+        const count = fulfilled.data.count;
+        const searchResults =fulfilled.data.posts;
+        if ( page < 1) page = 1;
         res.render('./search', { 
-          searchResults: fulfilled.data.posts, 
-          page: 'posts',
+          searchResults: searchResults,
+          count:        count,
+          page:         'posts',
           query:{
-            zipCode:  zipCode || undefined,
-            petType:  petType || undefined,
-            petName:  petName || undefined,
-            postType: postType || undefined,
-            page:     page || undefined
+            count:        fulfilled.data.count,
+            zipCode:      zipCode || undefined,
+            petType:      petType || undefined,
+            petName:      petName || undefined,
+            postType:     postType || undefined,
+            page:         page,
+            firstEntry:   (10 * page - 9) || 1,
+            lastEntry:    (10 * page) < count ? ( 10 * page ) : count,
+            previousPage: ( page > 1 ) ? ( page - 1 ) : null,
+            nextPage:     page * 10 <= count ? page * 1 + 1 : null   // multiplication changes string to int
           },
           firstRun: 0,
           message: req.flash( 'notification' ),

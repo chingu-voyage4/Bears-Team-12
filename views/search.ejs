@@ -1,10 +1,12 @@
 <% include ./partials/header %>
-
+<% var pageNumber = query? query.page : 1 %>
+<script type="text/javascript" src="../search.js"></script>
 <main>
     <section class="search">
+      <form id="searchForm" action="search" method="GET">
 
-      <p class="search-title"> Search <i class="fas fa-search"></i></p>
-      <form action="search" method="GET">
+        <p class="search-title"> Search <i class="fas fa-search"></i></p>
+      
         <label class="input-label">Lost or Found</label>
         <select class="input search-type" name="postType">
           <option value="" >Both</option>
@@ -33,17 +35,20 @@
           placeholder="Please enter the Pet Name" value="<%= query ? query.petName : ''%>"
         >
         </input>
+        <input style="visibility: hidden;" name="page" value="<%=pageNumber%>" />
   
-        <button id="submit" class="form-btn">Submit</button>
-    </form>
+        <button class="form-btn" onclick"search(1)">Submit</button>
+      </form>
     </section>
     
     <section class="pet-list">
     <% if( firstRun ){ %>
       <p class="search-title"> Please select search options from above</i></p>
     <% } %>
-    <% if( searchResults ) { %>
-        <p class="search-title"> <%= searchResults.length %> Results Found</i></p>
+    <% if( searchResults && count && query) { %>
+      <% console.log( query ) %>
+        <p class="search-title"> Showing <%= query.firstEntry %>-<%= query.lastEntry %> of <%= query.count %> Results Found</i></p>
+        
       <% searchResults.forEach( (result, idx, array) => { %>
         <a class="pet-link" href="/posts/<%= result.postType.toLowerCase() %>pet/<%= result._id %>">
           <div class="pet">
@@ -78,6 +83,14 @@
           <hr class="line">
         <% } %>
       <% }) %>
+      <div style="margin: 5px; display:flex; justify-content: flex-end; width: 100%">
+        <% if( query && query.previousPage ){ %>
+          <button  class="form-btn" onclick="search(<%= query ? query.previousPage : 1 %>)">Previous Page</button>
+        <% } %>
+        <% if( query && query.nextPage ){ %>
+          <button class="form-btn" onclick="search(<%= query ? query.nextPage : 1 %>)">Next Page</button>
+        <% } %>
+      </div>
     <% } else { %>
       <% if( !firstRun ){ %>
         <p class="search-title"> 0 Results Found</i></p>
@@ -85,9 +98,7 @@
     <% } %>
     
     </section>
-    
-
   </main>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script type="text/javascript" src="../recent.js"></script>
+  
 <% include ./partials/footer %>

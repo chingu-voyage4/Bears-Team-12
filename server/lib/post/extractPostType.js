@@ -1,4 +1,5 @@
 const extractPostType = ( postType ) => {
+  if( postType == 'LOST' || postType == 'FOUND') return postType;
   let type = undefined;
   if( postType ){
     switch( postType ){
