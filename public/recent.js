@@ -18,6 +18,5 @@ $(document).ready(function() {
             error: function() {
             }
         });
-        console.log("Refreshing Recent!");
     }, 60000 * 5);
 });
