@@ -73,7 +73,7 @@ module.exports = {
     getPetPost( postId )
     .then( 
       fulfilled => {
-        console.log( fulfilled) 
+
         if( fulfilled.status == 'FAIL'){
           req.flash( 'notification', 'Post not found.');
           return res.redirect('/');
@@ -84,8 +84,6 @@ module.exports = {
         const { post } = fulfilled.data;
         
         if( post.author.id == userId ) ownedByUser = true;
-        
-        console.log( 'owned is ', ownedByUser )
         
         if( post.postType == 'LOST'){
           res.render('./posts/lost', { 

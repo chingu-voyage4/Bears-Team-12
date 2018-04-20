@@ -22,11 +22,6 @@ const removePostFromUser = ( userId, postId ) => {
           message: 'Post does not belong to user.'
         })
         
-        /*return resolve({
-          index:index, 
-          post:user.posts[index], 
-          user:user })*/
-        
         user.posts.splice(index,1);
             
         Post.findOne( 
