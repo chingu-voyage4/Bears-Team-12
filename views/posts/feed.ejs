@@ -1,5 +1,5 @@
 <% include ../partials/header %>
-
+<script type="text/javascript" src="../../pages.js"></script>
 <main>
   <div class="feed-opening">
     <h1 class="page-title">Have you seen...</h1>
@@ -41,6 +41,7 @@
           <hr class="line">
         <% } %>
       <% }) %>
+      <% include ../partials/feedPagination %>
     </section>
     <section class="call-to-action">
       <a href="/posts/foundpet/new"><button id="FoundBtn" class="btn btn-found btn-small">I've found a Pet</button></a>

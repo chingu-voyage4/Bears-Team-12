@@ -1,8 +1,15 @@
-<div style="margin: 5px; display:flex; justify-content: flex-end; width: 80%">
+<div style="margin: 5px; display:flex; justify-content: space-between;">
+  <div class="search-title">
+    <% if ( query && query.page && query.maxPage ) { %>
+      <span> Showing page <%=query.page%> of <%=query.maxPage%> </span>
+    <% }%>
+  </div>
+  <div>
   <% if( query && query.previousPage ){ %>
     <button  class="form-btn" onclick="setPage(<%= query ? query.previousPage : 1 %>)">Previous Page</button>
   <% } %>
   <% if( query && query.nextPage ){ %>
     <button class="form-btn" onclick="setPage(<%= query ? query.nextPage : 1 %>)">Next Page</button>
   <% } %>
+  </div>
 </div>

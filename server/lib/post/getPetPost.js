@@ -27,7 +27,7 @@ const getPetPost = ( postId, type ) => {
         });
         
         return resolve({
-          status:   'FAILED',
+          status:   'FAIL',
           message:  'Pet post could not be found'
         });
       }
