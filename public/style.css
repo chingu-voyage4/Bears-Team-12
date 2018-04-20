@@ -176,7 +176,6 @@
   cursor: pointer;
 }
 .submit {
-  width: 40%;
   font-size: 1rem;
   font-weight: bold;
   line-height: 1.7rem;
@@ -288,5 +287,53 @@
   .pet-image {
     max-width: 7rem;
     height: 5rem;
+  }
+}
+
+/* Responsive Design - Dashboard */
+@media screen and (max-width: 800px) {
+  .dashboard-section {
+    width: 90%;
+    margin: 1rem auto;
+  }
+  .dashboard-title {
+    margin-bottom: 2rem;
+  }
+  .edit-section {
+    padding: 1rem 2rem;
+  }
+  .form-input {
+    padding-left: 1rem;
+    width: 70%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .social-list {
+    justify-content: space-around;
+  }
+  .social-link {
+    width: 20%;
+  }
+  .submit {
+    width: 50%;
+    font-size: 1.1rem;
+    margin: 0 auto;
+  }
+  .call-to-action {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .form-input {
+    padding-left: 0.8rem;
+    width: 80%;
+  }
+}
+@media screen and (max-width: 520px) {
+  .social-list {
+    flex-direction: column;
+  }
+  .social-item {
+    padding: 1rem 0;
   }
 }
