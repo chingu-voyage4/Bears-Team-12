@@ -79,3 +79,10 @@ window.onclick = function(event) {
     }
   }
 };
+
+// Hamburger menu
+$(function($) {
+  $('.menu-btn').click(function() {
+    $('.responsive-menu').toggleClass('expand');
+  });
+});

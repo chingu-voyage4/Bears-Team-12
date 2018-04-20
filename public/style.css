@@ -218,7 +218,7 @@
   border: 2px solid #363d48;
 }
 
-/* Responsive Design */
+/* Responsive Design - Index page */
 @media screen and (max-width: 900px) {
   .btn {
     padding: 1rem;
@@ -255,11 +255,13 @@
   .pet {
     padding: 1rem 0 0 1rem;
     margin: 1rem;
+    align-items: flex-start;
   }
   .pet-name {
     margin-bottom: 0.8rem;
   }
   .pet-image {
+    padding-top: 2rem;
     max-width: 9rem;
     height: 7rem;
   }
