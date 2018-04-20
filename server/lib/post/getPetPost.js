@@ -8,7 +8,6 @@ const getPetPost = ( postId, type ) => {
     Post.findOne( 
       {
         _id:      postId,
-        postType: type,
       })
     .populate('comments')
     .exec(
