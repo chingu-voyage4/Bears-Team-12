@@ -33,10 +33,13 @@ module.exports = {
         createComment( req.body, req.user, req.params.postId )
         .then(
             fulfilled => {
-                console.log('Comment created successfully!');
+                req.flash( 'notification', 'Comment was created successfully' );
+                res.redirect('/posts/' + req.params.postType +'/' + req.params.postId )
             },
             unfulfilled => {
-                console.log('Comment could not be created...:' + unfulfilled.error)
+                console.log( unfulfilled.message )
+                req.flash( 'notification', 'There was unexpected error. Please try again or contact an administrator' );
+                res.redirect('/posts/' + req.params.postType +'/' + req.params.postId )
             }
         )
         .catch( error => console.log( error ))

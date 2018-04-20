@@ -1,8 +1,8 @@
 const getPetPost = require( '../lib/post/getPetPost.js' );
 const getAllPosts = require( '../lib/post/getAllPosts.js' );
-
 const getAllLostPets = require( '../lib/post/getAllLostPets.js' );
 const validateImageAndCreatePost = require( '../lib/post/validateImageAndCreatePost.js' );
+const removePostFromUser = require( '../lib/post/removePostFromUser.js' );
 
 module.exports = {
   
@@ -12,20 +12,24 @@ module.exports = {
     
     const { petName, zipCode, petType } = req.query;
     
-    let page = req.query.page || 1;
+    let page = parseInt( req.query.page || 1);
     
     getAllPosts( page, postType, petName, zipCode, petType )
     .then(
       fulfilled => {
+        
         const count = fulfilled.data.count;
+        
         if ( page < 1) page = 1;
+        
         res.render( './posts/feed', { 
-          posts: fulfilled.data.posts, 
-          page: 'posts', 
+          posts:        fulfilled.data.posts, 
+          page:         'posts', 
           query:{
-            page: page,
+            page:         page,
             previousPage: ( page > 1 ) ? ( page - 1 ) : null,
-            nextPage:     page * 10 <= count ? page * 1 + 1 : null   // multiplication by 1 changes string to int
+            nextPage:     page * 10 <= count ? page + 1 : null ,  // multiplication by 1 changes string to int
+            postType:     fulfilled.data.postType
           },
           message: req.flash( 'notification' ),
         }); 
@@ -59,15 +63,40 @@ module.exports = {
   },
   
   getPetPage: ( req, res ) => {
+    
     const { postId } = req.params;
+    
+    let userId = '';
+    
+    if( req.user) userId = req.user._id;
+    
     getPetPost( postId )
     .then( 
       fulfilled => {
-        if( fulfilled.data.postType == 'LOST'){
+        console.log( fulfilled) 
+        if( fulfilled.status == 'FAIL'){
+          req.flash( 'notification', 'Post not found.');
+          return res.redirect('/');
+        } 
+        
+        let ownedByUser = false;
+        
+        const { post } = fulfilled.data;
+        
+        if( post.author.id == userId ) ownedByUser = true;
+        
+        console.log( 'owned is ', ownedByUser )
+        
+        if( post.postType == 'LOST'){
           res.render('./posts/lost', { 
             post: fulfilled.data.post, 
             page: 'post', 
             message: req.flash( 'notification' ),
+            query:{
+              postType: 'LOST',
+              ownedByUser: ownedByUser
+            },
+            
           });
         }
         else{
@@ -75,6 +104,10 @@ module.exports = {
             post: fulfilled.data.post, 
             page: 'post', 
             message: req.flash( 'notification' ),
+            query:{
+              postType: 'FOUND',
+              ownedByUser: ownedByUser
+            }
           });
         }
       },
@@ -156,7 +189,7 @@ module.exports = {
     }
     
     const {petName, zipCode, petType, postType } = req.query;
-    let page = req.query.page || 1;
+    let page = parseInt( req.query.page || 1 );
     getAllPosts( page, postType, petName, zipCode, petType )
     .then( 
       fulfilled => {
@@ -177,7 +210,7 @@ module.exports = {
             firstEntry:   (10 * page - 9) || 1,
             lastEntry:    (10 * page) < count ? ( 10 * page ) : count,
             previousPage: ( page > 1 ) ? ( page - 1 ) : null,
-            nextPage:     page * 10 <= count ? page * 1 + 1 : null   // multiplication changes string to int
+            nextPage:     page * 10 <= count ? page + 1 : null   // multiplication changes string to int
           },
           firstRun: 0,
           message: req.flash( 'notification' ),
@@ -213,6 +246,39 @@ module.exports = {
         return;
       })
     .catch( error => console.log( 'There was an error while attempting to search. ', error ) );
+  },
+  
+  deletePost: ( req, res ) => {
+    
+    if( !req.isAuthenticated() ) {
+      req.flash( 'loginMessage', 'In order to remove a post you must first log in.' );
+      res.redirect( '/login' )
+      return;
+    }
+    
+    const userId = req.user._id;
+    const postId = req.params.postId;
+    
+    console.log( userId, postId )
+    
+    removePostFromUser( userId, postId )
+    .then(
+      fulfilled => {
+        
+        if( fulfilled.status == 'Fail'){
+          req.flash( 'notification', 'There was an error when attempting to remove the post')
+          return res.redirect('/dashboard')
+        }
+        
+        req.flash( 'notification', 'Post removed sucessfully' );
+        return res.redirect('/dashboard')
+      },
+      unfulfilled => {
+        req.flash( 'notification', 'There was an error when attempting to remove the post')
+        return res.redirect('/dashboard')
+      }
+    )
+    .catch( error => console.log( error ) )
   }
   
 }
