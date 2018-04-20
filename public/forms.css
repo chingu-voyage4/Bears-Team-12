@@ -56,6 +56,11 @@
   width: 30%;
   margin: 2rem auto;
   cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+.form-btn:hover {
+  color: #eee;
+  background-color: #f4863f;
 }
 .signup-social .social-list,
 .login-local .social-list {
@@ -226,15 +231,13 @@ label[for='PetImage'] {
   margin: 1rem auto;
   width: 8%;
   list-style-type: none;
+  transition: all 0.2s ease-in;
 }
 .social-link {
   color: #fff;
   padding: 0;
   margin: 0;
 }
-/*.signup-section {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}*/
-}*/
+.social-link:hover {
+  color: #eee;
+}

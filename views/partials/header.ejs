@@ -27,16 +27,16 @@
 
     <header class="header">
       <a class="logo-link" href="/">
-        <img id="logoHeader" class="logo-header" src="https://image.ibb.co/bxNbRn/logo.png" alt="PetTrackr Logo">
+        <img id="logoHeader" class="logo-header" src="https://image.ibb.co/eGQpz7/Pet_Trackr.png" alt="PetTrackr Logo">
       </a>
       <nav class="menu">
-        <a class="menu-item" href="/">Home</a>
-        <a class="menu-item" href="/posts/feed">All Pets</a>
-        <a class="menu-item" href="/posts/lostpets">Lost Pets</a>
-        <a class="menu-item" href="/posts/foundpets">Found Pets</a>
+        <a id="home-menu" class="menu-item" href="/">Home</a>
+        <a id="pets-menu" class="menu-item" href="/posts/feed">All Pets</a>
+        <a id="lost-menu" class="menu-item" href="/posts/lostpets">Lost Pets</a>
+        <a id="found-menu" class="menu-item" href="/posts/foundpets">Found Pets</a>
         <% if (!currentUser) { %>
-            <a class="menu-item" href="/signup">Sign Up</a>
-            <a class="menu-item" href="/login">Login</a>
+            <a id="signup-menu" class="menu-item" href="/signup">Sign Up</a>
+            <a id="login-menu" class="menu-item" href="/login">Login</a>
         <% } else { %>
           <div class="dropdown">
             <i class="dropbtn fas fa-user-circle" onclick="showUserDropdown()"></i>

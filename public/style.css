@@ -13,6 +13,13 @@
   color: #f9f9f9;
   border-radius: 0.4rem;
   cursor: pointer;
+  transition: all 0.3s ease-in;
+  border: 2px solid #363d48;
+}
+.btn:hover {
+  background-color: #f9f9f9;
+  color: #363d48;
+  border: 2px solid #363d48;
 }
 .pet-list {
   width: 90%;
@@ -66,7 +73,10 @@
 .tag-link {
   text-decoration: underline;
 }
-
+.full-pets-list {
+  display: block;
+  text-decoration: none;
+}
 /* Dashboard */
 .dashboard-section {
   text-align: center;
@@ -140,10 +150,14 @@
 .social-link {
   padding: 1.2rem;
   background-color: #f4863f;
-  width: 14%;
+  width: 15%;
   border-radius: 50%;
   color: #fff;
-  margin: 1rem;
+  margin: 1.3rem;
+  transition: all 0.2s ease-in;
+}
+.social-link:hover {
+  color: #eee;
 }
 .plus-minus {
   font-size: 1.2rem;
@@ -175,6 +189,11 @@
   width: 40%;
   margin: 1rem auto;
   cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+.submit:hover {
+  background-color: #f4863f;
+  color: #eee;
 }
 .call-to-action {
   display: flex;
@@ -190,4 +209,11 @@
   color: #f9f9f9;
   border-radius: 0.3rem;
   cursor: pointer;
+  border: 2px solid #363d48;
+  transition: all 0.3s ease-in;
+}
+.btn-small:hover {
+  background-color: #f9f9f9;
+  color: #363d48;
+  border: 2px solid #363d48;
 }

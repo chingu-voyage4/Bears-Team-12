@@ -72,6 +72,11 @@
   margin: 1rem auto;
   cursor: pointer;
   text-decoration: none;
+  transition: all 0.3s ease-in;
+}
+.add-comment:hover {
+  background-color: #f4863f;
+  color: #eee;
 }
 .comment {
   color: red;
@@ -126,6 +131,11 @@
   color: #f4b33f;
   border: 1px solid #f4b33f;
   border-radius: 0.2rem;
+  transition: all 0.3s ease-in;
+}
+.form-btn:hover {
+  background-color: #f4863f;
+  color: #eee;
 }
 .pet-list {
   width: 80%;

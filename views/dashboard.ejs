@@ -37,11 +37,11 @@
           </a>
         <p class="plus-minus">
           <% if (!currentUser.twitter) { %>
-            <i id="dash-goo-p" class="fas fa-plus-circle green-social"></i>
-            <i id="dash-goo-m" class="fas fa-minus-circle grey-social"></i>
+            <a href="/auth/google"><i id="dash-goo-p" class="fas fa-plus-circle green-social"></i></a>
+            <a href="/auth/google/unlink"><i id="dash-goo-m" class="fas fa-minus-circle grey-social"></i></a>
           <% } else { %>
-            <i id="dash-goo-p" class="fas fa-plus-circle grey-social"></i>
-            <i id="dash-goo-m" class="fas fa-minus-circle red-social"></i>
+            <a href="/auth/google"><i id="dash-goo-p" class="fas fa-plus-circle grey-social"></i></a>
+            <a href="/auth/google/unlink"><i id="dash-goo-m" class="fas fa-minus-circle red-social"></i></a>
           <% } %>
         </p>
       </li>
@@ -51,11 +51,11 @@
           </a>
         <p class="plus-minus">
           <% if (!currentUser.twitter) { %>
-            <i id="dash-tw-p" class="fas fa-plus-circle green-social"></i>
-            <i id="dash-tw-m" class="fas fa-minus-circle grey-social"></i>
+            <a href="/auth/twitter"><i id="dash-tw-p" class="fas fa-plus-circle green-social"></i></a>
+            <a href="/auth/twitter/unlink"><i id="dash-tw-m" class="fas fa-minus-circle grey-social"></i></a>
           <% } else { %>
-            <i id="dash-tw-p" class="fas fa-plus-circle grey-social"></i>
-            <i id="dash-tw-m" class="fas fa-minus-circle red-social"></i>
+            <a href="/auth/twitter"><i id="dash-tw-p" class="fas fa-plus-circle grey-social"></i></a>
+            <a href="/auth/twitter/unlink"><i id="dash-tw-m" class="fas fa-minus-circle red-social"></i></a>
           <% } %>
         </p>
       </li>
@@ -65,11 +65,11 @@
           </a>
         <p class="plus-minus">
           <% if (!currentUser.facebook) { %>
-            <i id="dash-fb-p" class="fas fa-plus-circle green-social"></i>
-            <i id="dash-fb-m" class="fas fa-minus-circle grey-social"></i>
+            <a href="/auth/facebook"><i id="dash-fb-p" class="fas fa-plus-circle green-social"></i></a>
+            <a href="/auth/facebook/unlink"><i id="dash-fb-m" class="fas fa-minus-circle grey-social"></i></a>
           <% } else { %>
-            <i id="dash-fb-p" class="fas fa-plus-circle grey-social"></i>
-            <i id="dash-fb-m" class="fas fa-minus-circle red-social"></i>
+            <a href="/auth/facebook"><i id="dash-fb-p" class="fas fa-plus-circle grey-social"></i></a>
+            <a href="/auth/facebook/unlink"><i id="dash-fb-m" class="fas fa-minus-circle red-social"></i></a>
           <% } %>
         </p>
       </li>
