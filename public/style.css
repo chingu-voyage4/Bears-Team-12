@@ -217,3 +217,74 @@
   color: #363d48;
   border: 2px solid #363d48;
 }
+
+/* Responsive Design */
+@media screen and (max-width: 900px) {
+  .btn {
+    padding: 1rem;
+    font-size: 1.5rem;
+    margin: 4rem 1rem;
+  }
+  .pet-list {
+    width: 95%;
+    margin: 0 auto;
+  }
+  .pet {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 0 0 1rem;
+    margin: 1rem 2rem;
+  }
+}
+@media screen and (max-width: 650px) {
+  .call-to-action {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 1rem auto;
+  }
+  .btn {
+    padding: 1rem;
+    font-size: 1.5rem;
+    margin: 1rem 0;
+  }
+  .btn-a {
+    margin: 0 auto;
+  }
+  .pet {
+    padding: 1rem 0 0 1rem;
+    margin: 1rem;
+  }
+  .pet-name {
+    margin-bottom: 0.8rem;
+  }
+  .pet-image {
+    max-width: 9rem;
+    height: 7rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  .btn {
+    padding: 0.8rem;
+    font-size: 1.2rem;
+    margin: 0.6rem 0;
+  }
+  .pet {
+    padding: 0.8rem 0 0 0.8rem;
+    margin: 0.8rem;
+  }
+  .pet-name {
+    margin-bottom: 0.5rem;
+  }
+  .pet-image {
+    max-width: 8rem;
+    height: 6rem;
+  }
+}
+@media screen and (max-width: 370px) {
+  .pet-image {
+    max-width: 7rem;
+    height: 5rem;
+  }
+}

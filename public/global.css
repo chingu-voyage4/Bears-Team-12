@@ -29,6 +29,15 @@ input:focus {
   font-weight: normal;
   letter-spacing: 0.1rem;
 }
+.line {
+  margin: 1rem auto;
+  border: 0;
+  height: 1px;
+  background-image: -webkit-linear-gradient(left, #edf4cc, #cfe277, #edf4cc);
+  background-image: -moz-linear-gradient(left, #edf4cc, #cfe277, #edf4cc);
+  background-image: -ms-linear-gradient(left, #edf4cc, #cfe277, #edf4cc);
+  background-image: -o-linear-gradient(left, #edf4cc, #cfe277, #edf4cc);
+}
 /* HEADER */
 .logo-header {
   margin: 0;
@@ -72,7 +81,7 @@ input:focus {
 .dropbtn {
   width: 8rem;
   background-color: #f4863f;
-  color: #eee;
+  color: #666;
   padding: 0.6rem;
   margin: auto 0 -0.3rem 1rem;
   font-size: 1.8rem;
