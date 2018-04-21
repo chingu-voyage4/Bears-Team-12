@@ -1,28 +1,18 @@
 <% include ../partials/header %>
 <script type="text/javascript" src="../../pages.js"></script>
 <main>
-    <h1 class="page-title">Have you seen...</h1>
-
-    <section class="search">
-
-      <p class="search-title"> Search <i class="fas fa-search"></i></p>
-
-      <label class="input-label">By Pet Type:</label>
-      <select class="input search-type">
-        <option class="input" name="type" >Select Type</option>
-        <option value="dog">Dogs</option>
-        <option value="cat">Cats</option>
-        <option value="other">Other</option>
-      </select>
-
-      <label class="input-label">By Location:</label>
-      <input class="input search-location" type="text" name="location" placeholder="Please enter a zipcode"></input>
-
-      <label class="input-label">By Name:</label>
-      <input class="input search-name" type="text" name="petName" placeholder="Please enter the Pet Name"></input>
-
-      <button id="submit" class="form-btn">Submit</button>
-    </section>
+  <div class="feed-opening">
+    <% if( query){ %>
+      <% if( query.postType === 'LOST' ){ %>
+        <h1 class="page-title">Have you seen...</h1>
+      <% } else if( query.postType === 'FOUND' ){ %>
+        <h1 class="page-title">Found!</h1>
+      <% } else { %>
+        <h1 class="page-title">Lost and Found Pets</h1>
+      <% }  %>
+    <% }%>
+    <button class="btn-small search-button" onclick="location.href = '/posts/search'">Search</button>
+  </div>
 
     <section class="pet-list">
       <% posts.forEach((post, idx, array) => { %>
@@ -31,17 +21,10 @@
               <div class="pet-image-area">
                 <img class="pet-image" src="<%= post.image %>" alt="<%= post.petType.petCategory %>">
               </div>
+              
               <div class="details-area">
-                <% if (post.postType === 'LOST' && post.lost.name !== '') { %>
-                  <h2 class="pet-name"><%= post.lost.name %></h2>
-                <% } else if (post.postType === 'LOST' && post.lost.name === '')  { %>
-                  <h2 class="pet-name"><%= post.title %></h2>
-                <% } else if (post.postType === 'FOUND' && post.found.name !== '') { %>
-                  <h2 class="pet-name"><%= post.found.name %></h2>
-                <% } else if (post.postType === 'FOUND' && post.found.name === '')  { %>
-                  <h2 class="pet-name"><%= post.title %></h2>
-                <% } %>
-                <p class="info">Type: <span class="detail"><%= post.petType.petCategory %></span></p>
+                <h2 class="pet-name"><%= post.name || ( post.petType.otherType ? 'Found ' + post.petType.otherType : 'Found ' + post.petType.petCategory ) %></h2> 
+                <p class="info">Type: <span class="detail"><%= post.petType.otherType ? post.petType.otherType : post.petType.petCategory %></span></p>
                 <p class="info">Color: <span class="detail"><%= post.breed %></span></p>
                 <% if (post.postType === 'LOST') { %>
                   <p class="info">Last seen: <span class="detail"><%= post.location.city %>, <%= post.location.state %>, <%= post.location.postal %></span></p>

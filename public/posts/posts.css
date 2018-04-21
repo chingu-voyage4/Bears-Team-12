@@ -93,47 +93,61 @@
 }
 
 /* POSTS */
+.feed-opening {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem auto;
+}
 .search {
+  width: 80%;
   display: flex;
   justify-content: center;
-  padding: 2rem;
+  margin: 1rem auto;
 }
 .search-title {
-  font-size: 1.2rem;
-  font-weight: bold;
-  line-height: 2.2rem;
-  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 1rem;
+  text-align: center;
 }
-.input-label {
+#searchForm .search-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.search-form .search-row {
+  margin: 2rem auto;
+}
+#searchForm .input-label {
   margin: 0.5rem 2rem;
   color: #666;
-  font-size: 1rem;
+  font-size: 1.3rem;
 }
-.input {
+#searchForm .input {
   border: none;
   background-color: transparent;
   border-bottom: 1px solid #666;
   text-align: center;
   color: #666;
+  font-size: 1.2rem;
+  padding: 0.2rem;
 }
-.input:focus {
-  outline: 0;
-}
-.form-btn {
+#searchForm .form-btn {
   font-size: 1.2rem;
   font-weight: bold;
   line-height: 2.2rem;
-  border: none;
   text-align: center;
   padding: 0.3rem 1.5rem;
-  margin-left: 2rem;
+  display: block;
+  margin: 3rem auto;
   background-color: transparent;
   color: #f4b33f;
   border: 1px solid #f4b33f;
   border-radius: 0.2rem;
   transition: all 0.3s ease-in;
 }
-.form-btn:hover {
+#searchForm .form-btn:hover {
   background-color: #f4863f;
   color: #eee;
 }
@@ -147,7 +161,7 @@
   justify-content: center;
   align-items: center;
   background-color: #f9f9f9;
-  margin: 1rem;
+  margin: 1rem 0;
 }
 .pet-link {
   text-decoration: none;
@@ -191,4 +205,13 @@
   color: #f9f9f9;
   border-radius: 0.3rem;
   cursor: pointer;
+}
+.btn-small:hover {
+  color: #363d48;
+  background-color: #f9f9f9;
+  border: 2px solid #363d48;
+  padding: 0.9rem;
+}
+.search-button {
+  margin: 2rem 0;
 }

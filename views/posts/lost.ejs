@@ -54,6 +54,9 @@
                 <div class="comment">
                     <h3 class="comment-title"><%= comment.author.username %> - <%= moment(comment.createdAt).fromNow() %></h3>
                     <p class="comments-text"><%= comment.text %></p>
+                    <% if (currentUser && post.author.id.equals(currentUser._id) || currentUser && comment.author.id.equals(currentUser._id)) { %>
+                      <p class="comment-text">Contact Details: <%= comment.contact %></p>
+                    <% } %>
                 </div>
               <% }) %>
             <% } %>

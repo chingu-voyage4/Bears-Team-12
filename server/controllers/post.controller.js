@@ -20,6 +20,8 @@ module.exports = {
         
         const count = fulfilled.data.count;
         
+        const maxPage = Math.ceil( count/10 );
+        
         if ( page < 1) page = 1;
         
         res.render( './posts/feed', { 
@@ -28,7 +30,8 @@ module.exports = {
           query:{
             page:         page,
             previousPage: ( page > 1 ) ? ( page - 1 ) : null,
-            nextPage:     page * 10 <= count ? page + 1 : null ,  // multiplication by 1 changes string to int
+            nextPage:     page * 10 < count ? page + 1 : null ,  // multiplication by 1 changes string to int
+            maxPage:      maxPage,
             postType:     fulfilled.data.postType
           },
           message: req.flash( 'notification' ),
@@ -208,7 +211,7 @@ module.exports = {
             firstEntry:   (10 * page - 9) || 1,
             lastEntry:    (10 * page) < count ? ( 10 * page ) : count,
             previousPage: ( page > 1 ) ? ( page - 1 ) : null,
-            nextPage:     page * 10 <= count ? page + 1 : null   // multiplication changes string to int
+            nextPage:     page * 10 < count ? page + 1 : null   // multiplication changes string to int
           },
           firstRun: 0,
           message: req.flash( 'notification' ),
