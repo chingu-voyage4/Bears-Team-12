@@ -173,7 +173,7 @@
   color: #eee;
 }
 .pet-list {
-  width: 80%;
+  width: 90%;
   display: block;
   margin: 0 auto;
 }
@@ -181,12 +181,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f9f9f9;
+  background-color: #eee;
   margin: 1rem 0;
+  border-radius: 1rem;
 }
 .pet-link {
   text-decoration: none;
   color: #363d48;
+  cursor: pointer;
 }
 .pet-image-area,
 .details-area {
@@ -299,5 +301,64 @@
   .post-image {
     max-width: 15rem;
     height: 12rem;
+  }
+}
+/* Responsive Design - Index page */
+@media screen and (max-width: 900px) {
+  .pet-list {
+    width: 95%;
+    margin: 0 auto;
+  }
+  .pet {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 0 0 1rem;
+    margin: 1rem 2rem;
+  }
+}
+@media screen and (max-width: 655px) {
+  .feed-opening {
+    flex-direction: column;
+  }
+  .pet {
+    padding: 1rem 0 0 1rem;
+    margin: 1rem;
+    align-items: flex-start;
+  }
+  .pet-name {
+    margin-bottom: 0.8rem;
+  }
+  .pet-image {
+    padding-top: 2rem;
+    max-width: 9rem;
+    height: 7rem;
+  }
+  .call-to-action {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .call-to-action a {
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 450px) {
+  .pet {
+    padding: 0.8rem 0 0 0.8rem;
+    margin: 0.8rem;
+  }
+  .pet-name {
+    margin-bottom: 0.5rem;
+  }
+  .pet-image {
+    max-width: 6rem;
+    height: 5rem;
+  }
+}
+@media screen and (max-width: 370px) {
+  .pet-image {
+    max-width: 5rem;
+    height: 3.5rem;
   }
 }
