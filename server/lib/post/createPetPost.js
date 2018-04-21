@@ -32,7 +32,7 @@ const createPetPost = ( postData, user, imageFileName, postType ) => {
         post.petType.petCategory = petChoice ? petChoice.toLowerCase() : undefined;
         post.petType.otherType = otherType ? otherType.toLowerCase() : undefined;
         post.breed = breed ? breed.toLowerCase() : undefined;
-        post.name = name;
+        post.name = name || 'unknown';
         post.gender = gender ? gender.toLowerCase() : undefined;
         post.age = age;
         post.description = petDesc;  
@@ -45,12 +45,10 @@ const createPetPost = ( postData, user, imageFileName, postType ) => {
         if( postType == 'FOUND'){
           post.found = {
             incident: incidentDesc,
-            name:   name || 'unknown'
           };
         }
         else {
           post.lost = {
-            name: name,
             areaDesc: areaDesc,
             chipped: chipped,
             incident: incidentDesc,
@@ -58,7 +56,6 @@ const createPetPost = ( postData, user, imageFileName, postType ) => {
         }
         
         post.location = {
-          name: name,
           address:  address,
           city:     city,
           state:    state,

@@ -29,7 +29,6 @@ const postSchema = new Schema({
         postal: String 
     },
     lost: {
-        name: String,
         areaDesc: String,
         chipped: String,
         incident: String,
@@ -37,7 +36,6 @@ const postSchema = new Schema({
     },
     found: {
         incident: String,
-        name:   String,
     },
     author: {
         id: {
