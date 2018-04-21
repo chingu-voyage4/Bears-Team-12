@@ -3,6 +3,7 @@ const mongoose      = require('mongoose'),
 
 const commentSchema = new Schema({
     text: String,
+    contact: String,
     createdAt: {
         type: Date,
         default: Date.now
