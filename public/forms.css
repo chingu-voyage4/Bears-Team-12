@@ -220,7 +220,6 @@ label[for='PetImage'] {
   border: 1px solid #f4863f;
   border-radius: 50%;
   margin: 1rem auto;
-  width: 8%;
   list-style-type: none;
   transition: all 0.2s ease-in;
 }
@@ -262,16 +261,10 @@ label[for='PetImage'] {
   .login-local .social-list {
     margin-top: 3rem;
   }
-  .social-item {
-    width: auto;
-  }
 }
 @media screen and (max-width: 700px) {
   .social-list {
     flex-direction: column;
-  }
-  .social-item {
-    width: 15%;
   }
 }
 @media screen and (max-width: 650px) {

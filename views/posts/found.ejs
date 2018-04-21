@@ -2,7 +2,8 @@
 
 <main>
 
-  <h1 class="page-title">Found! <% include ../partials/deleteButton %></h1>
+  <h1 class="page-title">Found!</h1>
+  <p> <% include ../partials/deleteButton %> </p>
   <section class="post-pet">
     <img class="post-image" src="<%= post.image %>" alt="<%= post.breed %>">
     <% if (post.found.name == '') { %>

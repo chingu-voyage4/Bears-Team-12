@@ -6,9 +6,10 @@
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
+  clear: both;
 }
 .post-image {
-  width: 28rem;
+  max-width: 28rem;
   height: 20rem;
   display: block;
   margin: 0 auto;
@@ -91,6 +92,22 @@
   color: #f4863f;
   margin-left: 2rem;
 }
+.remove-post {
+  float: right;
+  padding: 2rem;
+}
+.remove-btn {
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 0.3rem 1rem;
+  display: inline;
+  background-color: transparent;
+  color: #f4b33f;
+  border: 1px solid #f4b33f;
+  border-radius: 0.2rem;
+  transition: all 0.3s ease-in;
+}
 
 /* POSTS */
 .feed-opening {
@@ -133,7 +150,7 @@
   font-size: 1.2rem;
   padding: 0.2rem;
 }
-#searchForm .form-btn {
+.form-btn {
   font-size: 1.2rem;
   font-weight: bold;
   line-height: 2.2rem;

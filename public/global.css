@@ -183,6 +183,12 @@ input:focus {
   background-color: #2ab5f6;
 }
 
+/* Social Media */
+.svg-inline--fa.fa-w-9,
+.svg-inline--fa.fa-w-16 {
+  width: 1.2em;
+}
+
 /* Responsive Design - Header */
 @media screen and (max-width: 1000px) {
   .logo-header {

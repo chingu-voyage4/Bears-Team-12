@@ -1,7 +1,8 @@
 <% include ../partials/header %>
 
 <main>
-        <h1 class="page-title">Have you seen... <% include ../partials/deleteButton %></h1>
+        <h1 class="page-title">Have you seen... </h1>
+        <p> <% include ../partials/deleteButton %> </p>
         <section class="post-pet">
           <img class="post-image" src="<%= post.image %>" alt="<%= post.lost.name %>">
           <h2 class="name"><%= post.lost.name %></h2>
