@@ -6,7 +6,15 @@
               <img class="pet-image" src="<%= post.image %>" alt="<%= post.petType.petCategory %>">
           </div>
           <div class="details-area">
-            <h2 class="pet-name"><%= post.name || ( post.petType.otherType ? 'Found ' + post.petType.otherType : 'Found ' + post.petType.petCategory ) %></h2>
+            <% if (post.postType === 'LOST' && post.lost.name !== '') { %>
+              <h2 class="pet-name"><%= post.lost.name %></h2>
+            <% } else if (post.postType === 'LOST' && post.lost.name === '')  { %>
+              <h2 class="pet-name"><%= post.title %></h2>
+            <% } else if (post.postType === 'FOUND' && post.found.name !== '') { %>
+              <h2 class="pet-name"><%= post.found.name %></h2>
+            <% } else if (post.postType === 'FOUND' && post.found.name === '')  { %>
+              <h2 class="pet-name"><%= post.title %></h2>
+            <% } %>
             <% if (post.postType === 'LOST') { %>
                 <p class="info">Last seen: <span class="detail"><%= post.location.city %>, <%= post.location.state %>, <%= post.location.postal %></span></p>
             <% } else if (post.postType === 'FOUND') { %>

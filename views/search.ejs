@@ -22,7 +22,7 @@
             <option value="Cat" <%= query && query.petType === 'Cat' ? 'selected' : '' %> >Cat</option>
             <option value="Bird" <%= query && query.petType === 'Bird' ? 'selected' : '' %> >Bird</option>
             <option value="Reptile" <%= query && query.petType === 'Reptile' ? 'selected' : '' %> >Reptile</option>
-            <option value="other" <%= query && query.petType === 'Other' ? 'selected' : '' %> >Other</option>
+            <option value="Other" <%= query && query.petType === 'Other' ? 'selected' : '' %> >Other</option>
           </select>
         </div>
 
@@ -70,8 +70,8 @@
                 <% } else if (result.postType === 'FOUND' && result.found.name === '')  { %>
                   <h2 class="pet-name"><%= result.title %></h2>
                 <% } %>
-                <p class="info">Type: <span class="detail"><%= result.petType.otherType ? result.petType.otherType : result.petType.petCategory %></span></p>
-                <p class="info">Color: <span class="detail"><%= result.color %></span></p>
+                <p class="info">Type: <span class="detail"><%= result.petType.petCategory %></span></p>
+                <p class="info">Color: <span class="detail"><%= result.breed %></span></p>
                 <% if (result.postType === 'LOST') { %>
                   <p class="info">Last seen: <span class="detail"><%= result.location.city %>, <%= result.location.state %>, <%= result.location.postal %></span></p>
                 <% } else if (result.postType === 'FOUND') { %>
