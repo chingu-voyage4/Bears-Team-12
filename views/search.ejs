@@ -69,7 +69,7 @@
                 <% } else if (result.postType === 'FOUND' && result.found.name === '')  { %>
                   <h2 class="pet-name"><%= result.title %></h2>
                 <% } %>
-                <p class="info">Type: <span class="detail"><%= result.petType.petCategory %></span></p>
+                <p class="info">Type: <span class="detail"><%= result.petType.otherType ? result.petType.otherType : result.petType.petCategory %></span></p>
                 <p class="info">Color: <span class="detail"><%= result.breed %></span></p>
                 <% if (result.postType === 'LOST') { %>
                   <p class="info">Last seen: <span class="detail"><%= result.location.city %>, <%= result.location.state %>, <%= result.location.postal %></span></p>
