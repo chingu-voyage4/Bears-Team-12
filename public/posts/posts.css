@@ -37,8 +37,12 @@
   margin-left: 2rem;
 }
 .post-description {
-  width: 40%;
+  width: 50%;
   margin-left: 2rem;
+}
+.pet-description {
+  margin-left: 2rem;
+  width: 90%;
 }
 .subtitle {
   font-size: 1.2rem;
@@ -231,4 +235,69 @@
 }
 .search-button {
   margin: 2rem 0;
+}
+
+/* Responsive Design - Post Page */
+@media screen and (max-width: 800px) {
+  .post-pet {
+    padding: 2rem 0 0 1rem;
+    margin: 2rem;
+  }
+  .post-image {
+    max-width: 22rem;
+    height: 18rem;
+  }
+  .name {
+    font-size: 1.8rem;
+  }
+  .details-title,
+  .desc-title {
+    font-size: 1.1rem;
+  }
+  .description-text {
+    line-height: 1.5rem;
+  }
+  .add-comment-area {
+    margin: 1rem;
+  }
+  .comment {
+    padding: 1rem;
+    margin: 1rem 2rem;
+    font-size: 1rem;
+  }
+  .comment-title {
+    font-size: 1.1rem;
+    margin-left: 1rem;
+  }
+  .remove-post {
+    padding: 1rem;
+  }
+}
+@media screen and (max-width: 700px) {
+  .post-details {
+    width: 30%;
+    margin-left: 1rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .post-image {
+    max-width: 18rem;
+    height: 15rem;
+  }
+  .name {
+    font-size: 1.6rem;
+  }
+  .post-pet {
+    padding: 2rem 0 0 1rem;
+    margin: 1rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 350px) {
+  .post-image {
+    max-width: 15rem;
+    height: 12rem;
+  }
 }

@@ -5,8 +5,8 @@
         <p> <% include ../partials/deleteButton %> </p>
         <section class="post-pet">
           <img class="post-image" src="<%= post.image %>" alt="<%= post.lost.name %>">
-          <h2 class="name"><%= post.lost.name %></h2>
-          <hr class="line">
+          <h2 class="name"><%= post.name %></h2>
+
           <div class="post-text">
             <div class="post-details">
               <p class="details-title">About</p>
@@ -20,10 +20,6 @@
               <p class="subtitle">Contact: <span class="span"><%= post.author.username %>, </span>,
                 <span class="span"><%= post.author.contact %></span>
               </p>
-
-              <div class="pet-description">
-                <p class="subtitle">Pet's Description: <span class="span description-text"><%= post.description %></p>
-              </div>
             </div>
 
             <div class="post-description">
@@ -34,6 +30,11 @@
               <p class="subtitle">Incident Description: <span class="span description-text"><%= post.lost.incident %></span></p>
             </div>
           </div>
+
+          <div class="pet-description">
+            <p class="subtitle">Pet's Description: <span class="span description-text"><%= post.description %></p>
+          </div>
+          
           <div class="tags-arae">
             <% if (post.tags > 0) { %>
               <% post.tags.forEach((tag) => { %>

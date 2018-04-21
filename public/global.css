@@ -189,7 +189,7 @@ input:focus {
   width: 1.2em;
 }
 
-/* Responsive Design - Header */
+/* Responsive Design - Header and Page title*/
 @media screen and (max-width: 1000px) {
   .logo-header {
     width: 180px;
@@ -265,6 +265,12 @@ input:focus {
   }
   .menu-btn {
     display: block;
+  }
+}
+@media screen and (max-width: 500px) {
+  .page-title {
+    font-size: 2rem;
+    margin: 1rem;
   }
 }
 @media screen and (max-width: 350px) {
