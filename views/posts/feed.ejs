@@ -2,7 +2,15 @@
 <script type="text/javascript" src="../../pages.js"></script>
 <main>
   <div class="feed-opening">
-    <h1 class="page-title">Have you seen...</h1>
+    <% if( query){ %>
+      <% if( query.postType === 'LOST' ){ %>
+        <h1 class="page-title">Have you seen...</h1>
+      <% } else if( query.postType === 'FOUND' ){ %>
+        <h1 class="page-title">Found!</h1>
+      <% } else { %>
+        <h1 class="page-title">Lost and Found Pets</h1>
+      <% }  %>
+    <% }%>
     <button class="btn-small search-button" onclick="location.href = '/posts/search'">Search</button>
   </div>
 
