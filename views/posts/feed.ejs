@@ -21,6 +21,7 @@
               <div class="pet-image-area">
                 <img class="pet-image" src="<%= post.image %>" alt="<%= post.petType.petCategory %>">
               </div>
+              
               <div class="details-area">
                 <h2 class="pet-name"><%= post.name || ( post.petType.otherType ? 'Missing ' + post.petType.otherType : 'Missing ' + post.petType.petCategory ) %></h2>
                 <p class="info">Type: <span class="detail"><%= post.petType.petCategory %></span></p>
