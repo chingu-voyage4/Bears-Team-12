@@ -50,7 +50,6 @@
       <p class="search-title"> Please select search options from above</i></p>
     <% } %>
     <% if( searchResults && count && query) { %>
-      <% console.log( query ) %>
         <p class="search-title"> Showing <%= query.firstEntry %>-<%= query.lastEntry %> of <%= query.count %> Results Found</i></p>
 
       <% searchResults.forEach( (result, idx, array) => { %>
@@ -60,7 +59,7 @@
                 <img class="pet-image" src="<%= result.image %>" alt="<%= result.petType.petCategory %>">
               </div>
               <div class="details-area">
-                <h2 class="pet-name"><%= result.name || ( result.petType.otherType ? 'Found ' + result.petType.otherType : 'Found ' + result.petType.petCategory ) %></h2> 
+                <h2 class="pet-name"><%= result.name || ( result.petType.otherType ? 'Found ' + result.petType.otherType : 'Found ' + result.petType.petCategory ) %></h2>
                 <p class="info">Type: <span class="detail"><%= result.petType.otherType ? result.petType.otherType : result.petType.petCategory %></span></p>
                 <p class="info">Color: <span class="detail"><%= result.breed %></span></p>
                 <% if (result.postType === 'LOST') { %>

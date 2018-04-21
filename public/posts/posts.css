@@ -362,3 +362,19 @@
     height: 3.5rem;
   }
 }
+
+/* Responsive Design - Search page */
+@media screen and (max-width: 1000px) {
+  .search-form .search-row {
+    display: flex;
+    flex-direction: column;
+    margin: 4rem auto;
+  }
+  #searchForm .input-label {
+    margin: 2rem 2rem;
+    font-size: 1.5rem;
+  }
+  #searchForm .input {
+    font-size: 1.2rem;
+  }
+}
