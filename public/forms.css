@@ -261,6 +261,8 @@ label[for='PetImage'] {
   .form-btn {
     line-height: 2rem;
     padding: 0.2rem 0.5rem;
+    display: block;
+    width: auto;
   }
   .signup-social .social-list,
   .login-local .social-list {
