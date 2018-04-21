@@ -21,6 +21,7 @@
               <div class="pet-image-area">
                 <img class="pet-image" src="<%= post.image %>" alt="<%= post.petType.petCategory %>">
               </div>
+              
               <div class="details-area">
                 <% if (post.postType === 'LOST' && post.lost.name !== '') { %>
                   <h2 class="pet-name"><%= post.lost.name %></h2>

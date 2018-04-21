@@ -26,6 +26,7 @@ const createPetPost = ( postData, user, imageFileName, postType ) => {
         }
         
         let post = new Post();
+        
         postType = postType.toUpperCase();
         post.title = title;
         post.image = imageFileName;
