@@ -5,83 +5,90 @@
     <h2 class="msg success-msg"><%- message %></h2>
   </div>
   <% } %>
-<main class="dashboard-section">
-  <h1 class="dashboard-title">My Dashboard</h1>
-  <section class="user-details">
-    <p class="user-name">Username: <%= currentUser.local.username %></p>
-    <p class="user-email">Email: <%= currentUser.local.email %></p>
 
-    <div class="edit-section">
-      <p class="form-title">Edit your information</p>
+  <main class="dashboard-section">
+        <h1 class="dashboard-title">My Dashboard</h1>
+        <section class="user-details">
+          <p class="user-name">Username: <%= currentUser.local.username %></p>
+          <p class="user-email">Email: <%= currentUser.local.email %></p>
 
-      <% if (!currentUser.local) { %>
-        <p class="dashboard-question">Create a password</p>
-        <form action="" method="POST" class="form-group">
-          <input type="password" class="form-input" name="newPassword" placeholder="New Password">
-          <button id="SubmitPassword" class="submit">Create password</button>
-        </form>
-      <% } else { %>
-        <p class="dashboard-question">Change your password</p>
-        <form action="" method="POST" class="form-group">
-          <input type="password" class="form-input" name="oldPassword" placeholder="Current Password">
-          <input type="password" class="form-input" name="newPassword" placeholder="New Password">
-          <button id="SubmitPassword" class="submit">Change password</button>
-        </form>
-      <% } %>
+          <div class="edit-section">
+            <p class="form-title">Edit your information</p>
 
-      <p class="dashboard-question">You can manage your account with any of the following:</p>
-      <ul class="social-list">
-        <li class="social-item">
-          <a class="social-link" id="socialLink" href="">
-            <i class="fab fa-google"></i>
-          </a>
-        <p class="plus-minus">
-          <% if (!currentUser.google) { %>
-            <a href="/auth/google"><i id="dash-goo-p" class="fas fa-plus-circle green-social"></i></a>
-            <a href="/auth/google/unlink"><i id="dash-goo-m" class="fas fa-minus-circle grey-social"></i></a>
-          <% } else { %>
-            <a href="/auth/google"><i id="dash-goo-p" class="fas fa-plus-circle grey-social"></i></a>
-            <a href="/auth/google/unlink"><i id="dash-goo-m" class="fas fa-minus-circle red-social"></i></a>
-          <% } %>
-        </p>
-      </li>
-        <li class="social-item">
-          <a class="social-link" id="socialLink" href="">
-            <i class="fab fa-twitter"></i>
-          </a>
-        <p class="plus-minus">
-          <% if (!currentUser.twitter) { %>
-            <a href="/auth/twitter"><i id="dash-tw-p" class="fas fa-plus-circle green-social"></i></a>
-            <a href="/auth/twitter/unlink"><i id="dash-tw-m" class="fas fa-minus-circle grey-social"></i></a>
-          <% } else { %>
-            <a href="/auth/twitter"><i id="dash-tw-p" class="fas fa-plus-circle grey-social"></i></a>
-            <a href="/auth/twitter/unlink"><i id="dash-tw-m" class="fas fa-minus-circle red-social"></i></a>
-          <% } %>
-        </p>
-      </li>
-        <li class="social-item">
-          <a class="social-link" id="socialLink" href="">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-        <p class="plus-minus">
-          <% if (!currentUser.facebook) { %>
-            <a href="/auth/facebook"><i id="dash-fb-p" class="fas fa-plus-circle green-social"></i></a>
-            <a href="/auth/facebook/unlink"><i id="dash-fb-m" class="fas fa-minus-circle grey-social"></i></a>
-          <% } else { %>
-            <a href="/auth/facebook"><i id="dash-fb-p" class="fas fa-plus-circle grey-social"></i></a>
-            <a href="/auth/facebook/unlink"><i id="dash-fb-m" class="fas fa-minus-circle red-social"></i></a>
-          <% } %>
-        </p>
-      </li>
-      </ul>
-    </div>
-  </section>
+            <% if (!currentUser.local) { %>
+              <p class="dashboard-question">Create a password</p>
+              <form action="" method="POST" class="form-group">
+                <input type="password" class="form-input" name="newPassword" placeholder="New Password">
+                <button id="SubmitPassword" class="submit">Create password</button>
+              </form>
+            <% } else { %>
+              <p class="dashboard-question">Change your password</p>
+              <form action="" method="POST" class="form-group">
+                <input type="password" class="form-input" name="oldPassword" placeholder="Current Password">
+                <input type="password" class="form-input" name="newPassword" placeholder="New Password">
+                <button id="SubmitPassword" class="submit">Change password</button>
+              </form>
+            <% } %>
+
+            <p class="dashboard-question">You can manage your account with any of the following:</p>
+            <ul class="social-list">
+              <li class="social-item">
+                <a class="social-link" id="socialLink" href="">
+                  <i class="fab fa-google"></i>
+                </a>
+                <p class="plus-minus">
+                <% if (!currentUser.google) { %>
+                  <a href="/auth/google"><i id="dash-goo-p" class="fas fa-plus-circle green-social"></i></a>
+                  <a href="/auth/google/unlink"><i id="dash-goo-m" class="fas fa-minus-circle grey-social"></i></a>
+                <% } else { %>
+                  <a href="/auth/google"><i id="dash-goo-p" class="fas fa-plus-circle grey-social"></i></a>
+                  <a href="/auth/google/unlink"><i id="dash-goo-m" class="fas fa-minus-circle red-social"></i></a>
+                <% } %>
+              </p>
+            </li>
+
+            <li class="social-item">
+              <a class="social-link" id="socialLink" href="">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <p class="plus-minus">
+                <% if (!currentUser.twitter) { %>
+                  <a href="/auth/twitter"><i id="dash-tw-p" class="fas fa-plus-circle green-social"></i></a>
+                  <a href="/auth/twitter/unlink"><i id="dash-tw-m" class="fas fa-minus-circle grey-social"></i></a>
+                <% } else { %>
+                  <a href="/auth/twitter"><i id="dash-tw-p" class="fas fa-plus-circle grey-social"></i></a>
+                  <a href="/auth/twitter/unlink"><i id="dash-tw-m" class="fas fa-minus-circle red-social"></i></a>
+                <% } %>
+              </p>
+            </li>
+
+            <li class="social-item">
+              <a class="social-link" id="socialLink" href="">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            <p class="plus-minus">
+              <% if (!currentUser.facebook) { %>
+                <a href="/auth/facebook"><i id="dash-fb-p" class="fas fa-plus-circle green-social"></i></a>
+                <a href="/auth/facebook/unlink"><i id="dash-fb-m" class="fas fa-minus-circle grey-social"></i></a>
+              <% } else { %>
+                <a href="/auth/facebook"><i id="dash-fb-p" class="fas fa-plus-circle grey-social"></i></a>
+                <a href="/auth/facebook/unlink"><i id="dash-fb-m" class="fas fa-minus-circle red-social"></i></a>
+              <% } %>
+            </p>
+          </li>
+        </ul>
+        <div class="popup hide-popup">
+          <p> Choose + or - to link or unlink your accounts </p>
+        </div>
+      </div>
+    </section>
 
   <section class="call-to-action">
     <a href="/posts/foundpet/new"><button id="FoundBtn" class="btn btn-found btn-small">I've found a Pet</button></a>
     <a href="/posts/lostpet/new"><button id="LostBtn" class="btn btn-lost btn-small">I'm looking for a Lost Pet</button></a>
   </section>
+  </main>
 
-</main>
-
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="../../script.js"></script>
 <% include ./partials/footer %>
