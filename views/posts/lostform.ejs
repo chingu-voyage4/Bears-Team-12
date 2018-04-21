@@ -64,7 +64,7 @@
       <input class="form-input" type="text" name="address" placeholder="Street Name/Address">
       <input class="form-input" type="text" name="city" placeholder="City">
       <input class="form-input" type="text" name="state" placeholder="State/Province*" required>
-      <input class="form-input" type="text" name="zipcode" placeholder="Zip/Postal Code*" required>
+      <input class="form-input" type="text" name="zipcode" placeholder="Zip/Postal Code*" pattern="[0-9]{5}" title="Zip/Postal Code*" required>
       <p class="form-question">Describe the area you last saw your pet if possible.</p>
       <textarea id="LastSeenAreaDesc" name="areaDesc" cols="80" rows="10"></textarea>
       <hr class="line">
