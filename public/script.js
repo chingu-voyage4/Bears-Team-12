@@ -86,3 +86,9 @@ $(function($) {
     $('.responsive-menu').toggleClass('expand');
   });
 });
+
+// Add tooltip to + and - icons for social media icons in dashboard
+$('.plus-minus').hover(function() {
+  $('.popup').toggleClass('show-popup');
+  $('.popup').toggleClass('hide-popup');
+});

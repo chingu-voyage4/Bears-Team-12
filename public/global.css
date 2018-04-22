@@ -126,8 +126,8 @@ input:focus {
 }
 .dropbtn:hover,
 .dropbtn:focus {
-  background-color: #90f43f;
-  color: #666;
+  background-color: #666;
+  color: #eee;
 }
 .dropdown {
   position: relative;
@@ -183,7 +183,13 @@ input:focus {
   background-color: #2ab5f6;
 }
 
-/* Responsive Design - Header */
+/* Social Media */
+.svg-inline--fa.fa-w-9,
+.svg-inline--fa.fa-w-16 {
+  width: 1.2em;
+}
+
+/* Responsive Design - Header and Page title*/
 @media screen and (max-width: 1000px) {
   .logo-header {
     width: 180px;
@@ -259,6 +265,12 @@ input:focus {
   }
   .menu-btn {
     display: block;
+  }
+}
+@media screen and (max-width: 500px) {
+  .page-title {
+    font-size: 2rem;
+    margin: 1rem;
   }
 }
 @media screen and (max-width: 350px) {

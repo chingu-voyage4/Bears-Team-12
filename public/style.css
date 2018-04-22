@@ -8,7 +8,7 @@
   font-size: 2rem;
   font-family: 'Muli', sans-serif;
   background-color: #363d48;
-  margin: 7rem 2rem;
+  margin: 4rem 2rem;
   border: none;
   color: #f9f9f9;
   border-radius: 0.4rem;
@@ -163,6 +163,19 @@
   font-size: 1.2rem;
   margin: 0;
   padding-top: 2rem;
+}
+.hide-popup {
+  display: none;
+}
+.show-popup {
+  display: block;
+  font-size: 1rem;
+  background-color: #666;
+  color: #eee;
+  opacity: 0.8;
+  padding: 0.1rem;
+  margin: 1rem auto;
+  width: 40%;
 }
 .grey-social {
   color: #666;
