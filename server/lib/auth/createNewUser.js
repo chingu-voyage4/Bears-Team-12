@@ -10,23 +10,15 @@ const createNewUser = ( username, email, password ) => {
   return new Promise( ( resolve, reject ) => {
     
     getUserInfoByEmail( email )
-    .then( 
-      fulfilled => {
+    .then( fulfilled => {
       
-        if( fulfilled.user ) return resolve({
-          status:   'FAILED',
-          message:  'EMAIL IS ALREADY IN USE'
-        });
-  
-        return createSaltAndHash( password )
-      },
-      unfulfilled => {
-        return reject( unfulfilled )
-      }
-    )
-    .then( 
-      fulfilled => {
-      
+      if( fulfilled.user ) return resolve({
+        status:   'FAILED',
+        message:  'EMAIL IS ALREADY IN USE'
+      });
+
+      return createSaltAndHash( password )
+      .then(  fulfilled => {
         let newUser = new User();
         
         newUser.local = {
@@ -54,17 +46,13 @@ const createNewUser = ( username, email, password ) => {
           });
           
         })
-      },
-      unfulfilled => { 
-        return reject( unfulfilled );
-        
-      }
-    )
+      })
+    })
     .catch( error => reject({
         error:    error,
         message:  errorMessage
-      }) 
-    );
+      })
+    )
   })
 }
 
