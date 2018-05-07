@@ -9,23 +9,23 @@ module.exports = {
   },
 
   recent: (req, res) => {
+    
     const page = req.query.page;
+    
     getAllPosts ( page )
-    .then(
-      fulfilled => {
-        res.render('./partials/recent', { 
-          page: 'index',
-          posts: fulfilled.data.posts,
-          message: req.flash( 'notification' ),
-        });
-      }
-    ),
-    unfulfilled => {
-      res.render('recent', { 
+    .then(fulfilled => {
+      return res.render('./partials/recent', { 
+        page: 'index',
+        posts: fulfilled.data.posts,
+        message: req.flash( 'notification' ),
+      });
+    })
+    .catch( error => {
+      console.log( 'There was an error while trying to retreive the recent posts feed: ', error );
+      return res.render('recent', { 
         page: 'index',
         message: req.flash( 'notification', 'There was an error retreiving recent posts. Please contact site administrator.' ),
-      })
-      .catch( error => console.log( 'There was an error while trying to retreive the recent posts feed: ', error ) )
-    }
+      });
+    });
   }
 }
