@@ -6,9 +6,10 @@
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
+  clear: both;
 }
 .post-image {
-  width: 28rem;
+  max-width: 28rem;
   height: 20rem;
   display: block;
   margin: 0 auto;
@@ -36,8 +37,12 @@
   margin-left: 2rem;
 }
 .post-description {
-  width: 40%;
+  width: 50%;
   margin-left: 2rem;
+}
+.pet-description {
+  margin-left: 2rem;
+  width: 90%;
 }
 .subtitle {
   font-size: 1.2rem;
@@ -91,6 +96,22 @@
   color: #f4863f;
   margin-left: 2rem;
 }
+.remove-post {
+  float: right;
+  padding: 2rem;
+}
+.remove-btn {
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 0.3rem 1rem;
+  display: inline;
+  background-color: transparent;
+  color: #f4b33f;
+  border: 1px solid #f4b33f;
+  border-radius: 0.2rem;
+  transition: all 0.3s ease-in;
+}
 
 /* POSTS */
 .feed-opening {
@@ -133,7 +154,7 @@
   font-size: 1.2rem;
   padding: 0.2rem;
 }
-#searchForm .form-btn {
+.form-btn {
   font-size: 1.2rem;
   font-weight: bold;
   line-height: 2.2rem;
@@ -152,7 +173,7 @@
   color: #eee;
 }
 .pet-list {
-  width: 80%;
+  width: 90%;
   display: block;
   margin: 0 auto;
 }
@@ -160,12 +181,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f9f9f9;
+  background-color: #eee;
   margin: 1rem 0;
+  border-radius: 1rem;
 }
 .pet-link {
   text-decoration: none;
   color: #363d48;
+  cursor: pointer;
 }
 .pet-image-area,
 .details-area {
@@ -214,4 +237,144 @@
 }
 .search-button {
   margin: 2rem 0;
+}
+
+/* Responsive Design - Post Page */
+@media screen and (max-width: 800px) {
+  .post-pet {
+    padding: 2rem 0 0 1rem;
+    margin: 2rem;
+  }
+  .post-image {
+    max-width: 22rem;
+    height: 18rem;
+  }
+  .name {
+    font-size: 1.8rem;
+  }
+  .details-title,
+  .desc-title {
+    font-size: 1.1rem;
+  }
+  .description-text {
+    line-height: 1.5rem;
+  }
+  .add-comment-area {
+    margin: 1rem;
+  }
+  .comment {
+    padding: 1rem;
+    margin: 1rem 2rem;
+    font-size: 1rem;
+  }
+  .comment-title {
+    font-size: 1.1rem;
+    margin-left: 1rem;
+  }
+  .remove-post {
+    padding: 1rem;
+  }
+}
+@media screen and (max-width: 700px) {
+  .post-details {
+    width: 30%;
+    margin-left: 1rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .post-image {
+    max-width: 18rem;
+    height: 15rem;
+  }
+  .name {
+    font-size: 1.6rem;
+  }
+  .post-pet {
+    padding: 2rem 0 0 1rem;
+    margin: 1rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 350px) {
+  .post-image {
+    max-width: 15rem;
+    height: 12rem;
+  }
+}
+/* Responsive Design - Index page */
+@media screen and (max-width: 900px) {
+  .pet-list {
+    width: 95%;
+    margin: 0 auto;
+  }
+  .pet {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 0 0 1rem;
+    margin: 1rem 2rem;
+  }
+}
+@media screen and (max-width: 655px) {
+  .feed-opening {
+    flex-direction: column;
+  }
+  .pet {
+    padding: 1rem 0 0 1rem;
+    margin: 1rem;
+    align-items: flex-start;
+  }
+  .pet-name {
+    margin-bottom: 0.8rem;
+  }
+  .pet-image {
+    padding-top: 2rem;
+    max-width: 9rem;
+    height: 7rem;
+  }
+  .call-to-action {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .call-to-action a {
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 450px) {
+  .pet {
+    padding: 0.8rem 0 0 0.8rem;
+    margin: 0.8rem;
+  }
+  .pet-name {
+    margin-bottom: 0.5rem;
+  }
+  .pet-image {
+    max-width: 6rem;
+    height: 5rem;
+  }
+}
+@media screen and (max-width: 370px) {
+  .pet-image {
+    max-width: 5rem;
+    height: 3.5rem;
+  }
+}
+
+/* Responsive Design - Search page */
+@media screen and (max-width: 1000px) {
+  .search-form .search-row {
+    display: flex;
+    flex-direction: column;
+    margin: 4rem auto;
+  }
+  #searchForm .input-label {
+    margin: 2rem 2rem;
+    font-size: 1.5rem;
+  }
+  #searchForm .input {
+    font-size: 1.2rem;
+  }
 }

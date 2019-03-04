@@ -69,18 +69,15 @@ module.exports = {
     const { authType } = req.params;
     console.log( 'authtype is ', authType )
     unlinkSocialMedia( user, authType)
-    .then( 
-      fulfilled => {
-        console.log( 'unlinked ', 'authType');
-        req.flash( 'notification', 'Profile unlinked successfully' );
-        return res.redirect('/dashboard');
-      },
-      
-      unfulfilled => {
-        req.flash( 'notification', unfulfilled.message );
-        return res.redirect('/dashboard');
-      })
-    .catch( error => console.log( error ) );
+    .then( fulfilled => {
+      req.flash( 'notification', 'Profile unlinked successfully' );
+      return res.redirect('/dashboard');
+    })
+    .catch( error => {
+      req.flash( 'notification', error.message || 'There was an error. Please try again or contact an administrator' );
+      console.log( error );
+      return res.redirect('/dashboard');
+    })
   }
 }
 

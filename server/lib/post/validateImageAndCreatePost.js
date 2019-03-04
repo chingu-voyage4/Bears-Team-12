@@ -2,7 +2,9 @@ const upload = require( '../image/multerConfig.js' ).upload;
 const isImageFile = require( '../image/isImageFile.js' );
 const createPetPost = require( './createPetPost.js' );
 const imgurUpload = require( '../image/imgurUpload.js' );
-const base64Encode = require( '../image/base64Encode.js' )
+const base64Encode = require( '../image/base64Encode.js' );
+
+const genericError = 'There was an error. Please try again or contact an adminstrator';
 
 const extractPostType = require( './extractPostType.js' );
 
@@ -62,19 +64,17 @@ const validateImageAndCreatePost = ( req, res, postType ) => {
 
 const postPromiseHandler = ( req, res, filename, file, type ) => {
   createPetPost( req.body, req.user, filename, type )
-  .then( 
-    fulfilled => {
-      fs.unlinkSync( file.path ); // deletes uploaded file
-      req.flash( 'notification', 'Post created succesfully' );
-      res.redirect( '/')
-    },
-    unfulfilled => {
-      fs.unlinkSync( file.path ); // deletes uploaded file
-      req.flash( 'notification', unfulfilled.message );
-      res.redirect( '/')
-      console.log( 'Error while creating a post ', unfulfilled.error )
-    })
-  .catch( error => console.log( error ) );
+  .then( fulfilled => {
+    fs.unlinkSync( file.path ); // deletes uploaded file
+    req.flash( 'notification', 'Post created succesfully' );
+    res.redirect( '/')
+  })
+  .catch( error => {
+    fs.unlinkSync( file.path ); // deletes uploaded file
+    req.flash( 'notification', error.message || genericError );
+    res.redirect( '/')
+    console.log( 'Error while creating a post ', error )
+  });
 }
 
 module.exports = validateImageAndCreatePost;

@@ -2,15 +2,16 @@
 
 <main>
 
-  <h1 class="page-title">Found! <% include ../partials/deleteButton %></h1>
+  <h1 class="page-title">Found!</h1>
+  <p> <% include ../partials/deleteButton %> </p>
   <section class="post-pet">
     <img class="post-image" src="<%= post.image %>" alt="<%= post.breed %>">
     <% if (post.found.name == '') { %>
       <h2 class="name"><%= post.title %></h2>
     <% } else { %>
-      <h2 class="name"><%= post.found.name %></h2>
+      <h2 class="name"><%= post.name %></h2>
     <% } %>
-    <hr class="line">
+
     <div class="post-text">
       <div class="post-details">
         <p class="details-title">About</p>
@@ -22,11 +23,8 @@
         <p class="subtitle">Contact: <span class="span"><%= post.author.username %></span>,
           <span class="span"><%= post.author.contact %></span>
         </p>
-
-        <div class="pet-description">
-          <p class="subtitle">Pet's Description: <span class="span description-text"><%= post.description %></p>
-        </div>
       </div>
+
       <div class="post-description">
         <p class="desc-title">Details:</p>
         <p class="subtitle">Date Found: <span class="span"><%= post.date %></span></p>
@@ -34,6 +32,11 @@
         <p class="subtitle">Description: <span class="span description-text"><%= post.description %></p>
       </div>
     </div>
+
+    <div class="pet-description">
+      <p class="subtitle">Pet's Description: <span class="span description-text"><%= post.description %></p>
+    </div>
+
     <div class="add-comment-area">
       <a class="btn add-comment" href="/posts/foundpet/<%= post._id %>/comment">Add New Comment</a>
     </div>

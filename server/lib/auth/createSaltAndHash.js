@@ -5,17 +5,11 @@ const createSaltAndHash = ( utoken ) => {
     
     bcrypt.genSalt( 10, ( error, salt ) => {
       
-      if( error ) return reject({
-        status: 'ERROR',
-        message: error
-      });
+      if( error ) return reject( error );
 
       bcrypt.hash( utoken, salt, ( error, hash ) => {
         
-        if( error ) return reject({
-          status: 'ERROR',
-          message: error
-        });
+        if( error ) return reject( error );
  
         return resolve({
           status: 'SUCCESS',

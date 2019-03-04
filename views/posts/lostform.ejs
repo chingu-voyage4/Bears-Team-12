@@ -22,7 +22,7 @@
       <label for="OtherInput" class="form-question">What is the type of your pet?</label>
       <input id="OtherInput" class="form-input" type="text" placeholder="e.g. cow, goat, etc." name="otherType"><!-- only visibile if the user selects 'Other' -->
     </div>
-    
+
     <hr class="line">
     <!-- Pet Details -->
     <div class="pet-details">
@@ -55,7 +55,7 @@
         <input id="TagInput" class="general-input" type="text" name="tagInput" placeholder="Name / Phone / Address"> <!-- only visibile if the user selects 'Other' -->
       </div>
       <p class="form-question">Please list any additional details that will help in identifying your pet (Ex: physical traits, personality, collar color, etc.):</p>
-      <textarea class="text-area" name="petDesc" id="" cols="80" rows="10"></textarea>
+      <textarea class="text-area" name="petDesc"></textarea>
       <hr class="line">
       <!-- Last Seen details -->
       <label class="form-question" for="LastSeenDate">When did you last see your pet?*</label>
@@ -64,13 +64,13 @@
       <input class="form-input" type="text" name="address" placeholder="Street Name/Address">
       <input class="form-input" type="text" name="city" placeholder="City">
       <input class="form-input" type="text" name="state" placeholder="State/Province*" required>
-      <input class="form-input" type="text" name="zipcode" placeholder="Zip/Postal Code*" required>
+      <input class="form-input" type="text" name="zipcode" placeholder="Zip/Postal Code*" pattern="[0-9]{5}" title="Zip/Postal Code*" required>
       <p class="form-question">Describe the area you last saw your pet if possible.</p>
-      <textarea id="LastSeenAreaDesc" name="areaDesc" cols="80" rows="10"></textarea>
+      <textarea id="LastSeenAreaDesc" class="text-area" name="areaDesc"></textarea>
       <hr class="line">
       <!-- Incident Details -->
       <p class="form-question">Please describe the incident in which you lost your pet</p>
-      <textarea name="incidentDesc" id="" cols="80" rows="10"></textarea>
+      <textarea class="text-area" name="incidentDesc"></textarea>
       <!-- image -->
       <input class="photo-input" id="PetImage" name="petImage" type="file" onchange="readURL(this);" required>
       <label class="photo-label" for="PetImage">Please upload a photo of your pet*</label>

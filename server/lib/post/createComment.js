@@ -10,11 +10,6 @@ const createComment = ( commentData, user, postId ) => {
       commentBody, commentContact
     } = commentData;
 
-    
-    // console.log("Comment data: " + commentData);
-    // console.log("User Commenting: " + user);
-    // console.log("Post Id: " + postId);
-
     Post.findById(postId,
       ( error, post ) => {
         if( error ) {
@@ -37,7 +32,7 @@ const createComment = ( commentData, user, postId ) => {
             if ( error ) {
                 return reject({
                     error: error,
-                    mesage: messageTouser
+                    mesage: messageToUser
                 });
             }
             post.comments.push( comment );

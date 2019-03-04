@@ -21,7 +21,7 @@
             <option value="Cat" <%= query && query.petType === 'Cat' ? 'selected' : '' %> >Cat</option>
             <option value="Bird" <%= query && query.petType === 'Bird' ? 'selected' : '' %> >Bird</option>
             <option value="Reptile" <%= query && query.petType === 'Reptile' ? 'selected' : '' %> >Reptile</option>
-            <option value="Other" <%= query && query.petType === 'Other' ? 'selected' : '' %> >Other</option>
+            <option value="other" <%= query && query.petType === 'Other' ? 'selected' : '' %> >Other</option>
           </select>
         </div>
 
@@ -29,7 +29,7 @@
           <label class="input-label">Zip Code:</label>
           <input class="input search-location" type="text" name="zipCode"
             placeholder="Please enter a zipcode" value="<%= query ? query.zipCode : ''%>"
-            pattern="[0-9]{5}"
+            pattern="[0-9]{5}" title="Zip/Postal Code*"
           >
           </input>
 
@@ -50,7 +50,6 @@
       <p class="search-title"> Please select search options from above</i></p>
     <% } %>
     <% if( searchResults && count && query) { %>
-      <% console.log( query ) %>
         <p class="search-title"> Showing <%= query.firstEntry %>-<%= query.lastEntry %> of <%= query.count %> Results Found</i></p>
 
       <% searchResults.forEach( (result, idx, array) => { %>
@@ -60,15 +59,7 @@
                 <img class="pet-image" src="<%= result.image %>" alt="<%= result.petType.petCategory %>">
               </div>
               <div class="details-area">
-                <% if (result.postType === 'LOST' && result.lost.name !== '') { %>
-                  <h2 class="pet-name"><%= result.lost.name %></h2>
-                <% } else if (result.postType === 'LOST' && result.lost.name === '')  { %>
-                  <h2 class="pet-name"><%= result.title %></h2>
-                <% } else if (result.postType === 'FOUND' && result.found.name !== '') { %>
-                  <h2 class="pet-name"><%= result.found.name %></h2>
-                <% } else if (result.postType === 'FOUND' && result.found.name === '')  { %>
-                  <h2 class="pet-name"><%= result.title %></h2>
-                <% } %>
+                <h2 class="pet-name"><%= result.name || ( result.petType.otherType ? 'Found ' + result.petType.otherType : 'Found ' + result.petType.petCategory ) %></h2>
                 <p class="info">Type: <span class="detail"><%= result.petType.otherType ? result.petType.otherType : result.petType.petCategory %></span></p>
                 <p class="info">Color: <span class="detail"><%= result.breed %></span></p>
                 <% if (result.postType === 'LOST') { %>
